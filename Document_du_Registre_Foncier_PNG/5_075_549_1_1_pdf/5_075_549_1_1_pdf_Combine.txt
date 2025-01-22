@@ -1,3 +1,6 @@
+=== **Filename: 5_075_549_1_1_pdf.pdf__page_1.png**
+
+
 Index des immeubles - Section informatisée
 
 Index des immeubles
@@ -16,4 +19,15 @@ Radiations: 2022-07-05 11:25
 | Date de présentation d'inscription | Numéro d'inscription | Nature de l'acte | Qualité | Nom des parties | Remarques | Avis d'adresse | Radiations |  
 |---|---|---|---|---|---|---|---|   
 | 2021-10-06 | 26 719 714 | Préavis vente défaut de paiement impôt foncier | Ville Propriétaire | Ville de Stanstead Goodsell, Wendy | | | T 27 159 827 |
+
+
+=== **Filename: 5_075_549_1_1_pdf.pdf__page_2.png**
+
+
+Mention de radiation - Section informatisée
+
+| Radiations | Mention |  
+|---|---|   
+| T 27 159 827 | L'inscription du préavis vente défaut de paiement impôt foncier résultant du document ou de la réquisition N° 26 719 714 est supprimée sur le lot 5 075 549 Cadastre du Québec. |
+
 
