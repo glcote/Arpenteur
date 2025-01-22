@@ -5,6 +5,7 @@ load_dotenv
 openai
 PyMuPDF
 Image
+pdf2image
 
 # 1. Install the requirements
 

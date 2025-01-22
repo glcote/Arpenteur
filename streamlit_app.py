@@ -1,79 +1,47 @@
-import os
-import time
-import logging
-from dotenv import load_dotenv
 import streamlit as st
-from Arpenteur_Step1_Handling_OCR import process_pdfs
-from Arpenteur_Step2_Download_Doc import list_documents, download_document
+import os
+from Arpenteur_Step3_GPT import txt_file_to_gpt
 
-# Charger les variables d'environnement
-load_dotenv()
+# Titre de l'application
+st.title("Application d'Analyse Documentaire avec GPT")
 
-# Configuration Streamlit
-st.set_page_config(page_title="PDF OCR Processor", layout="wide")
-
-# Configuration des dossiers
-input_folder = "Document_du_Registre_Foncier"
-output_folder = "Document_du_Registre_Foncier_PNG"
-os.makedirs(input_folder, exist_ok=True)
-os.makedirs(output_folder, exist_ok=True)
-
-# Logging configuration
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-)
-
-# Interface utilisateur
-st.title("PDF to OCR and Document Download")
+# Instructions
 st.markdown("""
-### Étape 1 : Conversion PDF vers OCR
-Téléchargez un fichier PDF pour extraire des images et effectuer la reconnaissance d'écriture manuscrite.
-
-### Étape 2 : Téléchargement des documents générés
-Les documents seront automatiquement téléchargés après 1 minute.
+Téléchargez un fichier texte, définissez les prompts et recevez une analyse générée par GPT.
 """)
 
-# Téléchargement de fichier
-uploaded_file = st.file_uploader("Téléchargez un fichier PDF", type=["pdf"])
+# Téléchargement du fichier
+uploaded_file = st.file_uploader("Téléchargez votre fichier texte ici", type=["txt"])
 
-if uploaded_file:
-    # Enregistrer le fichier dans le dossier d'entrée
-    pdf_path = os.path.join(input_folder, uploaded_file.name)
-    if not os.path.exists(pdf_path):
-        with open(pdf_path, "wb") as f:
-            f.write(uploaded_file.getbuffer())
-        st.success(f"Le fichier a été enregistré dans : {pdf_path}")
+# Champs pour les prompts
+sys_prompt = st.text_area("Prompt système", "Tu es un notaire/arpenteur et je suis un client.")
+user_prompt = st.text_area("Prompt utilisateur", "Parlez-moi de ce document, s'il vous plaît. Soyez précis.")
 
-    # Traitement complet via process_pdfs
-    st.write("Traitement complet du PDF...")
-    with st.spinner(f"Conversion et transcription en cours pour {uploaded_file.name}..."):
+# Bouton pour lancer l'analyse
+if st.button("Analyser le document"):
+    if uploaded_file is not None:
         try:
-            process_pdfs(input_folder, output_folder)
-            st.success("Le PDF a été entièrement traité.")
-            st.info(f"Les résultats sont disponibles dans le dossier : `{output_folder}`")
+            # Sauvegarder le fichier temporairement
+            temp_file_path = os.path.join("temp_uploaded_file.txt")
+            with open(temp_file_path, "w", encoding="utf-8") as temp_file:
+                temp_file.write(uploaded_file.getvalue().decode("utf-8"))
 
-            # Délai avant d'exécuter la seconde étape
-            st.write("Attente de 1 minute avant de démarrer la seconde étape...")
-            time.sleep(60)  # Attente de 60 secondes
+            # Appeler la fonction d'analyse
+            completions_data = txt_file_to_gpt(temp_file_path, sys_prompt, user_prompt)
 
-            # Étape 2 : Télécharger les documents
-            st.write("Démarrage du téléchargement des documents...")
-            st.info("Récupération de la liste des documents...")
-            documents = list_documents()
-
-            if not documents:
-                st.warning("Aucun document trouvé ou erreur lors de la récupération des documents.")
+            # Afficher les résultats
+            if "error" in completions_data:
+                st.error(f"Erreur : {completions_data['error']}")
             else:
-                for document in documents:
-                    document_id = document.get("document_id")
-                    original_file_name = document.get("original_file_name", "document")
+                st.success("Analyse réussie ! Voici les résultats :")
 
-                    if document_id:
-                        st.write(f"Téléchargement du document : {original_file_name}")
-                        download_document(document_id, original_file_name)
+                # Afficher les données générées
+                st.json(completions_data)
 
-                st.success("Tous les documents ont été téléchargés avec succès !")
+            # Supprimer le fichier temporaire
+            os.remove(temp_file_path)
+
         except Exception as e:
-            st.error("Une erreur s'est produite lors du traitement ou du téléchargement.")
-            st.exception(e)
+            st.error(f"Une erreur s'est produite : {str(e)}")
+    else:
+        st.warning("Veuillez télécharger un fichier avant de lancer l'analyse.")

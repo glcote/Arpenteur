@@ -27,10 +27,11 @@ logging.basicConfig(
 # Interface utilisateur
 st.title("PDF to OCR and Document Download")
 st.markdown("""
-### Étape 1 : Conversion PDF vers OCR et Téléchargement des documents générés
+### Étape 1 : Conversion PDF vers OCR
 Téléchargez un fichier PDF pour extraire des images et effectuer la reconnaissance d'écriture manuscrite.
 
-###### Les documents seront automatiquement téléchargés après 1 minute.
+### Étape 2 : Téléchargement des documents générés
+Les documents seront automatiquement téléchargés après 1 minute.
 """)
 
 # Téléchargement de fichier
