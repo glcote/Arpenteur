@@ -19,7 +19,15 @@ def get_combine_txt_files_in_subfolders(folder):
 # Fonction pour récupérer tous les fichiers PNG dans le dossier du fichier sélectionné
 def get_png_files_in_same_folder(txt_file):
     folder = os.path.dirname(txt_file)
+    # Récupérer tous les fichiers PNG
     png_files = [os.path.join(folder, file) for file in os.listdir(folder) if file.endswith('.png')]
+    
+    # Trier les fichiers PNG par numéro extrait du nom (e.g., "page_{number}.png")
+    def extract_page_number(filename):
+        match = re.search(r'page_(\d+)\.png', filename)
+        return int(match.group(1)) if match else float('inf')  # Assurer une valeur élevée si le numéro est manquant
+
+    png_files.sort(key=lambda x: extract_page_number(os.path.basename(x)))
     return png_files
 
 # Récupérer la liste des fichiers filtrés
@@ -46,13 +54,21 @@ if selected_file_display:
 else:
     selected_file = None
 
+# Option pour sélectionner le nombre de colonnes
+num_columns = st.radio("Nombre de colonnes pour afficher les images :", options=[1, 5], index=1)
+
 # Si un fichier est sélectionné, récupérer les fichiers PNG associés
 if selected_file:
     png_files = get_png_files_in_same_folder(selected_file)
 
+    # Afficher les images PNG triées par numéro de page
     if png_files:
-        for png_file in png_files:
-            st.image(png_file, caption=os.path.basename(png_file), use_container_width=True)
+        # Diviser les images en groupes selon le nombre de colonnes sélectionné
+        for i in range(0, len(png_files), num_columns):
+            cols = st.columns(num_columns)  # Créer le nombre de colonnes sélectionné
+            for col, png_file in zip(cols, png_files[i:i + num_columns]):
+                with col:
+                    st.image(png_file, caption=os.path.basename(png_file), use_container_width=True)
     else:
         st.info("Aucune image .png trouvée dans le même dossier que le fichier sélectionné.")
 

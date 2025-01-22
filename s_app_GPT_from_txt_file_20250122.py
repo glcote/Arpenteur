@@ -54,29 +54,27 @@ if selected_file_display:
 else:
     selected_file = None
 
-with st.expander("Voir le PDF", expanded=False):
-    # Option pour sélectionner le nombre de colonnes
-    num_columns = st.radio("Nombre de colonnes pour afficher les images :", options=[1, 5], index=1)
+# Option pour sélectionner le nombre de colonnes
+num_columns = st.radio("Nombre de colonnes pour afficher les images :", options=[1, 5], index=1)
 
-    # Si un fichier est sélectionné, récupérer les fichiers PNG associés
-    if selected_file:
-        png_files = get_png_files_in_same_folder(selected_file)
+# Si un fichier est sélectionné, récupérer les fichiers PNG associés
+if selected_file:
+    png_files = get_png_files_in_same_folder(selected_file)
 
-        # Afficher les images PNG triées par numéro de page
-        if png_files:
-            # Diviser les images en groupes selon le nombre de colonnes sélectionné
-            for i in range(0, len(png_files), num_columns):
-                cols = st.columns(num_columns)  # Créer le nombre de colonnes sélectionné
-                for col, png_file in zip(cols, png_files[i:i + num_columns]):
-                    with col:
-                        st.image(png_file, caption=os.path.basename(png_file), use_container_width=True)
-        else:
-            st.info("Aucune image .png trouvée dans le même dossier que le fichier sélectionné.")
+    # Afficher les images PNG triées par numéro de page
+    if png_files:
+        # Diviser les images en groupes selon le nombre de colonnes sélectionné
+        for i in range(0, len(png_files), num_columns):
+            cols = st.columns(num_columns)  # Créer le nombre de colonnes sélectionné
+            for col, png_file in zip(cols, png_files[i:i + num_columns]):
+                with col:
+                    st.image(png_file, caption=os.path.basename(png_file), use_container_width=True)
+    else:
+        st.info("Aucune image .png trouvée dans le même dossier que le fichier sélectionné.")
 
 # Champs pour les prompts
 sys_prompt = "Tu es un notaire/arpenteur et je suis un client."
 user_prompt = st.text_area("Prompt utilisateur", "Parlez-moi de ce document, s'il vous plaît. Soyez précis.")
-print(selected_file)
 
 # Bouton pour lancer l'analyse
 if st.button("Analyser le document"):
@@ -95,7 +93,7 @@ if st.button("Analyser le document"):
             if "error" in completions_data:
                 st.error(f"Erreur : {completions_data['error']}")
             else:
-                # st.success("Analyse réussie ! Voici les résultats :")
+                st.success("Analyse réussie ! Voici les résultats :")
                 # Vérifier si les résultats sont longs et choisir l'affichage adapté
                 if isinstance(completions_data, str):
                     st.text_area("Résultats de l'analyse", completions_data, height=300)
