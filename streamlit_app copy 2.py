@@ -1,22 +1,15 @@
 import os
 import time
 import logging
-from dotenv import load_dotenv
 import streamlit as st
-from Arpenteur_Step1_Handling_OCR import process_pdfs
-from Arpenteur_Step2_Download_Doc import list_documents, download_document
+from dotenv import load_dotenv
+from Utils import input_folder, output_folder, process_pdfs, list_documents, download_document
 
 # Charger les variables d'environnement
 load_dotenv()
 
 # Configuration Streamlit
 st.set_page_config(page_title="PDF OCR Processor", layout="wide")
-
-# Configuration des dossiers
-input_folder = "Document_du_Registre_Foncier"
-output_folder = "Document_du_Registre_Foncier_PNG"
-os.makedirs(input_folder, exist_ok=True)
-os.makedirs(output_folder, exist_ok=True)
 
 # Logging configuration
 logging.basicConfig(

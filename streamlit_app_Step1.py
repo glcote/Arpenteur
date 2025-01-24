@@ -1,15 +1,9 @@
 import os
 import streamlit as st
-from Arpenteur_Step1_Handling_OCR import process_pdfs
+from Utils import input_folder, output_folder, process_pdfs
 
 # Configuration Streamlit
 st.set_page_config(page_title="PDF OCR Processor", layout="wide")
-
-# Configuration des dossiers
-input_folder = "Document_du_Registre_Foncier"
-output_folder = "Document_du_Registre_Foncier_PNG"
-os.makedirs(input_folder, exist_ok=True)
-os.makedirs(output_folder, exist_ok=True)
 
 # Interface utilisateur
 st.title("PDF to OCR")
