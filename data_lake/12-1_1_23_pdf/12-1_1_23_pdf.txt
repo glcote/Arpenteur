@@ -1,0 +1,35 @@
+Index des immeubles - Section informatisée
+
+Index des immeubles
+
+Circonscription foncière: Stanstead  
+Cadastre: Village de Rock Island  
+Lot: 12-1  
+Date d'établissement:  
+Plan: Liste des plans  
+Concordance:
+
+| Date de présentation | Numéro d'inscription | Nature de l'acte | Qualité | Nom des parties | Remarques | Avis d'adresse | Radiations |  
+|---|---|---|---|---|---|---|---|   
+| 2003-05-20 | 10 411 766 | Vente | Vendeur | Keeler, Dwayne<br>Thayer, Linda | 67 500,00 $ | | |  
+| | | | Acquéreur | Sa Majesté du Chef du Québec | | | |  
+| 2003-11-14 | 10 875 443 | Consentement à modification cadastrale | Créancier | Caisse Populaire Desjardins de Stanstead | Réf.: 184 282 | | |  
+| | | | Propriétaire | Keeler, Dwayne<br>Thayer, Linda | | | |  
+| 2004-01-14 |  | À 09:00. Partie de ce lot est remplacée, voir lot(s) 12-2.<br>Voir plan(s): 4651 | | | | | |  
+| 2004-02-12 | 11 075 278 | Donation | Donateur | Hayward, Effiegene<br>Lang, Guy | | | |  
+| | | | Donataire | Greenwood, Beverly | | | |  
+| 2004-02-12 | 11 075 278 | Servitude | Cédant | Hayward, Effiegene | 1,00 $ Payé | | |  
+| | | | Cessionnaire | Lang, Guy<br>Greenwood, Beverly | | | |  
+| 2006-01-13 | 12 988 722 | Vente | Vendeur | 132621 Canada Inc. | 500 000,00 $ | | |  
+| | | | Acquéreur | Feu & Flamme 2001 Inc. | | | |  
+| 2006-02-02 | 13 029 989 | Vente | Vendeur | FIRE & FLAME 2001 INC. | 500 000,00 $ Payé | | |  
+| | | | Acquéreur | 9159-2428 QUÉBEC INC. | | | |  
+| 2006-06-19 | 13 401 054 | Hypothèque | Créancier | Caisse populaire Desjardins de Stanstead | 73 697,43 $ | 6 001 605 | T 16 905 713 |  
+| | | | Débiteur | Gagne, Marie-Johanne<br>Keeler, Ryan | | | |  
+| 2006-06-19 | 13 401 056 | Vente | Vendeur | Roy, Eugène | 75 500,00 $ Payé | | |  
+| | | | Acheteur | Keeler, Ryan | | | |
+
+Dates de mise à jour du Registre  
+Droits: 2022-09-07 13:55  
+Radiations: 2022-06-30 16:00
+
