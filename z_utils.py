@@ -7,6 +7,8 @@ import fitz
 from PIL import Image
 from openai import OpenAI
 from dotenv import load_dotenv
+import streamlit as st
+from utils import *
 
 # Charger les variables d'environnement
 load_dotenv()
@@ -23,100 +25,208 @@ output_folder = "data_lake"
 os.makedirs(input_folder, exist_ok=True)
 os.makedirs(output_folder, exist_ok=True)
 
-# Function to read the content of the text file
 def read_text_file(file_path):
+    """
+    Reads the content of a text file.
+
+    Args:
+        file_path (str): The path to the text file to read.
+
+    Returns:
+        str: The content of the file if successful, or None if an error occurs.
+    """
     try:
+        # Open the file in read mode with UTF-8 encoding
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
     except FileNotFoundError:
+        # Log an error if the file is not found
         logging.error("Le fichier spécifié est introuvable.")
         return None
     except Exception as e:
+        # Log any other errors that occur during file reading
         logging.error(f"Une erreur s'est produite : {str(e)}")
         return None
 
-# Function to interact with the GPT API
-def interact_with_gpt(file_content, sys_prompt, question_prompt, assistant_answer, user_prompt):
-    sys_prompt = ""
-    question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-    assistant_answer = f"Oui, voici le contenu du document : {file_content}"
-    # user_prompt = ""
+def save_to_csv(dict_data, output_file_name, operation="insert"):
+    """
+    Saves, updates, or deletes rows in a CSV file.
 
-    message_history = [
-        {"role": "system", "content": sys_prompt},
-        {"role": "user", "content": question_prompt},
-        {"role": "assistant", "content": assistant_answer},
-        {"role": "user", "content": user_prompt}
-    ]
+    Args:
+        dict_data (dict): A dictionary containing the dict_data to save (keys as headers, values as rows).
+        output_file_name (str): The name of the CSV file to save the dict_data.
+        operation (str): The operation to perform - "insert", "update", or "delete".
+
+    Returns:
+        None
+    """
+    # Check if the file exists
+    file_exists = os.path.isfile(output_file_name)
+    
+    try:
+        if operation == "insert":
+            # Append new row if the file exists, otherwise write headers and row
+            with open(output_file_name, mode='a' if file_exists else 'w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=dict_data.keys())
+                
+                # Write headers if the file is new
+                if not file_exists:
+                    writer.writeheader()
+                
+                # Write the new row
+                writer.writerow(dict_data)
+            logging.info(f"Row inserted into {output_file_name} successfully.")
+
+        elif operation == "update":
+            # Read all rows, update the matching row, and rewrite the file
+            if not file_exists:
+                logging.error("Cannot update as the file does not exist.")
+                return
+            
+            rows = []
+            updated = False  # Track if any row was updated
+            
+            with open(output_file_name, mode='r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    # Match all fields for the update condition
+                    if (
+                        row["sys_prompt"] == dict_data["sys_prompt"] and
+                        row["question_prompt"] == dict_data["question_prompt"] and
+                        row["assistant_answer"] == dict_data["assistant_answer"] and
+                        row["user_prompt"] == dict_data["user_prompt"]
+                    ):
+                        rows.append(dict_data)  # Update with new dict_data
+                        updated = True
+                    else:
+                        rows.append(row)
+            
+            # If no row was updated, log a warning
+            if not updated:
+                logging.warning("No matching row found to update.")
+            
+            # Write back updated rows
+            with open(output_file_name, mode='w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=dict_data.keys())
+                writer.writeheader()
+                writer.writerows(rows)
+            logging.info(f"Row updated in {output_file_name} successfully.")
+
+        elif operation == "delete":
+            # Read all rows, exclude the matching row, and rewrite the file
+            if not file_exists:
+                logging.error("Cannot delete as the file does not exist.")
+                return
+            
+            rows = []
+            deleted = False  # Track if any row was deleted
+            
+            with open(output_file_name, mode='r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    # Match all fields for the delete condition
+                    if (
+                        row["sys_prompt"] == dict_data["sys_prompt"] and
+                        row["question_prompt"] == dict_data["question_prompt"] and
+                        row["assistant_answer"] == dict_data["assistant_answer"] and
+                        row["user_prompt"] == dict_data["user_prompt"]
+                    ):
+                        deleted = True  # Skip adding this row (deleting it)
+                    else:
+                        rows.append(row)
+            
+            # If no row was deleted, log a warning
+            if not deleted:
+                logging.warning("No matching row found to delete.")
+            
+            # Write back remaining rows
+            with open(output_file_name, mode='w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=dict_data.keys())
+                writer.writeheader()
+                writer.writerows(rows)
+            logging.info(f"Row deleted from {output_file_name} successfully.")
+        else:
+            logging.error(f"Invalid operation: {operation}. Must be 'insert', 'update', or 'delete'.")
+    except Exception as e:
+        logging.error(f"An error occurred during the {operation} operation: {str(e)}")
+
+def gpt_prompt(sys_prompt=None, question_prompt=None, assistant_answer=None, user_prompt=None):
+    """
+    Constructs a message history for a GPT conversation and sends it to the GPT model.
+
+    Args:
+        sys_prompt (str, optional): System-level prompt to set the context for the conversation.
+        question_prompt (str, optional): The main question or user prompt.
+        assistant_answer (str, optional): Assistant's previous answer (if any).
+        user_prompt (str, optional): User's follow-up prompt (if any).
+
+    Returns:
+        str: The response from the GPT model, or None if an error occurs.
+    """
+    # Initialize the message history as an empty list
+    message_history = []
+    
+    # Add system prompt if provided
+    if sys_prompt:
+        message_history.append({"role": "system", "content": sys_prompt})
+    # Add user prompt (question) if provided
+    if question_prompt:
+        message_history.append({"role": "user", "content": question_prompt})
+    # Add assistant's previous answer if provided
+    if assistant_answer:
+        message_history.append({"role": "assistant", "content": assistant_answer})
+    # Add user's follow-up prompt if provided
+    if user_prompt:
+        message_history.append({"role": "user", "content": user_prompt})
 
     try:
+        # Call the GPT model with the constructed message history
         completion = client.chat.completions.create(
-            model = gpt_model,
-            messages = message_history,
+            model=gpt_model,  # Specify the GPT model to use
+            messages=message_history,  # Provide the conversation history
         )
-        return completion
+
+        # Extract data from the API response
+        gen_answ_content = completion.choices[0].message.content
+
+        gen_answ_data = {
+            "gen_answ_id": completion.id,
+            "sys_prompt": sys_prompt,
+            "question_prompt": question_prompt,
+            "assistant_answer": assistant_answer,
+            "user_prompt": user_prompt,
+            "gen_answ_content": gen_answ_content,
+            "gen_answ_created": completion.created,
+            "gen_answ_model": completion.model,
+            "gen_answ_completion_tokens": completion.usage.completion_tokens,
+            "gen_answ_prompt_tokens": completion.usage.prompt_tokens,
+            "gen_answ_total_tokens": completion.usage.total_tokens
+        }
+        
+        # Specify the file name
+        output_file_name = "conversation_history.csv"
+
+        # Perform the operation
+        save_to_csv(gen_answ_data, output_file_name, operation="insert")
+
+        # Return the content of the first choice in the response
+        return gen_answ_content
+    
     except Exception as e:
+        # Log any errors that occur during the API call
         logging.error(f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}")
         return None
 
-# Function to save results into a CSV file
-def save_to_csv(data, output_file_name):
-    try:
-        with open(output_file_name, mode='w', encoding='utf-8', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(data.keys())  # Headers
-            writer.writerow(data.values())  # Values
-        logging.info(f"Données enregistrées avec succès dans {output_file_name}.")
-    except Exception as e:
-        logging.error(f"Une erreur s'est produite lors de l'enregistrement du fichier CSV : {str(e)}")
 
-########################################################
-# Main function that orchestrates the workflow
-########################################################
-def gpt_txt_file(txt_file_path, sys_prompt, user_prompt, gpt_model, output_csv_file_name="txt"):
-    file_content = read_text_file(txt_file_path)
-    if not file_content:
-        return "Erreur lors de la lecture du fichier."
+#########################################
+# Example Usage
+#########################################
 
-    completion = interact_with_gpt(sys_prompt, user_prompt, file_content, gpt_model)
-    if not completion:
-        return "Erreur lors de l'interaction avec GPT."
+# Example data
+sys_prompt = "System initialization"
+question_prompt = "Say hello"
+assistant_answer = "Hello, how can I assist you today?"
+user_prompt = "What can you do?"
 
-    gen_answ_content = completion.choices[0].message.content
-    gen_answ_data = {
-        "txt_file_path": txt_file_path,
-        "sys_prompt": sys_prompt,
-        "user_prompt": user_prompt,
-        "gen_answ_id": completion.id,
-        "gen_answ_content": gen_answ_content,
-        "gen_answ_role": completion.choices[0].message.role,
-        "gen_answ_created": completion.created,
-        "gen_answ_model": completion.model,
-        "gen_answ_completion_tokens": completion.usage.completion_tokens,
-        "gen_answ_prompt_tokens": completion.usage.prompt_tokens,
-        "gen_answ_total_tokens": completion.usage.total_tokens
-    }
-
-    save_to_csv(gen_answ_data, output_csv_file_name)
-    return gen_answ_content
-
-
-# Exemple d'appel de la fonction gpt_txt_file
-txt_file_path = os.path.join(input_folder, "example.txt")  # Chemin du fichier texte d'entrée
-sys_prompt = "Vous êtes un assistant intelligent conçu pour aider à analyser des documents."
-user_prompt = "Analysez le contenu du document et fournissez un résumé clair et concis."
-output_csv_file_name = os.path.join(output_folder, "output.csv")  # Chemin du fichier CSV de sortie
-
-# Appel à la fonction
-result = gpt_txt_file(
-    txt_file_path=txt_file_path,
-    sys_prompt=sys_prompt,
-    user_prompt=user_prompt,
-    gpt_model=gpt_model,
-    client=client,
-    output_csv_file_name=output_csv_file_name
-)
-
-# Afficher le résultat généré par GPT
-print("Contenu généré par GPT :")
-print(result)
+gen_answer = gpt_prompt(sys_prompt=None, question_prompt=question_prompt, assistant_answer=None, user_prompt=None)
+gen_answer

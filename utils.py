@@ -24,18 +24,18 @@ os.makedirs(input_folder, exist_ok=True)
 os.makedirs(output_folder, exist_ok=True)
 
 # Convert a PDF to images (one per page).
-def pdf_to_images(folder_input_path, file_name, output_folder):
+def pdf_to_images(input_folder, file_name, output_folder):
     """
     Convert a PDF to images (one per page).
     Args:
-        folder_input_path (str): Input folder containing the PDF file.
+        input_folder (str): Input folder containing the PDF file.
         file_name (str): Name of the PDF file to process.
         output_folder (str): Folder to save the converted images.
     Returns:
         list: A list of file paths to the generated images.
     """
     # Construct the full file path for the PDF
-    pdf_file_path = os.path.join(folder_input_path, file_name)
+    pdf_file_path = os.path.join(input_folder, file_name)
     
     # Create an output directory for the images, named after the PDF (excluding its extension)
     output_directory = os.path.join(output_folder, os.path.splitext(file_name)[0])
@@ -127,8 +127,8 @@ def transcribe_file(file_dir):
         logging.error(f"Failed to transcribe file {file_dir}: {e}")
         return {}
 
-# Convert all PDF files in the input folder to images, transcribe them using Handwriting OCR API.
-def process_pdfs(input_folder, output_folder):
+# Convert all PDF files in the input folder to images, transcribe them using Handwriting OCR API.process_pdfs
+def pdf_to_ocr(input_folder, output_folder):
     """
     Convert all PDF files in the input folder to images, transcribe them using Handwriting OCR API.
     Move processed PDF files to a specific folder within the output folder.
@@ -169,8 +169,29 @@ def process_pdfs(input_folder, output_folder):
             except Exception as e:
                 logging.error(f"Failed to move PDF {file_name}: {e}")
 
-# Retrieve a list of .txt documents from the Handwriting OCR API.
-def list_documents(per_page=50, page=1):
+# Clean the content of a file by applying regex-based replacements.clean_file
+def ocr_clean_txt_file(file_path):
+    """
+    Clean the content of a file by applying regex-based replacements.
+    
+    Args:
+        file_path (str): Path to the file to be cleaned.
+    """
+    try:
+        file_name = os.path.basename(file_path)
+        if re.match(r"page_\d+", file_name):
+            with open(file_path, "r", encoding="utf-8") as file:
+                content = file.read()
+            updated_content = re.sub(r"=== \*\*Page: 1 of 1\*\*", "", content)
+            with open(file_path, "w", encoding="utf-8") as file:
+                file.write(updated_content)
+            logging.info(f"Cleaned file: {file_name}")
+    except Exception as e:
+        logging.error(f"Error cleaning file {file_path}: {e}")
+
+
+# Retrieve a list of .txt documents from the Handwriting OCR API.list_documents
+def ocr_list_txt_file(per_page=50, page=1):
     """
     Retrieve a list of .txt documents from the Handwriting OCR API.
     
@@ -195,28 +216,8 @@ def list_documents(per_page=50, page=1):
         logging.error(f"Error fetching document list: {e}")
         return []
 
-# Clean the content of a file by applying regex-based replacements.
-def clean_file(file_path):
-    """
-    Clean the content of a file by applying regex-based replacements.
-    
-    Args:
-        file_path (str): Path to the file to be cleaned.
-    """
-    try:
-        file_name = os.path.basename(file_path)
-        if re.match(r"page_\d+", file_name):
-            with open(file_path, "r", encoding="utf-8") as file:
-                content = file.read()
-            updated_content = re.sub(r"=== \*\*Page: 1 of 1\*\*", "", content)
-            with open(file_path, "w", encoding="utf-8") as file:
-                file.write(updated_content)
-            logging.info(f"Cleaned file: {file_name}")
-    except Exception as e:
-        logging.error(f"Error cleaning file {file_path}: {e}")
-
-# Download and save .txt documents from Handwriting OCR API, then clean the files.
-def download_document(document_id, original_file_name, output_format="txt"):
+# Download and save .txt documents from Handwriting OCR API, then clean the files.download_document
+def ocr_download_txt_file(document_id, original_file_name, output_format="txt"):
     """
     Download and save .txt documents from Handwriting OCR API, then clean the files.
     
@@ -241,7 +242,7 @@ def download_document(document_id, original_file_name, output_format="txt"):
         response.raise_for_status()  # Raise an error if the request fails
 
         # Extract the file name and folder name from the original file name
-        file_name = re.sub(r".+__", "", original_file_name)  # Remove everything before "__"
+        file_name = re.sub(r".+__|\.png", "", original_file_name)  # Remove everything before "__"
         folder_name = re.sub(r"__.+", "", original_file_name)  # Remove everything after "__"
 
         # Create a folder path for saving the document
@@ -258,17 +259,17 @@ def download_document(document_id, original_file_name, output_format="txt"):
         # Log success message
         logging.info(f"Downloaded and saved document: {file_path}")
 
-        # Clean the downloaded file (assumes `clean_file` is defined elsewhere)
-        clean_file(file_path)
+        # Clean the downloaded file (assumes `ocr_clean_txt_file` is defined elsewhere)
+        ocr_clean_txt_file(file_path)
     except requests.RequestException as e:
         # Log an error if the download fails
         logging.error(f"Failed to download document {document_id}: {e}")
 
-# Combine all page_*.txt files in each subfolder into a single _Combine.txt file.
-def combine_page_files(output_folder):
+# Combine all page_*.txt files in each subfolder into a single _Combine.txt file.combine_page_files
+def ocr_combine_txt_file(output_folder):
     """
     Combine all page_*.txt files in each subfolder into a single _Combine.txt file.
-    Cleans each page_x.txt file using the clean_file function before combining.
+    Cleans each page_x.txt file using the ocr_clean_txt_file function before combining.
 
     Args:
         output_folder (str): Path to the main output folder containing subfolders.
@@ -290,8 +291,8 @@ def combine_page_files(output_folder):
                     if file_name.startswith("page_") and file_name.endswith(".txt"):
                         file_path = os.path.join(folder_path, file_name)
                         try:
-                            # Clean the page_x.txt file using the clean_file function
-                            clean_file(file_path)
+                            # Clean the page_x.txt file using the ocr_clean_txt_file function
+                            ocr_clean_txt_file(file_path)
                             
                             # Read the cleaned file and append its content to the combined file
                             with open(file_path, "r", encoding="utf-8") as input_file:
@@ -305,7 +306,234 @@ def combine_page_files(output_folder):
             # Log a message indicating the combined file was created successfully
             logging.info(f"Created combined file: {output_file_path}")
 
-# Reads a text file, interacts with GPT to generate a response, and saves the result directly into a CSV file.
+# Retrieve a list of .txt then Download and save .txt documents
+def ocr_list_download_combine_txt_file(per_page=50, page=1, output_format="txt"):
+    """
+    List and download .txt documents from the Handwriting OCR API.
+
+    Args:
+        per_page (int): The number of documents to retrieve per page. Default is 50.
+        page (int): The page number to retrieve. Default is 1.
+        output_format (str): The format in which to download the documents. Default is "txt".
+    """
+    try:
+        # Retrieve the list of documents
+        documents = ocr_list_txt_file(per_page=per_page, page=page)
+        
+        if not documents:
+            logging.warning("Aucun document trouvé ou erreur lors de la récupération des documents.")
+            return
+
+        # Iterate through the list of documents and download each one
+        for document in documents:
+            document_id = document.get("document_id")
+            original_file_name = document.get("original_file_name", "document")
+
+            if document_id:
+                ocr_download_txt_file(document_id, original_file_name, output_format)
+                ocr_combine_txt_file(output_folder)
+            else:
+                logging.warning(f"Document sans ID trouvé : {original_file_name}")
+    except Exception as e:
+        logging.error(f"Erreur lors de la liste et du téléchargement des documents : {e}")
+
+
+
+def read_text_file(file_path):
+    """
+    Reads the content of a text file.
+
+    Args:
+        file_path (str): The path to the text file to read.
+
+    Returns:
+        str: The content of the file if successful, or None if an error occurs.
+    """
+    try:
+        # Open the file in read mode with UTF-8 encoding
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except FileNotFoundError:
+        # Log an error if the file is not found
+        logging.error("Le fichier spécifié est introuvable.")
+        return None
+    except Exception as e:
+        # Log any other errors that occur during file reading
+        logging.error(f"Une erreur s'est produite : {str(e)}")
+        return None
+
+def save_to_csv(dict_data, output_file_name, operation="insert"):
+    """
+    Saves, updates, or deletes rows in a CSV file.
+
+    Args:
+        dict_data (dict): A dictionary containing the dict_data to save (keys as headers, values as rows).
+        output_file_name (str): The name of the CSV file to save the dict_data.
+        operation (str): The operation to perform - "insert", "update", or "delete".
+
+    Returns:
+        None
+    """
+    # Check if the file exists
+    file_exists = os.path.isfile(output_file_name)
+    
+    try:
+        if operation == "insert":
+            # Append new row if the file exists, otherwise write headers and row
+            with open(output_file_name, mode='a' if file_exists else 'w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=dict_data.keys())
+                
+                # Write headers if the file is new
+                if not file_exists:
+                    writer.writeheader()
+                
+                # Write the new row
+                writer.writerow(dict_data)
+            logging.info(f"Row inserted into {output_file_name} successfully.")
+
+        elif operation == "update":
+            # Read all rows, update the matching row, and rewrite the file
+            if not file_exists:
+                logging.error("Cannot update as the file does not exist.")
+                return
+            
+            rows = []
+            updated = False  # Track if any row was updated
+            
+            with open(output_file_name, mode='r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    # Match all fields for the update condition
+                    if (
+                        row["sys_prompt"] == dict_data["sys_prompt"] and
+                        row["question_prompt"] == dict_data["question_prompt"] and
+                        row["assistant_answer"] == dict_data["assistant_answer"] and
+                        row["user_prompt"] == dict_data["user_prompt"]
+                    ):
+                        rows.append(dict_data)  # Update with new dict_data
+                        updated = True
+                    else:
+                        rows.append(row)
+            
+            # If no row was updated, log a warning
+            if not updated:
+                logging.warning("No matching row found to update.")
+            
+            # Write back updated rows
+            with open(output_file_name, mode='w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=dict_data.keys())
+                writer.writeheader()
+                writer.writerows(rows)
+            logging.info(f"Row updated in {output_file_name} successfully.")
+
+        elif operation == "delete":
+            # Read all rows, exclude the matching row, and rewrite the file
+            if not file_exists:
+                logging.error("Cannot delete as the file does not exist.")
+                return
+            
+            rows = []
+            deleted = False  # Track if any row was deleted
+            
+            with open(output_file_name, mode='r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    # Match all fields for the delete condition
+                    if (
+                        row["sys_prompt"] == dict_data["sys_prompt"] and
+                        row["question_prompt"] == dict_data["question_prompt"] and
+                        row["assistant_answer"] == dict_data["assistant_answer"] and
+                        row["user_prompt"] == dict_data["user_prompt"]
+                    ):
+                        deleted = True  # Skip adding this row (deleting it)
+                    else:
+                        rows.append(row)
+            
+            # If no row was deleted, log a warning
+            if not deleted:
+                logging.warning("No matching row found to delete.")
+            
+            # Write back remaining rows
+            with open(output_file_name, mode='w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=dict_data.keys())
+                writer.writeheader()
+                writer.writerows(rows)
+            logging.info(f"Row deleted from {output_file_name} successfully.")
+        else:
+            logging.error(f"Invalid operation: {operation}. Must be 'insert', 'update', or 'delete'.")
+    except Exception as e:
+        logging.error(f"An error occurred during the {operation} operation: {str(e)}")
+
+# Reads a text file, interacts with GPT to generate a response, and saves the result into a CSV file.
+def gpt_prompt(sys_prompt=None, question_prompt=None, assistant_answer=None, user_prompt=None):
+    """
+    Constructs a message history for a GPT conversation and sends it to the GPT model.
+
+    Args:
+        sys_prompt (str, optional): System-level prompt to set the context for the conversation.
+        question_prompt (str, optional): The main question or user prompt.
+        assistant_answer (str, optional): Assistant's previous answer (if any).
+        user_prompt (str, optional): User's follow-up prompt (if any).
+
+    Returns:
+        str: The response from the GPT model, or None if an error occurs.
+    """
+    # Initialize the message history as an empty list
+    message_history = []
+    
+    # Add system prompt if provided
+    if sys_prompt:
+        message_history.append({"role": "system", "content": sys_prompt})
+    # Add user prompt (question) if provided
+    if question_prompt:
+        message_history.append({"role": "user", "content": question_prompt})
+    # Add assistant's previous answer if provided
+    if assistant_answer:
+        message_history.append({"role": "assistant", "content": assistant_answer})
+    # Add user's follow-up prompt if provided
+    if user_prompt:
+        message_history.append({"role": "user", "content": user_prompt})
+
+    try:
+        # Call the GPT model with the constructed message history
+        completion = client.chat.completions.create(
+            model=gpt_model,  # Specify the GPT model to use
+            messages=message_history,  # Provide the conversation history
+        )
+
+        # Extract data from the API response
+        gen_answ_content = completion.choices[0].message.content
+
+        gen_answ_data = {
+            "gen_answ_id": completion.id,
+            "sys_prompt": sys_prompt,
+            "question_prompt": question_prompt,
+            "assistant_answer": assistant_answer,
+            "user_prompt": user_prompt,
+            "gen_answ_content": gen_answ_content,
+            "gen_answ_created": completion.created,
+            "gen_answ_model": completion.model,
+            "gen_answ_completion_tokens": completion.usage.completion_tokens,
+            "gen_answ_prompt_tokens": completion.usage.prompt_tokens,
+            "gen_answ_total_tokens": completion.usage.total_tokens
+        }
+        
+        # Specify the file name
+        output_file_name = "conversation_history.csv"
+
+        # Perform the operation
+        save_to_csv(gen_answ_data, output_file_name, operation="insert")
+
+        # Return the content of the first choice in the response
+        return gen_answ_content
+    
+    except Exception as e:
+        # Log any errors that occur during the API call
+        logging.error(f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}")
+        return None
+
+
+## Reads a text file, interacts with GPT to generate a response, and saves the result directly into a CSV file.
 def gpt_txt_file(txt_file_path, sys_prompt, user_prompt, output_csv_file_name="txt"):
     """
     Reads a text file, interacts with GPT to generate a response, and saves the result directly into a CSV file.
@@ -385,7 +613,7 @@ def gpt_txt_file(txt_file_path, sys_prompt, user_prompt, output_csv_file_name="t
         logging.error(f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}")
         return f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}"
 
-# Manages a list of user prompts and generates responses for each.
+## Manages a list of user prompts and generates responses for each.
 def gpt_batch_txt_file(txt_file_path, sys_prompt, user_prompts, output_csv_file):
     """
     Manages a list of user prompts and generates responses for each.
@@ -453,6 +681,7 @@ def gpt_batch_txt_file(txt_file_path, sys_prompt, user_prompts, output_csv_file)
 
     return all_responses  # Return all generated responses as a list
 
+
 # Retrieves a list of text files with '_Combine' in their filenames from all subfolders.
 def get_combine_txt_files_in_subfolders(folder):
     """
@@ -476,6 +705,39 @@ def get_combine_txt_files_in_subfolders(folder):
                 txt_files.append(full_path)  # Add the file path to the list
 
     return txt_files  # Return the list of matching file paths
+
+# Function to retrieve all PNG files in the specified folder
+def get_png_files_in_subfolders(folder):
+    """
+    Retrieves all PNG files in the specified folder and its subfolders, 
+    and sorts them by the page number extracted from their filenames.
+
+    Args:
+        folder (str): Path to the root folder.
+
+    Returns:
+        list: A sorted list of PNG file paths based on page numbers.
+    """
+    png_files = []  # Initialize an empty list to store file paths
+
+    # Walk through the folder and its subfolders
+    for root, _, files in os.walk(folder):
+        for file in files:
+            # Check if the file is a PNG file
+            if file.endswith('.png'):
+                # Get the full path of the file
+                full_path = os.path.join(root, file)
+                png_files.append(full_path)  # Add the file path to the list
+    
+    # Define a helper function to extract the page number from the file name
+    def extract_page_number(filename):
+        match = re.search(r'page_(\d+)\.png', filename)  # Look for "page_{number}.png"
+        return int(match.group(1)) if match else float('inf')  # Return a high value if no number is found
+
+    # Sort PNG files based on the extracted page number
+    png_files.sort(key=lambda x: extract_page_number(os.path.basename(x)))
+    
+    return png_files  # Return the sorted list of PNG file paths
 
 # Function to retrieve all PNG files in the same folder as the given text file
 def get_png_files_in_same_folder(txt_file):
