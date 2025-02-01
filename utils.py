@@ -74,7 +74,6 @@ def pdf_to_images(input_folder, file_name, output_folder):
                 img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
                 
                 # Define the output path for the image
-                # image_path = os.path.join(output_directory, f"{file_name}_page_{page_num + 1}.png")
                 image_path = os.path.join(output_directory, f"page_{page_num + 1}.png")
                 
                 # Save the image and append its path to the list
@@ -82,7 +81,7 @@ def pdf_to_images(input_folder, file_name, output_folder):
                 image_paths.append(image_path)
                 
                 # Log successful save of the image
-                logging.info(f"Saved image: {image_path}")
+                logging.info(f"Image saved : {image_path}")
             except Exception as e:
                 # Log errors during page processing
                 logging.error(f"Error processing page {page_num + 1} in {file_name}: {e}")
@@ -476,6 +475,100 @@ def save_to_csv(dict_data, output_file_name, operation="insert"):
             logging.info(f"Row deleted from {output_file_name} successfully.")
         else:
             logging.error(f"Invalid operation: {operation}. Must be 'insert', 'update', or 'delete'.")
+    except Exception as e:
+        logging.error(f"An error occurred during the {operation} operation: {str(e)}")
+
+def save_to_txt(data, output_file_name, operation="insert"):
+    """
+    Saves, updates, or deletes lines in a text file.
+
+    Args:
+        data: 
+            - For "insert" and "delete": a string representing the line to insert or delete.
+            - For "update": a dictionary with two keys:
+                "old": the exact line content to search for,
+                "new": the new line content to replace the matching line.
+        output_file_name (str): The name of the text file.
+        operation (str): The operation to perform - "insert", "update", or "delete".
+
+    Returns:
+        None
+    """
+    file_exists = os.path.isfile(output_file_name)
+
+    try:
+        if operation == "insert":
+            # Append the new line if the file exists; otherwise, create a new file.
+            mode = 'a' if file_exists else 'w'
+            with open(output_file_name, mode=mode, encoding='utf-8') as file:
+                file.write(data.rstrip("\n") + "\n")
+            logging.info(f"Line inserted into {output_file_name} successfully.")
+
+        elif operation == "update":
+            if not file_exists:
+                logging.error("Cannot update as the file does not exist.")
+                return
+
+            # For update, expect data to be a dictionary with "old" and "new" keys.
+            if not isinstance(data, dict) or "old" not in data or "new" not in data:
+                logging.error("For update operation, data must be a dictionary with keys 'old' and 'new'.")
+                return
+
+            old_line = data["old"].rstrip("\n")
+            new_line = data["new"].rstrip("\n")
+
+            # Read all lines from the file.
+            with open(output_file_name, mode='r', encoding='utf-8') as file:
+                lines = file.readlines()
+
+            updated = False
+            new_lines = []
+            for line in lines:
+                # Compare the stripped line (without newline) to find a match.
+                if line.rstrip("\n") == old_line:
+                    new_lines.append(new_line + "\n")
+                    updated = True
+                else:
+                    new_lines.append(line)
+
+            if not updated:
+                logging.warning("No matching line found to update.")
+
+            # Write back the updated lines.
+            with open(output_file_name, mode='w', encoding='utf-8') as file:
+                file.writelines(new_lines)
+            logging.info(f"Line updated in {output_file_name} successfully.")
+
+        elif operation == "delete":
+            if not file_exists:
+                logging.error("Cannot delete as the file does not exist.")
+                return
+
+            # For delete, data should be the exact line (as a string) to remove.
+            target_line = data.rstrip("\n")
+
+            with open(output_file_name, mode='r', encoding='utf-8') as file:
+                lines = file.readlines()
+
+            deleted = False
+            new_lines = []
+            for line in lines:
+                if line.rstrip("\n") == target_line:
+                    deleted = True
+                    # Skip writing this line to effectively delete it.
+                else:
+                    new_lines.append(line)
+
+            if not deleted:
+                logging.warning("No matching line found to delete.")
+
+            with open(output_file_name, mode='w', encoding='utf-8') as file:
+                file.writelines(new_lines)
+            logging.info(f"Line deleted from {output_file_name} successfully.")
+
+        else:
+            logging.error(f"Invalid operation: {operation}. Must be 'insert', 'update', or 'delete'.")
+
     except Exception as e:
         logging.error(f"An error occurred during the {operation} operation: {str(e)}")
 

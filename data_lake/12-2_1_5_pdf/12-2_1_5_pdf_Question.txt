@@ -1,0 +1,5 @@
+Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?

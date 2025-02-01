@@ -49,13 +49,13 @@ if uploaded_file:
         # Sauvegarder le fichier téléchargé dans le dossier spécifié
         with open(input_file_path, "wb") as input_file:
             input_file.write(uploaded_file.getbuffer())
-        logging.info(f"Fichier téléchargé sauvegardé à : {input_file_path}")
+        logging.info(f"File saved : {input_file_path}")
         
         # Sauvegarder une copie dans le dossier de sortie
         os.makedirs(os.path.dirname(output_file_path_pdf), exist_ok=True)  # Crée le sous-dossier si nécessaire
         with open(output_file_path_pdf, "wb") as output_file:
             output_file.write(uploaded_file.getbuffer())
-        logging.info(f"Copie du fichier sauvegardée à : {output_file_path_pdf}")
+        logging.info(f"File saved : {output_file_path_pdf}")
     
     except Exception as e:
         # Gérer les erreurs pendant la sauvegarde
@@ -110,8 +110,8 @@ if uploaded_file:
                 # Define variables for GPT
                 sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
                 question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-                txt_file_path = lire_contenu_fichier(output_file_path_txt)
-                assistant_answer = f"Oui, voici le contenu du document : {txt_file_path}"
+                file_content = read_text_file(output_file_path_txt)
+                assistant_answer = f"Oui, voici le contenu du document : {file_content}"
                 user_prompt = "Parlez-moi de ce document, s'il vous plaît. Soyez précis."
                 
                 answ_prompt_file_name = f"{output_folder}/{file_name}/{file_name}_Resume.txt"
@@ -130,53 +130,49 @@ if uploaded_file:
                 logging.error(f"Erreur lors de la conversion du PDF : {e}")
 
 ########################################
-# GPT Interaction personnalisée
+# Expender "Questions sauvegardées"
+########################################
+    # Chemin complet vers le fichier Questions_Saved.txt
+    questions_saved_path = os.path.join(output_folder, "Questions_Saved.txt")
+    if os.path.exists(questions_saved_path):
+        with st.spinner("Traitement des questions sauvegardées..."):
+            with st.expander("Questions sauvegardées"):
+                try:
+                    questions_content = read_text_file(questions_saved_path)
+                    generated_answer = gpt_prompt(None, f"Formater ces questions svp. Rététez les comme telles. Débuter votre réponse par Voici vos questions sauvegardées : {questions_content}", None, None, None)
+                    st.markdown(generated_answer)
+                    generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, questions_content, None)
+                    st.markdown(generated_answer)
+                except Exception as e:
+                    st.error("Une erreur s'est produite lors du traitement des questions sauvegardées.")
+                    logging.error(f"Erreur lors du traitement des questions sauvegardées : {e}")
+
+########################################
+# GPT Interaction
 ########################################
 
-    # Initialiser la variable de session pour stocker la réponse générée
+    # Initialize the session state variable if it doesn't exist
     if "generated_answer" not in st.session_state:
         st.session_state.generated_answer = ""
 
-    file_content = read_file(output_file_path_txt)
-
-    # Champ de saisie pour le prompt
-    sys_prompt = """
-    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
-    registre foncier du Québec afin de créer des chaînes de titres.
-    Pour ma part, je suis votre client."""
-    question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-    assistant_answer = f"Oui, voici le contenu du document : {file_content}"
     user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez ici votre question...")
 
-    # Bouton pour générer la réponse
-    if st.button("Générer la réponse"):        
+    # Button to generate the response
+    if st.button("Générer la réponse"):
         generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
         st.session_state.generated_answer = generated_answer
-        st.markdown("### Réponse générée :")
-        st.write(generated_answer)
 
-    # Choix de sauvegarde : utilisateur peut choisir ce qu'il souhaite enregistrer
-    save_choice = st.radio("Sélectionnez ce que vous souhaitez enregistrer :",
-                            ("User Prompt uniquement", "Generated Answer uniquement", "Les deux"))
+    # Button to save the question (and/or response if they exist)
+    if st.session_state.generated_answer or user_prompt:
+        if st.button("Enregistrer la question"):
+            answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
+            try:
+                save_to_txt(user_prompt, answer_file_path, operation="insert")
+            except Exception as e:
+                st.error(f"Erreur lors de l'enregistrement : {e}")
 
-    # Bouton pour sauvegarder selon le choix effectué
-    if (st.session_state.generated_answer or user_prompt) and st.button("Enregistrer la sélection"):
-        answer_file_path = os.path.join(output_folder, file_name, f"{file_name}_Answer.txt")
-        try:
-            with open(answer_file_path, "w", encoding="utf-8") as f:
-                if save_choice == "User Prompt uniquement":
-                    f.write("Question de l'utilisateur :\n")
-                    f.write(user_prompt)
-                elif save_choice == "Generated Answer uniquement":
-                    f.write("Réponse générée :\n")
-                    f.write(st.session_state.generated_answer)
-                elif save_choice == "Les deux":
-                    f.write("Question de l'utilisateur :\n")
-                    f.write(user_prompt)
-                    f.write("\n\nRéponse générée :\n")
-                    f.write(st.session_state.generated_answer)
-            st.success(f"La sélection a été enregistrée dans : {answer_file_path}")
-        except Exception as e:
-            st.error(f"Erreur lors de l'enregistrement : {e}")
-
+    # Always display the generated answer if it exists
+    if st.session_state.generated_answer:
+        st.markdown("### Réponse Générée")
+        st.write(st.session_state.generated_answer)
 

@@ -3155,3 +3155,2177 @@ Si existante, quelle est la concordance?","Voici les informations demandées :
 5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1. 
 
 Si vous avez besoin d'informations supplémentaires ou d'analyses, n'hésitez pas à demander.",1738382134,gpt-4o-mini-2024-07-18,110,683,793
+chatcmpl-AvzA6PhQ3kbStnj0PcB53HxPm8O5Z,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les réponses à vos questions basées sur le document :
+
+1. **Date de droit du registre :** 2022-09-07
+2. **Circonscription :** Stanstead
+3. **Cadastre :** Village de Rock Island
+4. **Date d’établissement :** 2004-01-14
+5. **Concordance :** Ce lot remplace une partie du (des) lot(s) 12-1.",1738383166,gpt-4o-mini-2024-07-18,96,683,779
+chatcmpl-AvzBuRyImfYZDpS5ZZ2FQhO5ISWIs,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations que vous avez demandées :
+
+1. **Date de droit du registre** : 2022-09-07
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d'établissement** : 2004-01-14
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez besoin d'autres informations ou d'une analyse plus approfondie, n'hésitez pas à me le faire savoir.",1738383278,gpt-4o-mini-2024-07-18,117,683,800
+chatcmpl-AvzFnCemxI3m7asHsPIBwXbcC7lnO,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+",,"Merci pour l'envoi du document. Je peux vous aider à analyser les informations qu'il contient et à établir une chaîne de titres associée à cette propriété. 
+
+Voici un résumé des éléments clés présents dans le document :
+
+1. **Circonscription Foncière**: Stanstead
+2. **Cadastre**: Village de Rock Island
+3. **Lot actuel**: 12-2
+4. **Remplacement**: Ce lot remplace une partie du lot 12-1.
+5. **Actes importants**:
+   - 2007 : Hypothèque à CITIFINANCIÈRE CANADA, INC. par Dwayne Keeler et Linda Thayer.
+   - 2010 : Hypothèque à la Caisse Desjardins de Stanstead par Dwayne Keeler et Linda Thayer.
+   - 2014 : Dation en paiement volontaire de Linda Thayer à Dwayne Keeler et à la Caisse Desjardins du Lac-Memphremagog.
+
+6. **Radiations**:
+   - Les droits hypothécaires de l'acte de 2007 ont été radiés.
+   - Les droits hypothécaires de l'acte de 2010 ont également été radiés.
+
+Pour continuer, avez-vous des questions spécifiques ou des points particuliers que vous aimeriez examiner concernant ce document ou la chaîne de titres ?",1738383519,gpt-4o-mini-2024-07-18,282,624,906
+chatcmpl-AvzGdmQQUhVfogI1QG4zh8rPVQjzZ,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+","Voici les informations que vous avez demandées :
+
+- **Date de droit du registre :** 2022-09-07
+- **Circonscription :** Stanstead
+- **Cadastre :** Village de Rock Island
+- **Date d’établissement :** 2004-01-14
+- **Concordance :** Ce lot remplace une partie du (des) lot(s) 12-1. 
+
+Si vous avez besoin d'autres informations ou d'une analyse complémentaire, n'hésitez pas à me le faire savoir.",1738383571,gpt-4o-mini-2024-07-18,112,683,795
+chatcmpl-AvzJcVP4f6fUrK4hOBxlXPuTHAWXf,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les réponses à vos questions basées sur le document que vous avez fourni :
+
+1. **Date de droit du registre** : 2022-09-07.
+2. **Circonscription** : Stanstead.
+3. **Cadastre** : Village de Rock Island.
+4. **Date d’établissement** : 2004-01-14.
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1. 
+
+Si vous avez besoin de plus d'informations ou d'analyses supplémentaires, n'hésitez pas à demander !",1738383756,gpt-4o-mini-2024-07-18,122,683,805
+chatcmpl-AvzVChplY9AfaBZm42dOcYl3bZe58,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+","Voici les informations demandées :
+
+1. **Date de droit du registre** : 2022-09-07
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1. 
+
+Si vous avez d'autres questions ou besoin d'une analyse plus approfondie, n'hésitez pas à me le faire savoir.",1738384474,gpt-4o-mini-2024-07-18,115,683,798
+chatcmpl-AvzXepwitrZUSeRGDRHVG7GTl3cxd,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations que vous avez demandées :
+
+1. **Date de droit du registre** : 2022-09-07 13:55
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14 09:00
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez besoin d'autres informations ou d'une analyse plus approfondie, n'hésitez pas à demander!",1738384626,gpt-4o-mini-2024-07-18,122,683,805
+chatcmpl-AvzhTw4002CKSzP6FlVspzEBPVO4K,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Oui, voici le contenu du document : ","Parlez-moi de ce document, s'il vous plaît. Soyez précis.","Je suis désolé, mais je n'ai pas la capacité de recevoir ou d'analyser des documents. Cependant, si vous pouvez me donner un résumé ou des détails spécifiques sur le contenu du document, je serais ravi de vous aider à l'analyser ou à répondre à vos questions à son sujet.",1738385235,gpt-4o-mini-2024-07-18,61,82,143
+chatcmpl-AvzilQMvfrrc3VY1XoUrurM4Iy1Eb,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Oui, voici le contenu du document : === **Filename: AL_37_177_327_pdf.pdf__page_1.png**
+
+
+Registre des mentions
+
+Numéro inscription: 177 327 Circ. foncière: Stanstead  
+DHM de présentation:
+
+Registre des mentions
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_10.png**
+
+
+Signatures numériques
+
+Reproduction du nom du signataire du document numéro 177 327
+
+Aucune signature
+
+Nom du signataire du document 177 327
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_2.png**
+
+
+Numéro inscription: 177 327
+
+L'AN MIL NEUF CENT QUATRE-VINGT-TREIZE,  
+LE SEIZIÈME (16ième) JOUR DU MOIS DE DÉCEMBRE.
+
+DEVANT Me. PIERRE CHARLAND, notaire  
+à Magog, Province de Québec.
+
+COMPARAISSENT:
+
+VILLE DE ROCK ISLAND, corporation  
+légalement constituée, ayant son siège social et/ou  
+sa principale place d'affaires à Rock Island,  
+Province de Québec, ici représentée par ALBERT  
+SIMONEAU, son maire et par MONIQUE PÉPIN, sa secrétaire-trésorière,  
+dûment autorisés aux termes d'une résolution de  
+leur conseil municipal en date du 15 novembre 1993.
+
+Copie de cette résolution demeurant annexée aux  
+présentes, après avoir été reconnue véritable et  
+signée par les représentants avec et en présence  
+du notaire soussigné.
+
+CI-APRÈS NOMMÉE: ""PARTIE DE PREMIÈRE PART"".
+
+ET
+
+DWAYNE KEELER, gérant, demeurant  
+à Rock Island (91 Railroad), Province de Québec,  
+JOB 2KO.
+
+ET
+
+LINDA THAYER, couturière, demeurant  
+à Rock Island (91 Railroad), Province de Québec,  
+JOB 2KO.
+
+CI-APRÈS NOMMES: ""PARTIE DE SECONDE PART"".
+
+LESQUELS FONT LES CONVENTIONS SUIVANTES:
+
+La partie de première part cède à  
+la partie de seconde part, à ce présent et acceptant, à  
+titre d'échange, l'immeuble suivant (ci-après  
+nommé: ""l'immeuble A""):
+
+DESIGNATION
+
+Division d'Enregistrement - STANSTEAD  
+Je certifie que ce document a été enregistré  
+1993-12-17 - 11:30  
+année mois jour heure minute  
+sous le numéro 177327
+
+Registrateur
+
+1006682069
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_3.png**
+
+
+Numéro inscription: 177 327
+
+2-
+
+Un certain terrain connu et désigné comme étant une partie non-resubdivisée de la subdivision numéro UN, du lot originaire numéro DOUZE (Ptie 12-1), aux plan et livre de renvoi officiels du VILLAGE DE ROCK ISLAND.
+
+Ladite partie de terrain étant plus amplement décrite et bornée comme suit:
+
+En assumant que la direction vers le Nord de la limite Ouest du lot 12-1 est un gisement de 2°21'14"" et partant du coin Sud-Ouest dudit lot 12-1, de là, se dirigeant vers le Nord-Est, suivant un gisement de 61°02'33"", une distance de CINQUANTE-ET-UN METRES ET CINQUANTE QUATRE CENTIÈMES (51,54 m) jusqu'au point P1, étant le point de départ de la présente description; de là, se dirigeant vers le Sud-Est, suivant un gisement de 124°42'11"", une distance de CINQ METRES ET QUARANTE-SEPT CENTIÈMES (5,47 m) jusqu'au point P3; de là, se dirigeant vers le Sud-Ouest, suivant un gisement de 235°43'05"", une distance de DEUX METRES ET QUARANTE-TROIS CENTIÈMES (2,43 m) jusqu'au point P4; de là, se dirigeant vers le Nord-Ouest, suivant un gisement de 330°59'26"", une distance de CINQ METRES ET DOUZE CENTIÈMES (5,12 m) jusqu'au point P1, étant le point de départ de la présente description.
+
+Ayant une superficie de SIX METRES CARRES ET DEUX DIXIÈMES, mesures métriques, Système International (6,2 m², S.I.).
+
+Bornée vers le Nord-Est, par une autre partie non-resubdivisée dudit lot 12-1 (rue Butterfield); vers le Sud-Est, par un chemin public (montré à l'originaire) et vers le Sud-Ouest, par une autre partie non-resubdivisée dudit lot 12-1.
+
+Sans aucune bâtisse dessus construite et étant située dans la municipalité de la Ville de Rock Island, Province de Québec.
+
+Le tout tel que plus amplement montré et décrit dans une description technique préparée par Christian Lefebvre, arpenteur-géomètre à Magog, le 4 novembre 1993, sous le numéro 873 de ses minutes.
+
+En échange, la partie de seconde part cède à la partie de première part, à ce présent et acceptant, à titre d'échange, l'immeuble suivant (ci-après nommé: ""l'immeuble B""):
+
+DESIGNATION
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_4.png**
+
+
+Numéro inscription: 177 327
+
+Un certain terrain connu et désigné comme étant une partie non-resubdivisée de la subdivision numéro UN, du lot originaire numéro DOUZE (Ptie 12-1), aux plan et livre de renvoi officiels du VILLAGE DE ROCK ISLAND.
+
+Ladite partie de terrain étant plus amplement décrite et bornée comme suit:
+
+En assumant que la direction vers le Nord de la limite Ouest du lot 12-1 est un gisement de 2°21'14"" et partant du coin Sud-Ouest dudit lot 12-1; de là, se dirigeant vers le Nord-Est, suivant un gisement de 61°02'33"", une distance de CINQUANTE-ET-UN METRES ET CINQUANTE-QUATRE CENTIÈMES (51,54 m) jusqu'au point P1, étant le point de départ de la présente description; de ce point, se dirigeant vers le Nord-Ouest, sur une distance de VINGT-SIX METRES ET SOIXANTE-TROIS CENTIÈMES (26,63 m) le long d'un arc de cercle ayant un rayon de TRENTE-ET-UN METRES ET QUARANTE-TROIS CENTIÈMES (31,43 m) (corde: VINGT-CINQ METRES ET QUATRE-VINGT-QUATRE CENTIÈMES (25,84 m); gisement: 330°59'26"") jusqu'au point P2; de là, se dirigeant vers le Sud-Est, suivant un gisement de 150°59'26"", une distance de VINGT-CINQ METRES ET QUATRE-VINGT-QUATRE CENTIÈMES (25,84 m) jusqu'au point P1, étant le point de départ de la présente description.
+
+Ayant une superficie de QUARANTE-HUIT METRES CARRÉS ET TROIS DIXIÈMES, mesures métriques, Système International (48,3 m², S.I.).
+
+Bornée vers le Sud-Ouest, par une autre partie non-resubdivisée dudit lot 12-1 et vers le Nord-Est, par une autre partie non-resubdivisée dudit lot 12-1 (rue Butterfield).
+
+Sans aucune bâtisse dessus construite et étant située dans la municipalité de la Ville de Rock Island, Province de Québec.
+
+Le tout tel que plus amplement montré et décrit dans une description technique préparée par Christian Lefebvre, arpenteur-géomètre, le 4 novembre 1993, sous le numéro 873 de ses minutes.
+
+TITRES
+
+La partie de première part est propriétaire de l'immeuble A pour l'avoir acquis aux termes de l'acte suivant:
+
+- Acte de vente signé sous seing privé en date du 18 Novembre 1993
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_5.png**
+
+
+Numéro inscription: 177 327
+
+intervenu entre Litton Canada Inc. et la Ville de Rock Island et enregistré au bureau de la division d'enregistrement de Stanstead, le 22 Novembre 1993 sous le numéro 177054.
+
+La partie de seconde part est propriétaire de l'immeuble B pour l'avoir acquis en plus grande étendue aux termes de l'acte suivant:
+
+Acte de vente entre Neil Bachelder et Caroline Goodsell et lesdits Dwayne Keeler et Linda Thayer, reçu devant Me. Pierre Langlois, notaire à Sherbrooke, le 27 mai 1993, sous le numéro 10902 de ses minutes et enregistré au bureau de la division d'enregistrement de Stanstead, le 28 mai 1993, sous le numéro 175111.
+
+DOSSIERS DE TITRES
+
+Chacune des parties ne s'engage pas à fournir de titres à l'autre partie.
+
+POSSESSION
+
+Chacune des parties sera propriétaire de leur immeuble respectifs à compter de ce jour, avec possession et occupation immédiates.
+
+DÉCLARATIONS DES PARTIES
+
+Chacun des échangistes fait les déclarations suivantes et s'en porte garant:
+
+1. L'immeuble A et l'immeuble B sont libres de tout privilège, hypothèque, redevance, ou charge quelconque.  
+2. Toutes les taxes, cotisations et répartitions foncières, générales et spéciales, échues ont été payées sans subrogation.  
+3. Il est un résident canadien au sens de la Loi de l'impôt sur le revenu et au sens de la Loi sur les impôts et il n'a pas l'intention de modifier telle résidence.  
+4. L'immeuble A et l'immeuble B ne sont pas situés dans une zone agricole.  
+5. Tous les droits de mutation ont été acquittés.  
+6. L'immeuble échangé ne fait pas partie du domaine public municipal.
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_6.png**
+
+
+Numéro inscription: 177 327
+
+-5-
+
+**OBLIGATIONS**
+
+Chacun des échangistes s'oblige à ce qui suit:
+
+1. Payer toutes les taxes, cotisations et répartitions foncières, échues et à échoir, y compris la proportion de celles-ci pour l'année courante à compter des présentes et aussi payer à compter de la même date tous les versements en capital et intérêts à échoir sur toutes les taxes spéciales imposées avant ce jour dont le paiement est réparti sur plusieurs années.
+
+2. Payer la moitié des frais et honoraires des présentes, de son enregistrement et des copies.
+
+3. Chacun des échangistes déclare qu'il réside au Canada au sens de la Loi concernant les droits sur les transferts de terrains (L.R.Q. c. D-17).
+
+**CONSIDERATION**
+
+Le présent échange est fait sans soulte.
+
+**RENONCIATION AU DROIT DE REPETITION**
+
+Chacun des coéchangistes renonce au droit de répéter l'immeuble donné en échange pour le cas où il serait évincé de l'immeuble reçu en échange.
+
+**CLAUSE INTERPRETATIVE**
+
+Chaque fois que le contexte l'exige, tout mot écrit au singulier comprend aussi le pluriel, et vice versa, et tout mot écrit au genre masculin comprend aussi le genre féminin. Les mots ""partie de première part"" ou les mots ""partie de seconde part"" peuvent signifier une ou plusieurs personnes de sexe féminin ou masculin, ainsi qu'une ou plusieurs personnes morales ou physiques.
+
+**ETAT CIVIL ET REGIME MATRIMONIAL**
+
+Dwayne Keeler et Linda Thayer déclarent qu'ils sont mariés tous deux ensemble, en premières noces,
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_7.png**
+
+
+Numéro inscription: 177 327
+
+-6-
+
+sous le régime de la société d'acquêts, aucune convention matrimoniale n'étant intervenue entre eux, avant ou après leur mariage célébré à Rock Island, le 1er juin 1991, alors qu'ils étaient domiciliés tous les deux dans la Province de Québec au moment du mariage et immédiatement après; et que leur état civil et leur régime matrimonial respectifs n'ont été et ne sont l'objet d'aucun changement depuis,
+
+DÉCLARATIONS DES PARTIES RELATIVEMENT À LA TAXE SUR LES PRODUITS ET SERVICES (T.P.S.) ET À LA TAXE DE VENTE DU QUÉBEC (T.V.Q.).
+
+Chacune des parties déclare que le terrain échangé n'était pas immédiatement avant la signature des présentes ou immédiatement avant la date de possession par l'autre partie, une immobilisation utilisée principalement dans son entreprise, que l'échange n'est pas effectué dans le cadre de son entreprise, et qu'il n'a pas présenté et s'engage à ne pas présenter le choix suivant la forme prescrite par les autorités concernées, en vertu de l'alinéa 9b) (ii), partie I de l'annexe V de la Loi sur la taxe d'accise, et de l'alinéa 103 2°b) de la Loi sur la taxe de vente du Québec.
+
+En conséquence, le présent échange est exonéré selon les dispositions de la Loi sur la taxe d'accise et de la Loi sur la taxe de vente du Québec.
+
+MENTIONS EXIGÉES EN VERTU DE L'ARTICLE 9 DE LA LOI CONCERNANT LES DROITS SUR LES MUTATIONS IMMOBILIÈRES.
+
+La partie de première part et la partie de seconde part, dans le but de se conformer aux prescriptions de la Loi ci-dessus relatée, établissent et reconnaissent les faits et les mentions suivantes:
+
+1.- L'immeuble A et l'immeuble B ci-dessus décrits sont situés dans la municipalité de la VILLE DE ROCK ISLAND.
+
+2.- La partie de première part et la partie de seconde part établissent la valeur de la contrepartie à la somme de UN DOLLAR (1.00$) pour l'immeuble A et à la somme de UN DOLLAR (1.00$) pour l'immeuble B.
+
+3.- Le montant du droit de mutation s'élève à la somme de CINQ DIXIÈMES D'UN CENT (0.005$) pour l'immeuble A et à la somme de CINQ DIXIÈMES D'UN CENT (0.005$) pour l'immeuble B, représentant le
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_8.png**
+
+
+Numéro inscription: 177 327
+
+-7-
+
+pourcentage prévu par la loi de la valeur de la contrepartie.
+
+4.- Le montant de la contrepartie, donnée en considération du transfert de chacun des immeubles ci-dessus décrits, est inférieure à la somme de cinq mille dollars (5,000.00$). La partie de première part et la partie de seconde part bénéficient, en conséquence, de l'exonération du paiement du droit de mutation, en application de l'article 20a) de la Loi.
+
+DONT ACTE à Rock Island  
+sous le numéro TROIS MILLE NEUF CENT TRENTE-HUIT (3,938)  
+des minutes du notaire soussigné.
+
+LECTURE FAITE, les parties signent en présence du notaire.  
+Quinze (15) mots et un (1) chiffre rayés sont nuls.
+
+VILLE DE ROCK ISLAND.
+
+PAR: Monique Pepin
+
+PAR: Albert Simoneau
+
+DWAYNE KEELER. Dwayne Keeler
+
+LINDA THAYER. Linda Thayer
+
+COPIE CERTIFIÉE  
+CONFORME DE LA  
+MINUTE DEMEURANT  
+DANS MON GREFFE
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_9.png**
+
+
+Numéro inscription : 177 327
+
+
+","Parlez-moi de ce document, s'il vous plaît. Soyez précis.","Ce document est un acte notarié relatif à un échange immobilier qui a été enregistré sous le numéro d'inscription 177 327, dans la circonscription foncière de Stanstead, le 17 décembre 1993. Voici les principaux éléments de ce document :
+
+### Parties Impliquées
+1. **Partie de Première Part** : La Ville de Rock Island, représentée par son maire, Albert Simoneau, et sa secrétaire-trésorière, Monique Pépin.
+2. **Partie de Seconde Part** : Dwayne Keeler et Linda Thayer, résidents de Rock Island.
+
+### Description de l'Échange
+- **Immeuble A** : Propriété cédée par la Ville de Rock Island à Dwayne Keeler et Linda Thayer. Il s'agit d'une partie d'un terrain dans la subdivision numéro UN, lot originaire numéro DOUZE (Ptie 12-1), d'une superficie de 6,2 m².
+- **Immeuble B** : Propriété cédée par Dwayne Keeler et Linda Thayer à la Ville de Rock Island, également une partie du même lot, avec une superficie de 48,3 m².
+
+### Détails Juridiques
+- Les deux parties conviennent que les immeubles échangés sont libres de toute charge et paiement des taxes est à jour.
+- Aucune partie ne fournit de titre de propriété à l'autre.
+- L'échange est effectué sans soulte (c'est-à-dire sans compensation financière additionnelle).
+- Les parties déclarent que l'échange ne constitue pas une transaction dans le cadre de leur entreprise.
+
+### Mentions Légales
+- Les droits de mutation sont établis pour un montant très faible en raison de la valeur de la contrepartie, ce qui rend l'échange exempt de paiement pour ce droit, conformément à la législation en vigueur.
+
+### Signature
+Le document est signé par les représentants légaux de la Ville ainsi que par Dwayne Keeler et Linda Thayer, en présence du notaire Me. Pierre Charland.
+
+**Conclusion :** Ce document est essentiel pour établir la légalité de l'échange de propriété entre la Ville de Rock Island et les particuliers, tout en décrivant les obligations, responsabilités, et les implications fiscales liées à cette transaction.",1738385315,gpt-4o-mini-2024-07-18,476,3607,4083
+chatcmpl-AvzlXYoC1ggZ6o9oljnNnqhubardq,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : === **Filename: AL_37_177_327_pdf.pdf__page_1.png**
+
+
+Registre des mentions
+
+Numéro inscription: 177 327 Circ. foncière: Stanstead  
+DHM de présentation:
+
+Registre des mentions
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_10.png**
+
+
+Signatures numériques
+
+Reproduction du nom du signataire du document numéro 177 327
+
+Aucune signature
+
+Nom du signataire du document 177 327
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_2.png**
+
+
+Numéro inscription: 177 327
+
+L'AN MIL NEUF CENT QUATRE-VINGT-TREIZE,  
+LE SEIZIÈME (16ième) JOUR DU MOIS DE DÉCEMBRE.
+
+DEVANT Me. PIERRE CHARLAND, notaire  
+à Magog, Province de Québec.
+
+COMPARAISSENT:
+
+VILLE DE ROCK ISLAND, corporation  
+légalement constituée, ayant son siège social et/ou  
+sa principale place d'affaires à Rock Island,  
+Province de Québec, ici représentée par ALBERT  
+SIMONEAU, son maire et par MONIQUE PÉPIN, sa secrétaire-trésorière,  
+dûment autorisés aux termes d'une résolution de  
+leur conseil municipal en date du 15 novembre 1993.
+
+Copie de cette résolution demeurant annexée aux  
+présentes, après avoir été reconnue véritable et  
+signée par les représentants avec et en présence  
+du notaire soussigné.
+
+CI-APRÈS NOMMÉE: ""PARTIE DE PREMIÈRE PART"".
+
+ET
+
+DWAYNE KEELER, gérant, demeurant  
+à Rock Island (91 Railroad), Province de Québec,  
+JOB 2KO.
+
+ET
+
+LINDA THAYER, couturière, demeurant  
+à Rock Island (91 Railroad), Province de Québec,  
+JOB 2KO.
+
+CI-APRÈS NOMMES: ""PARTIE DE SECONDE PART"".
+
+LESQUELS FONT LES CONVENTIONS SUIVANTES:
+
+La partie de première part cède à  
+la partie de seconde part, à ce présent et acceptant, à  
+titre d'échange, l'immeuble suivant (ci-après  
+nommé: ""l'immeuble A""):
+
+DESIGNATION
+
+Division d'Enregistrement - STANSTEAD  
+Je certifie que ce document a été enregistré  
+1993-12-17 - 11:30  
+année mois jour heure minute  
+sous le numéro 177327
+
+Registrateur
+
+1006682069
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_3.png**
+
+
+Numéro inscription: 177 327
+
+2-
+
+Un certain terrain connu et désigné comme étant une partie non-resubdivisée de la subdivision numéro UN, du lot originaire numéro DOUZE (Ptie 12-1), aux plan et livre de renvoi officiels du VILLAGE DE ROCK ISLAND.
+
+Ladite partie de terrain étant plus amplement décrite et bornée comme suit:
+
+En assumant que la direction vers le Nord de la limite Ouest du lot 12-1 est un gisement de 2°21'14"" et partant du coin Sud-Ouest dudit lot 12-1, de là, se dirigeant vers le Nord-Est, suivant un gisement de 61°02'33"", une distance de CINQUANTE-ET-UN METRES ET CINQUANTE QUATRE CENTIÈMES (51,54 m) jusqu'au point P1, étant le point de départ de la présente description; de là, se dirigeant vers le Sud-Est, suivant un gisement de 124°42'11"", une distance de CINQ METRES ET QUARANTE-SEPT CENTIÈMES (5,47 m) jusqu'au point P3; de là, se dirigeant vers le Sud-Ouest, suivant un gisement de 235°43'05"", une distance de DEUX METRES ET QUARANTE-TROIS CENTIÈMES (2,43 m) jusqu'au point P4; de là, se dirigeant vers le Nord-Ouest, suivant un gisement de 330°59'26"", une distance de CINQ METRES ET DOUZE CENTIÈMES (5,12 m) jusqu'au point P1, étant le point de départ de la présente description.
+
+Ayant une superficie de SIX METRES CARRES ET DEUX DIXIÈMES, mesures métriques, Système International (6,2 m², S.I.).
+
+Bornée vers le Nord-Est, par une autre partie non-resubdivisée dudit lot 12-1 (rue Butterfield); vers le Sud-Est, par un chemin public (montré à l'originaire) et vers le Sud-Ouest, par une autre partie non-resubdivisée dudit lot 12-1.
+
+Sans aucune bâtisse dessus construite et étant située dans la municipalité de la Ville de Rock Island, Province de Québec.
+
+Le tout tel que plus amplement montré et décrit dans une description technique préparée par Christian Lefebvre, arpenteur-géomètre à Magog, le 4 novembre 1993, sous le numéro 873 de ses minutes.
+
+En échange, la partie de seconde part cède à la partie de première part, à ce présent et acceptant, à titre d'échange, l'immeuble suivant (ci-après nommé: ""l'immeuble B""):
+
+DESIGNATION
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_4.png**
+
+
+Numéro inscription: 177 327
+
+Un certain terrain connu et désigné comme étant une partie non-resubdivisée de la subdivision numéro UN, du lot originaire numéro DOUZE (Ptie 12-1), aux plan et livre de renvoi officiels du VILLAGE DE ROCK ISLAND.
+
+Ladite partie de terrain étant plus amplement décrite et bornée comme suit:
+
+En assumant que la direction vers le Nord de la limite Ouest du lot 12-1 est un gisement de 2°21'14"" et partant du coin Sud-Ouest dudit lot 12-1; de là, se dirigeant vers le Nord-Est, suivant un gisement de 61°02'33"", une distance de CINQUANTE-ET-UN METRES ET CINQUANTE-QUATRE CENTIÈMES (51,54 m) jusqu'au point P1, étant le point de départ de la présente description; de ce point, se dirigeant vers le Nord-Ouest, sur une distance de VINGT-SIX METRES ET SOIXANTE-TROIS CENTIÈMES (26,63 m) le long d'un arc de cercle ayant un rayon de TRENTE-ET-UN METRES ET QUARANTE-TROIS CENTIÈMES (31,43 m) (corde: VINGT-CINQ METRES ET QUATRE-VINGT-QUATRE CENTIÈMES (25,84 m); gisement: 330°59'26"") jusqu'au point P2; de là, se dirigeant vers le Sud-Est, suivant un gisement de 150°59'26"", une distance de VINGT-CINQ METRES ET QUATRE-VINGT-QUATRE CENTIÈMES (25,84 m) jusqu'au point P1, étant le point de départ de la présente description.
+
+Ayant une superficie de QUARANTE-HUIT METRES CARRÉS ET TROIS DIXIÈMES, mesures métriques, Système International (48,3 m², S.I.).
+
+Bornée vers le Sud-Ouest, par une autre partie non-resubdivisée dudit lot 12-1 et vers le Nord-Est, par une autre partie non-resubdivisée dudit lot 12-1 (rue Butterfield).
+
+Sans aucune bâtisse dessus construite et étant située dans la municipalité de la Ville de Rock Island, Province de Québec.
+
+Le tout tel que plus amplement montré et décrit dans une description technique préparée par Christian Lefebvre, arpenteur-géomètre, le 4 novembre 1993, sous le numéro 873 de ses minutes.
+
+TITRES
+
+La partie de première part est propriétaire de l'immeuble A pour l'avoir acquis aux termes de l'acte suivant:
+
+- Acte de vente signé sous seing privé en date du 18 Novembre 1993
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_5.png**
+
+
+Numéro inscription: 177 327
+
+intervenu entre Litton Canada Inc. et la Ville de Rock Island et enregistré au bureau de la division d'enregistrement de Stanstead, le 22 Novembre 1993 sous le numéro 177054.
+
+La partie de seconde part est propriétaire de l'immeuble B pour l'avoir acquis en plus grande étendue aux termes de l'acte suivant:
+
+Acte de vente entre Neil Bachelder et Caroline Goodsell et lesdits Dwayne Keeler et Linda Thayer, reçu devant Me. Pierre Langlois, notaire à Sherbrooke, le 27 mai 1993, sous le numéro 10902 de ses minutes et enregistré au bureau de la division d'enregistrement de Stanstead, le 28 mai 1993, sous le numéro 175111.
+
+DOSSIERS DE TITRES
+
+Chacune des parties ne s'engage pas à fournir de titres à l'autre partie.
+
+POSSESSION
+
+Chacune des parties sera propriétaire de leur immeuble respectifs à compter de ce jour, avec possession et occupation immédiates.
+
+DÉCLARATIONS DES PARTIES
+
+Chacun des échangistes fait les déclarations suivantes et s'en porte garant:
+
+1. L'immeuble A et l'immeuble B sont libres de tout privilège, hypothèque, redevance, ou charge quelconque.  
+2. Toutes les taxes, cotisations et répartitions foncières, générales et spéciales, échues ont été payées sans subrogation.  
+3. Il est un résident canadien au sens de la Loi de l'impôt sur le revenu et au sens de la Loi sur les impôts et il n'a pas l'intention de modifier telle résidence.  
+4. L'immeuble A et l'immeuble B ne sont pas situés dans une zone agricole.  
+5. Tous les droits de mutation ont été acquittés.  
+6. L'immeuble échangé ne fait pas partie du domaine public municipal.
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_6.png**
+
+
+Numéro inscription: 177 327
+
+-5-
+
+**OBLIGATIONS**
+
+Chacun des échangistes s'oblige à ce qui suit:
+
+1. Payer toutes les taxes, cotisations et répartitions foncières, échues et à échoir, y compris la proportion de celles-ci pour l'année courante à compter des présentes et aussi payer à compter de la même date tous les versements en capital et intérêts à échoir sur toutes les taxes spéciales imposées avant ce jour dont le paiement est réparti sur plusieurs années.
+
+2. Payer la moitié des frais et honoraires des présentes, de son enregistrement et des copies.
+
+3. Chacun des échangistes déclare qu'il réside au Canada au sens de la Loi concernant les droits sur les transferts de terrains (L.R.Q. c. D-17).
+
+**CONSIDERATION**
+
+Le présent échange est fait sans soulte.
+
+**RENONCIATION AU DROIT DE REPETITION**
+
+Chacun des coéchangistes renonce au droit de répéter l'immeuble donné en échange pour le cas où il serait évincé de l'immeuble reçu en échange.
+
+**CLAUSE INTERPRETATIVE**
+
+Chaque fois que le contexte l'exige, tout mot écrit au singulier comprend aussi le pluriel, et vice versa, et tout mot écrit au genre masculin comprend aussi le genre féminin. Les mots ""partie de première part"" ou les mots ""partie de seconde part"" peuvent signifier une ou plusieurs personnes de sexe féminin ou masculin, ainsi qu'une ou plusieurs personnes morales ou physiques.
+
+**ETAT CIVIL ET REGIME MATRIMONIAL**
+
+Dwayne Keeler et Linda Thayer déclarent qu'ils sont mariés tous deux ensemble, en premières noces,
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_7.png**
+
+
+Numéro inscription: 177 327
+
+-6-
+
+sous le régime de la société d'acquêts, aucune convention matrimoniale n'étant intervenue entre eux, avant ou après leur mariage célébré à Rock Island, le 1er juin 1991, alors qu'ils étaient domiciliés tous les deux dans la Province de Québec au moment du mariage et immédiatement après; et que leur état civil et leur régime matrimonial respectifs n'ont été et ne sont l'objet d'aucun changement depuis,
+
+DÉCLARATIONS DES PARTIES RELATIVEMENT À LA TAXE SUR LES PRODUITS ET SERVICES (T.P.S.) ET À LA TAXE DE VENTE DU QUÉBEC (T.V.Q.).
+
+Chacune des parties déclare que le terrain échangé n'était pas immédiatement avant la signature des présentes ou immédiatement avant la date de possession par l'autre partie, une immobilisation utilisée principalement dans son entreprise, que l'échange n'est pas effectué dans le cadre de son entreprise, et qu'il n'a pas présenté et s'engage à ne pas présenter le choix suivant la forme prescrite par les autorités concernées, en vertu de l'alinéa 9b) (ii), partie I de l'annexe V de la Loi sur la taxe d'accise, et de l'alinéa 103 2°b) de la Loi sur la taxe de vente du Québec.
+
+En conséquence, le présent échange est exonéré selon les dispositions de la Loi sur la taxe d'accise et de la Loi sur la taxe de vente du Québec.
+
+MENTIONS EXIGÉES EN VERTU DE L'ARTICLE 9 DE LA LOI CONCERNANT LES DROITS SUR LES MUTATIONS IMMOBILIÈRES.
+
+La partie de première part et la partie de seconde part, dans le but de se conformer aux prescriptions de la Loi ci-dessus relatée, établissent et reconnaissent les faits et les mentions suivantes:
+
+1.- L'immeuble A et l'immeuble B ci-dessus décrits sont situés dans la municipalité de la VILLE DE ROCK ISLAND.
+
+2.- La partie de première part et la partie de seconde part établissent la valeur de la contrepartie à la somme de UN DOLLAR (1.00$) pour l'immeuble A et à la somme de UN DOLLAR (1.00$) pour l'immeuble B.
+
+3.- Le montant du droit de mutation s'élève à la somme de CINQ DIXIÈMES D'UN CENT (0.005$) pour l'immeuble A et à la somme de CINQ DIXIÈMES D'UN CENT (0.005$) pour l'immeuble B, représentant le
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_8.png**
+
+
+Numéro inscription: 177 327
+
+-7-
+
+pourcentage prévu par la loi de la valeur de la contrepartie.
+
+4.- Le montant de la contrepartie, donnée en considération du transfert de chacun des immeubles ci-dessus décrits, est inférieure à la somme de cinq mille dollars (5,000.00$). La partie de première part et la partie de seconde part bénéficient, en conséquence, de l'exonération du paiement du droit de mutation, en application de l'article 20a) de la Loi.
+
+DONT ACTE à Rock Island  
+sous le numéro TROIS MILLE NEUF CENT TRENTE-HUIT (3,938)  
+des minutes du notaire soussigné.
+
+LECTURE FAITE, les parties signent en présence du notaire.  
+Quinze (15) mots et un (1) chiffre rayés sont nuls.
+
+VILLE DE ROCK ISLAND.
+
+PAR: Monique Pepin
+
+PAR: Albert Simoneau
+
+DWAYNE KEELER. Dwayne Keeler
+
+LINDA THAYER. Linda Thayer
+
+COPIE CERTIFIÉE  
+CONFORME DE LA  
+MINUTE DEMEURANT  
+DANS MON GREFFE
+
+
+=== **Filename: AL_37_177_327_pdf.pdf__page_9.png**
+
+
+Numéro inscription : 177 327
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations extraites du document concernant le registre foncier :
+
+- **Date de droit du registre** : 16 décembre 1993
+- **Circonscription** : Stanstead
+- **Cadastre** : Lot originaire numéro DOUZE (Ptie 12-1)
+- **Date d’établissement** : 17 décembre 1993 (date d'enregistrement du document)
+- **Concordance** : Le document fait référence à des noms et numéros d'actes, mais une concordance précise n'est pas indiquée dans les extraits fournis. 
+
+Si vous avez besoin d'informations supplémentaires ou d'une analyse plus approfondie, n'hésitez pas à demander.",1738385487,gpt-4o-mini-2024-07-18,142,3667,3809
+chatcmpl-AwC2vVuokdy5Zclw9vfemJJnJmPp5,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Parlez-moi de ce document, s'il vous plaît. Soyez précis.","Ce document est un extrait du registre foncier qui fournit des informations sur un lot spécifique, le lot 12-2, situé dans la circonscription foncière de Stanstead, spécialement dans le Village de Rock Island. Voici les détails essentiels :
+
+1. **Informations générales :**
+   - **Cadastre :** Le document indique qu'il s'agit du lot 12-2.
+   - **Date d'établissement :** 14 janvier 2004.
+   - **Radiations :** La dernière radiation mentionnée remonte au 30 juin 2022.
+
+2. **Concordance :** 
+   - Ce lot remplace une partie du lot 12-1, ce qui signifie qu'il a été modifié ou redéfini par rapport à un ancien lot.
+
+3. **Historique des actes :** 
+   - Plusieurs actes y sont associés :
+     - **Hipothèque (2007)** : Une hypothèque a été inscrite par CITIFINANCIÈRE CANADA, INC. au nom de Dwayne Keeler et Linda Thayer pour un montant de 57 151,26 $.
+     - **Hypothèque (2010)** : Une autre hypothèque a été inscrite par la Caisse Desjardins de Stanstead pour un montant de 109 000,00 $.
+     - **Dation en paiement (2014)** : Linda Thayer a cédé le lot à Dwayne Keeler et à la Caisse Desjardins du Lac-Memphremagog.
+
+4. **Radiations :** 
+   - Les inscriptions liées aux droits hypothécaires des deux premières hypothèques ont été radiées, ce qui signifie que ces créances ne sont plus en vigueur.
+
+5. **Remarques finales :** 
+   - Une mention indique que le lot a eu une réforme cadastrale, et il se peut qu'il ait été subdivisé ou redéfini, avec de nouveaux lots associés, ce qui pourrait avoir un impact sur la propriété.
+
+Ce document est essentiel pour comprendre les droits de propriété, les engagements hypothécaires ainsi que les modifications apportées au lots. Si vous avez d'autres questions ou besoin d'éclaircissements sur certains points, n'hésitez pas à demander.",1738432693,gpt-4o-mini-2024-07-18,460,623,1083
+chatcmpl-AwC3g6rWf0zqjwPl9GxeZKXBEQd0g,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Parlez-moi de ce document, s'il vous plaît. Soyez précis.","Ce document semble être un extrait d'un registre foncier concernant un bien immobilier situé dans la circonscription foncière de Stanstead, plus précisément dans le Village de Rock Island. Voici une analyse précise des différentes sections :
+
+1. **Index des Immeubles** :
+   - **Cadastre** : Référence à l'emplacement des biens enregistrés.
+   - **Droits et Radiations** : Détails sur les dates de mise à jour des droits et des radiations sur la propriété. La dernière mise à jour des droits a eu lieu le 7 septembre 2022, et une radiation a été enregistrée le 30 juin 2022.
+   - **Lot** : Le lot identifié est le 12-2, qui remplace une partie d'un lot précédent (12-1).
+
+2. **Actes Notariés** :
+   Le document répertorie des actes notariés significatifs, notamment :
+   - **Hypothèques** : 
+     - *Prêteur : CITIFINANCIÈRE CANADA, INC.* a accordé un prêt de 57 151,26 $ à Dwayne Keeler et Linda Thayer le 1er novembre 2007.
+     - *Créancier : Caisse Desjardins de Stanstead* a accordé un prêt de 109 000,00 $ le 17 novembre 2010 aux mêmes emprunteurs.
+   - **Dation en Payment** : Le 27 juin 2014, une dation en paiement a été réalisée entre Linda Thayer et Dwayne Keeler, cédant à la Caisse Desjardins du Lac-Memphremagog.
+
+3. **Radiations** :
+   - Les enregistrements des droits hypothécaires liés aux deux prêts mentionnés précédemment ont été supprimés, signalant que ces hypothèques ne sont plus en vigueur. Ceci est indiqué par les mentions de radiation qui précisent les numéros d'inscription associés.
+
+4. **Remarques supplémentaires** :
+   - Il est noté qu'une réforme cadastrale a eu lieu, et que le lot a été rénové, redéfinissant ainsi les limites enregistrées. De nouveaux lots ont été créés, et il est conseillé de consulter ces nouveaux enregistrements pour obtenir des informations actualisées sur la propriété.
+
+Ce document est essentiellement un état des lieux juridique concernant la propriété et les droits qui y sont liés, incluant les changements récents dans la situation hypothécaire. Si vous avez des questions ou des préoccupations particulières concernant ce document, n'hésitez pas à me le faire savoir.",1738432740,gpt-4o-mini-2024-07-18,537,623,1160
+chatcmpl-AwC49tARRZShi78cO058bEiw2JtVI,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Parlez-moi de ce document, s'il vous plaît. Soyez précis.","Ce document est un extrait du Registre foncier, plus précisément un index des immeubles et une mention de radiation pour un bien immobilier situé dans la circonscription foncière de Stanstead, au village de Rock Island. Voici les éléments clés :
+
+1. **Identification du lot** :
+   - Cadastre : Village de Rock Island
+   - Lot : 12-2
+   - Ce lot remplace une partie du lot 12-1.
+
+2. **Mise à jour du Registre** :
+   - Le registre a été mis à jour le 7 septembre 2022.
+   - La date d’établissement du lot est le 14 janvier 2004.
+
+3. **Transactions et actes inscrits** :
+   - Plusieurs actes sont mentionnés, notamment des hypothèques et une dation en paiement :
+     - **Hypothèque** :
+       - En date du 1er novembre 2007, CITIFINANCIÈRE CANADA, INC. a inscrit une hypothèque de 57 151,26 $ sur ce lot, au nom de Dwayne Keeler et Linda Thayer.
+       - En date du 17 novembre 2010, une hypothèque de 109 000,00 $ a été inscrite par la Caisse Desjardins de Stanstead.
+     - **Dation en paiement** :
+       - Le 27 juin 2014, Linda Thayer a transféré le bien à Dwayne Keeler et à la Caisse Desjardins du Lac-Memphremagog.
+
+4. **Mentions de radiation** :
+   - Deux radiations sont affichées :
+     - L'hypothèque résultant de la réquisition nº 14 744 344 (CITIFINANCIÈRE CANADA, INC.) a été radiée.
+     - L'hypothèque résultant de la réquisition nº 17 714 203 (Caisse Desjardins de Stanstead) a également été radiée.
+
+5. **Observations finales** :
+   - Ce document fournit des informations essentielles sur l'historique de propriété et les droits associés à ce lot, en indiquant les créanciers, les emprunteurs, ainsi que les montants et dates des transactions. Les mentions de radiation sont également cruciales pour déterminer quels droits ont été annulés concernant le bien.
+
+Si vous avez des questions spécifiques ou si vous avez besoin de clarifications sur un point particulier, n'hésitez pas à me le faire savoir !",1738432769,gpt-4o-mini-2024-07-18,511,623,1134
+chatcmpl-AwCDgbaX5dcPzBgYLzL4j7qsD7whs,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+","Voici les informations demandées :
+
+1. **Date de droit du registre** : 2022-09-07
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez besoin d'autres informations ou d'une analyse supplémentaire, n'hésitez pas à demander.",1738433360,gpt-4o-mini-2024-07-18,109,683,792
+chatcmpl-AwCIg6ze2fQF6IXcpQUTExrX72nSn,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+","Voici les réponses à vos questions basées sur le document :
+
+1. **Date de droit du registre** : 2022-09-07 13:55
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14 09:00
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez d'autres questions ou besoin de précisions, n'hésitez pas à demander !",1738433670,gpt-4o-mini-2024-07-18,122,683,805
+chatcmpl-AwCLqLuo3FvQ3LbjBqb7kGUPK61mH,"
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client.","Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations extraites du document :
+
+1. **Date de droit du registre** : Le document indique les droits au 2022-09-07.
+2. **Circonscription** : Stanstead.
+3. **Cadastre** : Village de Rock Island.
+4. **Date d’établissement** : 2004-01-14.
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez besoin de plus d'informations ou d'une analyse plus approfondie, n'hésitez pas à demander.",1738433866,gpt-4o-mini-2024-07-18,120,683,803
+chatcmpl-AwCVO6TEYvgXePRnpbobFT9MWyzh6,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+","Voici les informations demandées extraites du document :
+
+1. **Date de droit du registre** : 2022-09-07 13:55
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14 09:00
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Ces éléments sont disponibles dans le document que vous avez partagé. Si vous avez besoin d'autres précisions ou d'informations supplémentaires, n'hésitez pas à demander.",1738434458,gpt-4o-mini-2024-07-18,133,764,897
+chatcmpl-AwCYEenyWFepZZ1Uti8dEP9wlk9iX,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+","Voici les informations que vous avez demandées basées sur le document :
+
+1. **Date de droit du registre** : 2022-09-07 13:55
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14 09:00
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1. 
+
+Si vous avez besoin d'autres précisions ou d'informations supplémentaires, n'hésitez pas à demander.",1738434634,gpt-4o-mini-2024-07-18,126,764,890
+chatcmpl-AwCZJEx0p5DkZoHtThiauTflvbQFh,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations extraites du document que vous avez partagé :
+
+- **Date de droit du registre** : 2022-09-07
+- **Circonscription** : Stanstead
+- **Cadastre** : Village de Rock Island
+- **Date d’établissement** : 2004-01-14
+- **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez d'autres questions ou si vous avez besoin de plus d'informations, n'hésitez pas à me le faire savoir !",1738434701,gpt-4o-mini-2024-07-18,116,654,770
+chatcmpl-AwCeBv6jOUCzDHTdPuUJ5H3PumMSz,,"Formater ces question svp. Rététez les comme telles : Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?",,,"Bien sûr ! Voici les questions formatées :
+
+1. Si existante, quelle est la date de droit du registre ?
+2. Si existante, quelle est la circonscription ?
+3. Si existant, quel est le cadastre ?
+4. Si existante, quelle est la date d’établissement ?
+5. Si existante, quelle est la concordance ?",1738435003,gpt-4o-mini-2024-07-18,75,76,151
+chatcmpl-AwCeDEnVaKLNMdv9RBhVK0E5tDNMt,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Parlez-moi de ce document, s'il vous plaît. Soyez précis.","Ce document est un extrait de l’index des immeubles et des radiations d'une propriété cadastrale située dans la circonscription foncière de Stanstead, plus précisément dans le village de Rock Island. Voici les points clés du document :
+
+### Index des Immeubles
+1. **Cadastre** : Le document fait référence au lot 12-2 du cadastre, qui remplace une partie du lot 12-1.
+2. **Dates de mise à jour** : Le registre a été mis à jour à plusieurs reprises, avec une date de création initiale le 14 janvier 2004.
+3. **Inscriptions et radiations** : Il contient des détails sur des droits inscrits et radiés, notamment des hypothèques et des actes de dation en paiement.
+
+### Détails des Actes
+- **Hypothèques** :
+   - **CITIFINANCIÈRE CANADA, INC.** a inscrit une hypothèque d’un montant de 57 151,26 $ le 1er novembre 2007, à l’encontre de l’emprunteur Dwayne Keeler et Linda Thayer.
+   - Une seconde hypothèque a été inscrite par la **Caisse Desjardins de Stanstead** pour un montant de 109 000,00 $ le 17 novembre 2010.
+  
+- **Dation en paiement** : Le 27 juin 2014, Linda Thayer a cédé la propriété à Dwayne Keeler et à la Caisse Desjardins du Lac-Memphremagog, marquant un changement de propriété.
+
+### Radiations
+- Le document mentionne des radiations des droits hypothécaires issus des actes notariés répertoriés :
+   - L'hypothèque de 57 151,26 $ a été radiée le 30 juin 2022.
+   - L'hypothèque de 109 000,00 $ a également été radiée, mais la date exacte n'est pas précisée.
+
+### Observations
+- **Propriétés et droit** : La mention de la guerre doit être considérée dans le contexte des droits de propriétés immobilières, et la liste des propriétaires n'a aucune valeur légale sans confirmation par voie de registre.
+
+Ce document est essentiel pour établir la situation juridique et les droits associés à la propriété mentionnée, ainsi que l'historique des transactions et des hypothèques liées. Si vous avez d'autres questions ou besoin d'informations supplémentaires, n'hésitez pas à demander.",1738435005,gpt-4o-mini-2024-07-18,519,615,1134
+chatcmpl-AwCelrjAMc1bHo8SJWstqvUORTbFe,,"Formater ces question svp. Rététez les comme telles : Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?",,,"Voici les questions reformulées :
+
+1. Si elle est existante, quelle est la date de droit du registre ?
+2. Si elle est existante, quelle est la circonscription ?
+3. Si elle est existante, quel est le cadastre ?
+4. Si elle est existante, quelle est la date d’établissement ?
+5. Si elle est existante, quelle est la concordance ?",1738435039,gpt-4o-mini-2024-07-18,83,76,159
+chatcmpl-AwCeovrZ7RyzSbmiDjpLFlprmoDWf,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations demandées :
+
+1. **Date de droit du registre** : 2022-09-07
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d'établissement** : 2004-01-14
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1. 
+
+Si vous avez d'autres questions ou si vous avez besoin de précisions supplémentaires, n'hésitez pas à me le faire savoir.",1738435042,gpt-4o-mini-2024-07-18,116,654,770
+chatcmpl-AwCfj2CPz7nDe06qUj8XbNIyzyRQw,,"Formater ces questions svp. Rététez les comme telles. Débuter votre réponse par Voici vos questions sauvegardées : Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?",,,"Voici vos questions sauvegardées :
+
+1. Si existante, quelle est la date de droit du registre ?
+2. Si existante, quelle est la circonscription ?
+3. Si existant, quel est le cadastre ?
+4. Si existante, quelle est la date d’établissement ?
+5. Si existante, quelle est la concordance ?",1738435099,gpt-4o-mini-2024-07-18,73,89,162
+chatcmpl-AwCfl7mFEVl19cmwAwnvmsVcUjxFk,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Index des immeubles - Section informatisée  
+Index des immeubles  
+Circonscription foncière : Stanstead  
+Dates de mise à jour du Registre  
+Cadastre :  
+Village de Rock Island  
+Droits : 2022-09-07 13:55  
+Lot :  
+12-2  
+Radiations :  
+2022-06-30 16:00  
+Date d'établissement :  
+2004-01-14 09:00  
+Plan : Liste des plans  
+Concordance :  
+Ce lot remplace une partie du (des) lot(s) 12-1.  
+Date de  
+Numéro  
+Nature de l'acte  
+Qualité  
+Nom des parties  
+Remarques  
+Avis d'adresse  
+Radiations  
+présentation d'inscription  
+2007-11-01  
+14 744 344  
+Hypothèque  
+Prêteur Emprunteur  
+CITIFINANCIÈRE CANADA, INC. KEELER, DWAYNE THAYER, LINDA  
+57 151,26 $  
+6 002 064  
+T 17 828 594  
+2010-11-17  
+17 714 203  
+Hypothèque  
+Créancier Constituant  
+Caisse Desjardins de Stanstead KEELER, Dwayne THAYER, Linda  
+109 000,00 $  
+6 001 605  
+T 20 893 177  
+2014-06-27  
+20 872 079  
+Dation en paiement volontaire  
+Cédant  
+Cessionnaire  
+THAYER, Linda KEELER, Dwayne CAISSE DESJARDINS DU LAC-MEMPHREMAGOG  
+2014-08-27  
+2014-09-05  
+À 09:00. Début de la période d'interdiction : Réforme cadastrale.  
+À 09:00.Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.)
+
+
+Mention de radiation - Section informatisée  
+Radiations  
+Mention  
+T  
+17 828 594 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 14 744 344 est supprimée.  
+Radiations  
+Mention  
+T  
+20 893 177 L'inscription des droits hypothécaires résultant du document ou de la réquisition Nº 17 714 203 est supprimée.
+
+
+","Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?","Voici les informations demandées :
+
+1. **Date de droit du registre** : 7 septembre 2022.
+2. **Circonscription** : Stanstead.
+3. **Cadastre** : Village de Rock Island.
+4. **Date d’établissement** : 14 janvier 2004.
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Si vous avez besoin d'autres informations ou d'une assistance supplémentaire, n'hésitez pas à demander !",1738435101,gpt-4o-mini-2024-07-18,107,654,761
