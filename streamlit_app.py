@@ -29,12 +29,12 @@ st.set_page_config(page_title="PDF OCR Processor & Analyzer", layout="wide")
 st.title("Title")
 st.markdown("Description")
 
-########################################
-# PDF Ingestion
-########################################
-
 # File upload section
 uploaded_file = st.file_uploader("Téléchargez un fichier PDF", type=["pdf"])
+
+########################################
+# PDF -> Image -> OCR -> TXT 
+########################################
 
 if uploaded_file:
     # Extraire le nom de fichier sans l'extension ".pdf"
@@ -62,10 +62,6 @@ if uploaded_file:
         st.error("Une erreur s'est produite lors de la sauvegarde du fichier.")
         logging.error(f"Erreur lors de la sauvegarde du fichier : {e}")
 
-########################################
-# Background 
-########################################
-
     with st.spinner("Téléchargement en cours..."):
         try:
             # # Step 1: Process PDFs to OCR
@@ -79,10 +75,10 @@ if uploaded_file:
             st.exception(e)
 
 ########################################
-# Expender "Voir le PDF"
+# Expender ".pdf (pages)"
 ########################################
 
-    with st.spinner("Téléchargement en cours..."):
+    with st.spinner("Images en cours..."):
         # Convert the uploaded PDF file to images
         try:
             # Ajouter un lien Markdown "Voir OCR"
@@ -93,8 +89,7 @@ if uploaded_file:
             
             if image_paths:
                 # Create a dropdown menu using st.expander
-                with st.expander(f"Voir {uploaded_file.name}"):
-                    st.markdown("nb page here")
+                with st.expander(f"{uploaded_file.name} ({len(image_paths)} pages)"):
                     # Display each generated image in the UI within the dropdown
                     for image_path in image_paths:
                         st.image(image_path, caption=f"Image: {os.path.basename(image_path)}")
@@ -105,30 +100,13 @@ if uploaded_file:
             logging.error(f"Erreur lors de la conversion du PDF : {e}")
 
 ########################################
-# GPT Interaction
+# Expender "Resumé"
 ########################################
-
     with st.spinner("Résumé en cours..."):
-        # Convert the uploaded PDF file to images
-        with st.expander(f"Voir Résumé"):
+        with st.expander("Résumé"):
             try:
-                def lire_contenu_fichier(file_path):
-                    # Lire le contenu du fichier texte
-                    try:
-                        with open(file_path, 'r', encoding='utf-8') as file:
-                            txt_file_content = file.read()
-                        # Retourner une réponse avec le contenu du fichier
-                        assistant_answer = f"Oui, voici le contenu du document : {txt_file_content}"
-                        return assistant_answer
-                    except FileNotFoundError:
-                        # Journaliser une erreur si le fichier est introuvable
-                        logging.error("Le fichier spécifié est introuvable.")
-                        return "Le fichier spécifié est introuvable."
-                    except Exception as e:
-                        # Journaliser toute autre exception qui se produit
-                        logging.error(f"Une erreur s'est produite : {str(e)}")
-                        return f"Une erreur s'est produite : {str(e)}"
-
+            # Add a button to refresh the résumé
+                refresh = st.button("Rafraîchir le résumé")
                 # Define variables for GPT
                 sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
                 question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
@@ -136,26 +114,69 @@ if uploaded_file:
                 assistant_answer = f"Oui, voici le contenu du document : {txt_file_path}"
                 user_prompt = "Parlez-moi de ce document, s'il vous plaît. Soyez précis."
                 
+                answ_prompt_file_name = f"{output_folder}/{file_name}/{file_name}_Resume.txt"
                 
-                # user_prompt = st.text_area("Prompt utilisateur :", placeholder="Posez une question ou donnez des instructions.")
+                # If refresh is requested or if the file doesn't exist, generate a new résumé
+                if refresh or not os.path.exists(answ_prompt_file_name):
+                    gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, answ_prompt_file_name)
+                else:
+                    # If the file exists and no refresh is requested, read its contents
+                    with open(answ_prompt_file_name, "r", encoding="utf-8") as f:
+                        gen_answer = f.read()
 
-                gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt)
                 st.markdown(gen_answer)
             except Exception as e:
                 st.error("Une erreur s'est produite lors de la conversion du PDF en images.")
                 logging.error(f"Erreur lors de la conversion du PDF : {e}")
 
-    
-    # if st.button("Générer avec GPT"):
-    #     try:
-    #         gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt)
+########################################
+# GPT Interaction personnalisée
+########################################
 
-    #         # Display the generated answer
-    #         if gen_answer:
-    #             st.success("Réponse générée :")
-    #             st.write(gen_answer)
-    #         else:
-    #             st.warning("Aucune réponse générée.")
-    #     except Exception as e:
-    #         st.error("Une erreur s'est produite lors de l'appel à GPT.")
-    #         logging.error(f"Erreur lors de l'appel à GPT : {e}")
+    # Initialiser la variable de session pour stocker la réponse générée
+    if "generated_answer" not in st.session_state:
+        st.session_state.generated_answer = ""
+
+    file_content = read_file(output_file_path_txt)
+
+    # Champ de saisie pour le prompt
+    sys_prompt = """
+    Vous êtes un notaire et arpenteur-géomètre chargé d’analyser les documents du 
+    registre foncier du Québec afin de créer des chaînes de titres.
+    Pour ma part, je suis votre client."""
+    question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+    assistant_answer = f"Oui, voici le contenu du document : {file_content}"
+    user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez ici votre question...")
+
+    # Bouton pour générer la réponse
+    if st.button("Générer la réponse"):        
+        generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
+        st.session_state.generated_answer = generated_answer
+        st.markdown("### Réponse générée :")
+        st.write(generated_answer)
+
+    # Choix de sauvegarde : utilisateur peut choisir ce qu'il souhaite enregistrer
+    save_choice = st.radio("Sélectionnez ce que vous souhaitez enregistrer :",
+                            ("User Prompt uniquement", "Generated Answer uniquement", "Les deux"))
+
+    # Bouton pour sauvegarder selon le choix effectué
+    if (st.session_state.generated_answer or user_prompt) and st.button("Enregistrer la sélection"):
+        answer_file_path = os.path.join(output_folder, file_name, f"{file_name}_Answer.txt")
+        try:
+            with open(answer_file_path, "w", encoding="utf-8") as f:
+                if save_choice == "User Prompt uniquement":
+                    f.write("Question de l'utilisateur :\n")
+                    f.write(user_prompt)
+                elif save_choice == "Generated Answer uniquement":
+                    f.write("Réponse générée :\n")
+                    f.write(st.session_state.generated_answer)
+                elif save_choice == "Les deux":
+                    f.write("Question de l'utilisateur :\n")
+                    f.write(user_prompt)
+                    f.write("\n\nRéponse générée :\n")
+                    f.write(st.session_state.generated_answer)
+            st.success(f"La sélection a été enregistrée dans : {answer_file_path}")
+        except Exception as e:
+            st.error(f"Erreur lors de l'enregistrement : {e}")
+
+

@@ -23,6 +23,21 @@ output_folder = "data_lake"
 os.makedirs(input_folder, exist_ok=True)
 os.makedirs(output_folder, exist_ok=True)
 
+# Lit le contenu d'un fichier texte et retourne une réponse formatée.
+def read_file(output_file_path_txt):
+    """
+    Lit le contenu d'un fichier texte et retourne une réponse formatée.
+    
+    :param output_file_path_txt: Chemin vers le fichier texte.
+    :return: Chaîne contenant le contenu du document ou un message d'erreur.
+    """
+    try:
+        with open(output_file_path_txt, "r", encoding="utf-8") as file:
+            content = file.read()
+        return content
+    except Exception as e:
+        return f"Erreur lors de la lecture du document : {e}"
+
 # Convert a PDF to images (one per page).
 def pdf_to_images(input_folder, file_name, output_folder):
     """
@@ -369,7 +384,7 @@ def save_to_csv(dict_data, output_file_name, operation="insert"):
     Args:
         dict_data (dict): A dictionary containing the dict_data to save (keys as headers, values as rows).
         output_file_name (str): The name of the CSV file to save the dict_data.
-        operation (str): The operation to perform - "insert", "update", or "delete".
+        operation (str): The operation to perform - "insert", "update", or "delete/insert".
 
     Returns:
         None
@@ -464,7 +479,7 @@ def save_to_csv(dict_data, output_file_name, operation="insert"):
     except Exception as e:
         logging.error(f"An error occurred during the {operation} operation: {str(e)}")
 
-# Reads a text file, interacts with GPT to generate a response, and saves the result into a CSV file.
+# Reads a text file, interacts with GPT to generate a response, and saves the result into a CSV file. 
 def gpt_prompt(sys_prompt=None, question_prompt=None, assistant_answer=None, user_prompt=None):
     """
     Constructs a message history for a GPT conversation and sends it to the GPT model.
@@ -519,10 +534,10 @@ def gpt_prompt(sys_prompt=None, question_prompt=None, assistant_answer=None, use
         }
         
         # Specify the file name
-        output_file_name = "conversation_history.csv"
+        convo_file_name = "conversation_history.csv"
 
         # Perform the operation
-        save_to_csv(gen_answ_data, output_file_name, operation="insert")
+        save_to_csv(gen_answ_data, convo_file_name, operation="insert")
 
         # Return the content of the first choice in the response
         return gen_answ_content
@@ -532,6 +547,98 @@ def gpt_prompt(sys_prompt=None, question_prompt=None, assistant_answer=None, use
         logging.error(f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}")
         return None
 
+
+# Reads a text file, interacts with GPT to generate a response, and saves the result.
+def gpt_prompt(sys_prompt=None, question_prompt=None, assistant_answer=None, user_prompt=None, output_file_name=None):
+    """
+    Constructs a message history for a GPT conversation, sends it to the GPT model,
+    saves the conversation data to a CSV file, and optionally writes only the generated answer
+    to a separate text file.
+
+    Args:
+        sys_prompt (str, optional): System-level prompt to set the context.
+        question_prompt (str, optional): The main question or user prompt.
+        assistant_answer (str, optional): Assistant's previous answer (if any).
+        user_prompt (str, optional): User's follow-up prompt (if any).
+        output_file_name (str, optional): The file path (including name) for storing only the
+                                          generated answer (e.g., 'answer.txt'). If not provided,
+                                          no .txt file is created.
+
+    Returns:
+        str: The response from the GPT model, or None if an error occurs.
+    """
+    message_history = []
+    
+    if sys_prompt:
+        message_history.append({"role": "system", "content": sys_prompt})
+    if question_prompt:
+        message_history.append({"role": "user", "content": question_prompt})
+    if assistant_answer:
+        message_history.append({"role": "assistant", "content": assistant_answer})
+    if user_prompt:
+        message_history.append({"role": "user", "content": user_prompt})
+
+    try:
+        # Call the GPT model with the constructed message history.
+        completion = client.chat.completions.create(
+            model=gpt_model,  # Specify the GPT model to use
+            messages=message_history,
+        )
+
+        # Extract the generated answer from the response.
+        gen_answ_content = completion.choices[0].message.content
+
+        # Build a dictionary of conversation data.
+        gen_answ_data = {
+            "gen_answ_id": completion.id,
+            "sys_prompt": sys_prompt,
+            "question_prompt": question_prompt,
+            "assistant_answer": assistant_answer,
+            "user_prompt": user_prompt,
+            "gen_answ_content": gen_answ_content,
+            "gen_answ_created": completion.created,
+            "gen_answ_model": completion.model,
+            "gen_answ_completion_tokens": completion.usage.completion_tokens,
+            "gen_answ_prompt_tokens": completion.usage.prompt_tokens,
+            "gen_answ_total_tokens": completion.usage.total_tokens
+        }
+        
+        # Save the full conversation history to a CSV file.
+        convo_file_name = "conversation_history.csv"
+        save_to_csv(gen_answ_data, convo_file_name, operation="insert")
+
+        # If an output file name is provided, save only the generated answer to that file.
+        if output_file_name:
+            with open(output_file_name, mode='w', encoding='utf-8') as txt_file:
+                txt_file.write(gen_answ_content)
+            logging.info(f"Generated answer saved to {output_file_name} successfully.")
+
+        return gen_answ_content
+
+    except Exception as e:
+        logging.error(f"An error occurred during the API call: {str(e)}")
+        return None
+
+
+
+# New to deal with
+def lire_contenu_fichier(file_path):
+    # Lire le contenu du fichier texte
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            txt_file_content = file.read()
+        # Retourner une réponse avec le contenu du fichier
+        assistant_answer = f"Oui, voici le contenu du document : {txt_file_content}"
+        return assistant_answer
+    except FileNotFoundError:
+        # Journaliser une erreur si le fichier est introuvable
+        logging.error("Le fichier spécifié est introuvable.")
+        return "Le fichier spécifié est introuvable."
+    except Exception as e:
+        # Journaliser toute autre exception qui se produit
+        logging.error(f"Une erreur s'est produite : {str(e)}")
+        return f"Une erreur s'est produite : {str(e)}"
+                    
 
 ## Reads a text file, interacts with GPT to generate a response, and saves the result directly into a CSV file.
 def gpt_txt_file(txt_file_path, sys_prompt, user_prompt, output_csv_file_name="txt"):
@@ -613,98 +720,6 @@ def gpt_txt_file(txt_file_path, sys_prompt, user_prompt, output_csv_file_name="t
         logging.error(f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}")
         return f"Une erreur s'est produite lors de l'appel à l'API : {str(e)}"
 
-## Manages a list of user prompts and generates responses for each.
-def gpt_batch_txt_file(txt_file_path, sys_prompt, user_prompts, output_csv_file):
-    """
-    Manages a list of user prompts and generates responses for each.
-
-    Args:
-        txt_file_path (str): Path to the text file.
-        sys_prompt (str): System prompt to guide the model.
-        user_prompts (list): List of user prompts.
-        output_csv_file (str): Path to the CSV file where results will be saved.
-    
-    Returns:
-        list: A list of contents generated by GPT for each prompt.
-    """
-    all_responses = []
-
-    # Create the CSV file with headers in advance
-    try:
-        with open(output_csv_file, mode='w', encoding='utf-8', newline='') as file:
-            writer = csv.writer(file)
-            # Define the headers for the CSV file
-            headers = [
-                "txt_file_path", "sys_prompt", "question_prompt",
-                "assistant_answer", "user_prompt", "gen_answ_id",
-                "gen_answ_content", "gen_answ_role", "gen_answ_created",
-                "gen_answ_model", "gen_answ_completion_tokens",
-                "gen_answ_prompt_tokens", "gen_answ_total_tokens"
-            ]
-            writer.writerow(headers)  # Write the headers to the CSV file
-    except Exception as e:
-        # Log an error if the CSV file creation fails
-        logging.error(f"Error while creating the CSV file: {str(e)}")
-        return []
-
-    # Process each user prompt
-    for user_prompt in user_prompts:
-        # Call `txt_file_to_gpt` for each user prompt
-        response = txt_file_to_gpt(txt_file_path, sys_prompt, user_prompt, output_csv_file)
-        all_responses.append(response)  # Store the response in the list
-
-        # Add the data for this specific prompt to the CSV file
-        try:
-            with open(output_csv_file, mode='a', encoding='utf-8', newline='') as file:
-                writer = csv.writer(file)
-
-                # Write the row for the current prompt
-                writer.writerow([
-                    txt_file_path,  # Path to the input text file
-                    # sys_prompt,  # System prompt guiding the GPT model
-                    # "I sent you a document. Did you receive it?",  # Default question prompt
-                    # f"Yes, here is the content of the document: {open(txt_file_path, 'r', encoding='utf-8').read()}",
-                    user_prompt,  # User-specific prompt
-                    # "N/A",  # Placeholder for generation ID (if not available)
-                    response,  # Generated response content
-                    # "N/A",  # Placeholder for response role (if not available)
-                    # "N/A",  # Placeholder for creation timestamp (if not available)
-                    # gpt_model,  # Model used for generating the response
-                    # "N/A",  # Placeholder for completion tokens (if not available)
-                    # "N/A",  # Placeholder for prompt tokens (if not available)
-                    # "N/A"   # Placeholder for total tokens (if not available)
-                ])
-
-        except Exception as e:
-            # Log an error if writing to the CSV fails
-            logging.error(f"Erreur lors de l'enregistrement des données dans le CSV : {str(e)}")
-
-    return all_responses  # Return all generated responses as a list
-
-
-# Retrieves a list of text files with '_Combine' in their filenames from all subfolders.
-def get_combine_txt_files_in_subfolders(folder):
-    """
-    Retrieves a list of text files with '_Combine' in their filenames from all subfolders.
-
-    Args:
-        folder (str): The root folder to search for text files.
-
-    Returns:
-        list: A list of full file paths for text files meeting the criteria.
-    """
-    txt_files = []  # Initialize an empty list to store file paths
-
-    # Walk through the folder and its subfolders
-    for root, _, files in os.walk(folder):
-        for file in files:
-            # Check if the file is a text file and contains '_Combine' in its name
-            if file.endswith('.txt') and '_Combine' in file:
-                # Get the full path of the file
-                full_path = os.path.join(root, file)
-                txt_files.append(full_path)  # Add the file path to the list
-
-    return txt_files  # Return the list of matching file paths
 
 # Function to retrieve all PNG files in the specified folder
 def get_png_files_in_subfolders(folder):

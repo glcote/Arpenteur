@@ -1,0 +1,17 @@
+Question de l'utilisateur :
+Si existante, quelle est la date de droit du registre?
+Si existante, quelle est la circonscription?
+Si existant, quel est le cadastre?
+Si existante, quelle est la date d’établissement?
+Si existante, quelle est la concordance?
+
+Réponse générée :
+Voici les informations demandées :
+
+1. **Date de droit du registre** : 2022-09-07
+2. **Circonscription** : Stanstead
+3. **Cadastre** : Village de Rock Island
+4. **Date d’établissement** : 2004-01-14
+5. **Concordance** : Ce lot remplace une partie du (des) lot(s) 12-1. 
+
+Si vous avez besoin d'informations supplémentaires ou d'analyses, n'hésitez pas à demander.
