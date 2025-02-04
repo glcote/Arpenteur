@@ -1,0 +1,3 @@
+Quel est le cadastre associé au lot?
+Quelle est la circonscription foncière mentionnée dans le document?
+Quel est le lot concerné par le document?

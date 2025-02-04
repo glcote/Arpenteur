@@ -33,7 +33,7 @@ st.markdown("Description")
 uploaded_file = st.file_uploader("Téléchargez un fichier PDF", type=["pdf"])
 
 ########################################
-# PDF -> Image -> OCR -> TXT 
+# PDF -> Image -> OCR -> TXT -> LOOP(GPT) -> Action!
 ########################################
 
 if uploaded_file:
@@ -102,11 +102,13 @@ if uploaded_file:
 ########################################
 # Expender "Resumé"
 ########################################
+
     with st.spinner("Résumé en cours..."):
         with st.expander("Résumé"):
             try:
-            # Add a button to refresh the résumé
-                refresh = st.button("Rafraîchir le résumé")
+                # Add a button to refresh the résumé
+                refresh = st.button("Rafraîchir")
+
                 # Define variables for GPT
                 sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
                 question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
@@ -114,20 +116,90 @@ if uploaded_file:
                 assistant_answer = f"Oui, voici le contenu du document : {file_content}"
                 user_prompt = "Parlez-moi de ce document, s'il vous plaît. Soyez précis."
                 
-                answ_prompt_file_name = f"{output_folder}/{file_name}/{file_name}_Resume.txt"
+                summary_file_name = f"{output_folder}/{file_name}/{file_name}_Resume.txt"
                 
                 # If refresh is requested or if the file doesn't exist, generate a new résumé
-                if refresh or not os.path.exists(answ_prompt_file_name):
-                    gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, answ_prompt_file_name)
+                if refresh or not os.path.exists(summary_file_name):
+                    gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, summary_file_name)
                 else:
                     # If the file exists and no refresh is requested, read its contents
-                    with open(answ_prompt_file_name, "r", encoding="utf-8") as f:
+                    with open(summary_file_name, "r", encoding="utf-8") as f:
                         gen_answer = f.read()
 
                 st.markdown(gen_answer)
             except Exception as e:
                 st.error("Une erreur s'est produite lors de la conversion du PDF en images.")
                 logging.error(f"Erreur lors de la conversion du PDF : {e}")
+
+########################################
+# Expender "Q&A"
+########################################
+    with st.spinner("Q&A en cours..."):
+        with st.expander("Q&A"):
+            try:
+                # Bouton pour rafraîchir le contenu, avec une clé unique
+                refresh = st.button("Rafraîchir", key="refresh_qna")
+
+                # Définir les variables pour GPT
+                summary_content = read_text_file(summary_file_name)
+                assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+                user_prompt = """Présentez moi une série de questions concernant le document. 
+                Les réponses doivent se trouver directement dans le texte fourni. 
+                Votre réponse doit être structurées en paires structurées 'Q:' et 'A:'. 
+                Par exemple : 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+                Éviter les dates dans vos réponse.
+                Par exemple : 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+                Veuiller mettre les questions en gras svp."""
+                
+                questions_file_name = f"{output_folder}/{file_name}/{file_name}_Q&A.txt"
+                
+                # Si rafraîchissement demandé ou si le fichier n'existe pas, générer une nouvelle version
+                if refresh or not os.path.exists(questions_file_name):
+                    gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
+                else:
+                    # Sinon, lire son contenu
+                    with open(questions_file_name, "r", encoding="utf-8") as f:
+                        gen_answer = f.read()
+                
+                # Afficher le texte généré en Markdown
+                st.markdown(gen_answer)
+
+                ###############################################
+                # Extraction et sauvegarde de Q&A
+                ###############################################
+
+                # Extraction des paires Q&A avec une expression régulière
+                qa_pairs = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL) # Question
+                # question_list = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL)
+                # answer_list = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL)
+
+                if qa_pairs:
+                    # Formatage des paires pour l'affichage dans le multiselect
+                    options = [f"{q.strip().replace('**', '')}" for q, a in qa_pairs]
+                    
+                    # Sélection multiple
+                    selected_question = st.multiselect(
+                        "Question(s) sauvegardée(s)",
+                        options,
+                        key="multi_qna"
+                    )
+                    
+                    # Bouton pour sauvegarder la sélection, avec une clé unique
+                    if st.button("Sauvegarder la sélection", key="save_selected_qna"):
+                        if selected_question:
+                            question_file_name = os.path.join(output_folder, f"Questions.txt")
+                            save_to_txt(selected_question, question_file_name, operation="insert")
+                            st.success("Les questions ont été sauvegardées !")
+                        else:
+                            st.warning("Veuillez sélectionner au moins un question avant de sauvegarder.")
+                else:
+                    st.warning("Aucune question n'a pu être extraite du texte généré.")
+                        
+            except Exception as e:
+                st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
+                logging.error(f"Erreur lors de la génération des Q&A : {e}")
+
+
 
 ########################################
 # Expender "Questions sauvegardées"
