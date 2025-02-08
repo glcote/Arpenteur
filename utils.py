@@ -9,6 +9,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 # Charger les variables d'environnement
+
 load_dotenv()
 
 # API and global settings
