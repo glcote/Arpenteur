@@ -1,17 +1,10 @@
 import os
 import re
-import pytz
+import time
 import logging
-from datetime import datetime
 import streamlit as st
 from dotenv import load_dotenv
 from utils import *
-
-import csv
-import requests
-import fitz
-from PIL import Image
-from openai import OpenAI
 
 # Charger les variables d'environnement
 load_dotenv()
@@ -45,70 +38,63 @@ if uploaded_file:
     output_file_path_pdf = os.path.join(output_folder, file_name, file_name + ".pdf")
     output_file_path_txt = os.path.join(output_folder, file_name, file_name + "_Combine.txt")
     
+    # Vérifier si file_name existe déjà dans output_folder ou l'un de ses sous-dossiers
+    file_exists = False
+    for root, dirs, files in os.walk(output_folder):
+        # On vérifie dans les noms des dossiers et des fichiers
+        if file_name in dirs or file_name in files:
+            file_exists = True
+            break
+
     try:
-        # Sauvegarder le fichier téléchargé dans le dossier spécifié
-        with open(input_file_path, "wb") as input_file:
-            input_file.write(uploaded_file.getbuffer())
-        logging.info(f"File saved : {input_file_path}")
-        
-        # Sauvegarder une copie dans le dossier de sortie
-        os.makedirs(os.path.dirname(output_file_path_pdf), exist_ok=True)  # Crée le sous-dossier si nécessaire
-        with open(output_file_path_pdf, "wb") as output_file:
-            output_file.write(uploaded_file.getbuffer())
-        logging.info(f"File saved : {output_file_path_pdf}")
-    
-    except Exception as e:
-        # Gérer les erreurs pendant la sauvegarde
-        st.error("Une erreur s'est produite lors de la sauvegarde du fichier.")
-        logging.error(f"Erreur lors de la sauvegarde du fichier : {e}")
+        if not file_exists:
+            # Step 1: Upload and save the PDF
+            with st.spinner("Étape 1: Téléchargement et enregistrement du PDF..."):
+                save_uploaded_file(uploaded_file, input_file_path, output_file_path_pdf)
 
-    with st.spinner("Téléchargement en cours..."):
-        try:
-            # Vérifier si file_name existe déjà dans output_folder ou l'un de ses sous-dossiers
-            file_exists = False
-            for root, dirs, files in os.walk(output_folder):
-                # On vérifie dans les noms des dossiers et des fichiers
-                if file_name in dirs or file_name in files:
-                    file_exists = True
-                    break
-
-            if not file_exists:
-            # Step 1: Process PDFs to OCR 
+            # Step 2: Process PDFs to OCR 
+            with st.spinner("Étape 2: Traitement OCR du PDF..."):
                 pdf_to_ocr(input_folder, output_folder)
-            else:
-                logging.info(f"Le fichier '{file_name}' existe déjà dans {output_folder}. OCR est sauté.")
-            
-            # Step 2: Download .txt files 
-            ocr_list_download_combine_txt_file()
+
+            # Step 3: Download .txt files 
+            with st.spinner("Étape 3: Téléchargement des fichiers .txt..."):
+                time.sleep(60)
+                ocr_list_download_combine_txt_file()
+
+            # Step 4: Convert the PDF to images and save generated images
+            with st.spinner("Étape 4: Conversion du PDF en images..."):
+                image_paths = pdf_to_images(input_folder, uploaded_file.name, output_folder)
+        else:
+            logging.info(f"Le fichier '{file_name}' existe déjà dans {output_folder}. OCR est sauté.")             
         
-        except Exception as e:
-            st.error("Une erreur s'est produite lors du traitement, du téléchargement ou de la combinaison des fichiers.")
-            st.exception(e)
+    except Exception as e:
+        st.error("Une erreur s'est produite lors du traitement, du téléchargement ou de la combinaison des fichiers.")
+        st.exception(e)
 
     ########################################
     # Expender ".pdf (pages)"
     ########################################
 
-    with st.spinner("Images en cours..."):
-        # Convert the uploaded PDF file to images
-        try:
-            # Ajouter un lien Markdown "Voir OCR"
-            st.markdown("[Voir OCR](https://www.handwritingocr.com/dashboard)", unsafe_allow_html=True)
-
-            # Call the function to convert the PDF to images and store the paths of the generated images
-            image_paths = pdf_to_images(input_folder, uploaded_file.name, output_folder)
+    # with st.spinner("Images en cours..."):
+    #     # Convert the uploaded PDF file to images
+    #     try:
+    #         # Ajouter un lien Markdown "Voir OCR"
+    #         st.markdown("[Voir OCR](https://www.handwritingocr.com/dashboard)", unsafe_allow_html=True)
             
-            if image_paths:
-                # Create a dropdown menu using st.expander
-                with st.expander(f"{uploaded_file.name} ({len(image_paths)} pages)"):
-                    # Display each generated image in the UI within the dropdown
-                    for image_path in image_paths:
-                        st.image(image_path, caption=f"Image: {os.path.basename(image_path)}")
-            else:
-                st.warning("Aucune image n'a été générée.")
-        except Exception as e:
-            st.error("Une erreur s'est produite lors de la conversion du PDF en images.")
-            logging.error(f"Erreur lors de la conversion du PDF : {e}")
+    #         # # Call the function to convert the PDF to images and store the paths of the generated images
+    #         # image_paths = pdf_to_images(input_folder, uploaded_file.name, output_folder)
+            
+    #         if image_paths:
+    #             # Create a dropdown menu using st.expander
+    #             with st.expander(f"{uploaded_file.name} ({len(image_paths)} pages)"):
+    #                 # Display each generated image in the UI within the dropdown
+    #                 for image_path in image_paths:
+    #                     st.image(image_path, caption=f"Image: {os.path.basename(image_path)}")
+    #         else:
+    #             st.warning("Aucune image n'a été générée.")
+    #     except Exception as e:
+    #         st.error("Une erreur s'est produite lors de la conversion du PDF en images.")
+    #         logging.error(f"Erreur lors de la conversion du PDF : {e}")
 
     ########################################
     # Expender "Resumé"

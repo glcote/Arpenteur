@@ -1,0 +1,38 @@
+Index des immeubles - Section informatisée
+
+Index des immeubles
+
+Circonscription foncière: Stanstead  
+Cadastre: Village de Rock Island  
+Lot: 12-2  
+Date d'établissement : 2004-01-14 09:00  
+Plan: Liste des plans  
+Concordance: Ce lot remplace une partie du (des) lot(s) 12-1.
+
+Dates de mise à jour du Registre  
+Droits: 2022-09-07 13:55  
+Radiations: 2022-06-30 16:00
+
+| Date de présentation | Numéro d'inscription | Nature de l'acte | Qualité | Nom des parties | Remarques | Avis d'adresse | Radiations |  
+|---|---|---|---|---|---|---|---|   
+| 2007-11-01 | 14 744 344 | Hypothèque | Prêteur | CITIFINANCIÈRE CANADA, INC. | 57 151,26 $ | 6 002 064 | T 17 828 594 |  
+| | | | Emprunteur | KEELER, DWAYNE <br> THAYER, LINDA | | | |  
+| 2010-11-17 | 17 714 203 | Hypothèque | Créancier | Caisse Desjardins de Stanstead | 109 000,00 $ | 6 001 605 | T 20 893 177 |  
+| | | | Constituant | KEELER, Dwayne <br> THAYER, Linda | | | |  
+| 2014-06-27 | 20 872 079 | Dation en paiement volontaire | Cédant | THAYER, Linda <br> KEELER, Dwayne | | | |  
+| | | | Cessionnaire | CAISSE DESJARDINS DU LAC-MEMPHRÉMAGOG | | | |  
+| 2014-08-27 | | À 09:00. Début de la période d'interdiction: Réforme cadastrale. | | | | | |  
+| 2014-09-05 | | À 09:00. Ce lot est rénové, voir nouveau(x) lot(s) 5 075 561 Cadastre du Québec. Pour plan(s) et/ou document joint, voir le(s) nouveau(x) lot(s). Voir propriétaire(s) par lot (La liste des propriétaires affichée n'a aucune valeur légale.) | | | | | |
+
+
+Mention de radiation - Section informatisée
+
+| Radiations | Mention |  
+|---|---|   
+| T 17 828 594 | L'inscription des droits hypothécaires résultant du document ou de la réquisition N° 14 744 344 est supprimée. |
+
+| Radiations | Mention |  
+|---|---|   
+| T 20 893 177 | L'inscription des droits hypothécaires résultant du document ou de la réquisition N° 17 714 203 est supprimée. |
+
+

@@ -354,6 +354,27 @@ def ocr_list_download_combine_txt_file(per_page=50, page=1, output_format="txt")
 
 
 
+def save_uploaded_file(uploaded_file, input_file_path, output_file_path_pdf):
+    """
+    Save the uploaded file to the specified input path and make a copy at the output path.
+
+    Args:
+        uploaded_file: The uploaded file object (e.g., from Streamlit's file_uploader).
+        input_file_path (str): The file path where the original file should be saved.
+        output_file_path_pdf (str): The file path where a copy of the file should be saved.
+    """
+    # Sauvegarder le fichier téléchargé dans le dossier spécifié
+    with open(input_file_path, "wb") as input_file:
+        input_file.write(uploaded_file.getbuffer())
+    logging.info(f"File saved : {input_file_path}")
+
+    # Sauvegarder une copie dans le dossier de sortie
+    os.makedirs(os.path.dirname(output_file_path_pdf), exist_ok=True)  # Crée le sous-dossier si nécessaire
+    with open(output_file_path_pdf, "wb") as output_file:
+        output_file.write(uploaded_file.getbuffer())
+    logging.info(f"File saved : {output_file_path_pdf}")
+
+
 def read_text_file(file_path):
     """
     Reads the content of a text file.
