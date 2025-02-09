@@ -1,29 +1,32 @@
-**Q: Où se situe le bien immobilier mentionné dans le document?**  
-A: Le bien immobilier est situé dans le village de Rock Island.
+**Q: Quel est le cadastre du bien immobilier?**  
+A: Village de Rock Island.
 
-**Q: Quel est le numéro du lot concerné dans le document?**  
-A: Le numéro du lot est 12-2.
+**Q: Quel est le lot concerné par le document?**  
+A: Lot 12-2.
 
-**Q: Quels sont les montants des hypotheques mentionnées dans le document?**  
-A: Les montants des hypothèques sont de 57 151,26$ et 109 000,00$.
+**Q: Qui étaient les emprunteurs de l'hypothèque de Citifinancière Canada, Inc.?**  
+A: Dwayne Keeler et Linda Thayer.
 
-**Q: Qui étaient les emprunteurs de la première hypothèque?**  
-A: Les emprunteurs de la première hypothèque étaient Dwayne Keeler et Linda Thayer.
+**Q: Quel montant était associé à l'hypothèque de Citifinancière Canada, Inc.?**  
+A: 57 151,26$.
 
-**Q: Qui était le créancier de la deuxième hypothèque?**  
-A: Le créancier de la deuxième hypothèque était la Caisse Desjardins de Stanstead.
+**Q: Quel créancier est mentionné pour l'hypothèque de 2010?**  
+A: Caisse Desjardins de Stanstead.
 
-**Q: Quel type de transaction a eu lieu concernant la propriété?**  
-A: Une dation en paiement volontaire a eu lieu.
+**Q: Qui étaient les constituants de l'hypothèque de la Caisse Desjardins de Stanstead?**  
+A: Dwayne Keeler et Linda Thayer.
 
-**Q: Quel crédit a été le cessionnaire lors de la dation en paiement?**  
-A: Le cessionnaire lors de la dation en paiement était la Caisse Desjardins du Lac-Memphrémagog.
+**Q: Quel montant était lié à l'hypothèque de la Caisse Desjardins de Stanstead?**  
+A: 109 000,00$.
 
-**Q: Quelles actions ont été prises concernant les droits hypothécaires dans le document?**  
-A: Les droits hypothécaires ont été radiés dans le document.
+**Q: Qui était le cédant de la dation en paiement volontaire?**  
+A: Linda Thayer et Dwayne Keeler.
 
-**Q: Comment le lot original a-t-il été modifié?**  
-A: Le lot original a été divisé ou modifié lors de la réforme cadastrale.
+**Q: Qui était le cessionnaire de la dation en paiement volontaire?**  
+A: Caisse Desjardins du Lac-Memphrémagog.
 
-**Q: Quel numéro a été attribué au nouveau lot après la réforme cadastrale?**  
-A: Le nouveau lot a été identifié comme 5 075 561 dans le Cadastre du Québec.
+**Q: Quel a été le sort des droits hypothécaires mentionnés dans le document?**  
+A: Ils ont été radiés.
+
+**Q: De quel lot s'agissait-il lors de la réforme cadastrale?**  
+A: Le lot original 12-2, qui a été modifié pour devenir un nouveau lot identifié comme 5 075 561 dans le Cadastre du Québec.

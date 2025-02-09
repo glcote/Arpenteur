@@ -64,7 +64,7 @@ def display_resume():
         with st.expander("Résumé"):
             try:
                 # Add a button to refresh the summary
-                refresh = st.button("Rafraîchir")
+                refresh = st.button("Rafraîchir", key="refresh_resume")
 
                 # Define variables for GPT
                 sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
@@ -92,126 +92,171 @@ def display_qna_saved():
     """
     Display Q&A responses for saved questions using GPT.
     
-    Parameters:
-        output_folder (str): The folder containing the "Questions_Saved.txt" file.
-        summary_file_name (str): The path to the summary file.
-        sys_prompt (str): The system prompt for GPT.
-        question_prompt (str): The question prompt for GPT.
-    """
+    The function checks for a saved Q&A file in the output_folder. If the file does not exist 
+    or if the user clicks the "Rafraîchir Q&A" button, it regenerates the responses, saves them, 
+    and then displays the results.
     
-    if os.path.exists(questions_txt_path):
-        # Create an expander for Q&A
+    Assumes the existence of:
+        - questions_txt_path: path to the saved questions (one per line).
+        - summary_file_name: path to the summary file used as context.
+    """
+
+    with st.spinner("Génération des réponses Q&A..."):
+        # Create an expander for Q&A content
         with st.expander("Q&A"):
             st.info("Réponses générées pour chaque question sauvegardée")
             
-            # Read and clean the list of saved questions
-            with open(questions_txt_path, "r", encoding="utf-8") as file:
-                # Assume each line is a question (adjust according to your format)
-                questions = [line.strip() for line in file.readlines() if line.strip()]
+            # Button to refresh (i.e. regenerate) Q&A responses.
+            refresh_qna = st.button("Rafraîchir", key="refresh_qna")
             
-            # For each question, request GPT to generate a response
-            for question in questions:
-                # Read the summary content (adjust according to your logic)
-                summary_content = read_text_file(summary_file_name)
-                sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
-                question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-                assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
-                user_prompt = (
-                    f"""En vous basant sur le document, répondez à la question suivante de manière concise.\n
-                    Question: {question}\n
-                    Réponse:"""
-                )
-                try:
-                    answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
-                except Exception as e:
-                    logging.error(f"Erreur lors de la génération de la réponse pour la question '{question}' : {e}")
-                    answer = "Erreur lors de la génération de la réponse."
+            # Check if we need to generate new Q&A responses:
+            # - if the user clicks refresh, or
+            # - if the file does not exist.
+            if refresh_qna or not os.path.exists(qna_file_name):
+                qna_responses = ""
                 
-                # Display the question and its corresponding answer in Markdown
-                st.markdown(f"**Question :** {question}")
-                st.markdown(f"**Réponse :** {answer}")
-                st.markdown("---")
+                # Read the saved questions (assuming one question per line)
+                if os.path.exists(questions_txt_path):
+                    with open(questions_txt_path, "r", encoding="utf-8") as file:
+                        questions = [line.strip() for line in file.readlines() if line.strip()]
+                else:
+                    st.warning("Le fichier des questions sauvegardées est introuvable.")
+                    return
+                
+                # For each question, generate an answer using GPT.
+                for question in questions:
+                    # Define prompts for GPT 
+                    summary_content = read_text_file(summary_file_name)
+                    sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+                    question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+                    assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+                    user_prompt = (
+                        f"""En vous basant sur le document, répondez à la question suivante de manière concise.\n
+                        Question: {question}\n
+                        Réponse:"""
+                    )
+                    
+                    try:
+                        answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
+                    except Exception as e:
+                        logging.error(f"Erreur lors de la génération de la réponse pour la question '{question}' : {e}")
+                        answer = "Erreur lors de la génération de la réponse."
+                    
+                    # Format the Q&A pair in Markdown
+                    qna_responses += f"**{question}**\n\n{answer}\n\n---\n"
+                
+                # Save the generated Q&A responses for future use.
+                try:
+                    with open(qna_file_name, "w", encoding="utf-8") as f:
+                        f.write(qna_responses)
+                except Exception as e:
+                    logging.error(f"Erreur lors de la sauvegarde du fichier Q&A : {e}")
+            else:
+                # If the file exists and refresh was not requested, load its contents.
+                try:
+                    with open(qna_file_name, "r", encoding="utf-8") as f:
+                        qna_responses = f.read()
+                except Exception as e:
+                    st.error("Erreur lors de la lecture du fichier Q&A sauvegardé.")
+                    logging.error(f"Erreur lors de la lecture du fichier Q&A : {e}")
+                    return
+            
+            # Process the text to remove any "Q:" and "A:" markers, similar to the suggestions display
+            display_text = re.sub(r"Question\s*:\s*", "", qna_responses)
+            display_text = re.sub(r"Réponse\s*:\s*", "", display_text)
+            # Finally, display the Q&A responses in Markdown.
+            st.markdown(display_text)
 
 def display_qna_suggestions():
     """
     Generate and display Q&A suggestions based on a document summary,
     allow the user to select questions, and save them.
     
-    Parameters:
-        output_folder (str): The folder where output files are stored.
-        file_name (str): The base name of the file (without extension).
-        summary_file_name (str): The path to the summary file.
+    Assumes the existence of:
+        - output_folder: folder where output files are stored.
+        - file_name: base name of the file (without extension).
+        - summary_file_name: path to the summary file.
     """
-    with st.spinner("Q&A en cours..."):
-        with st.expander("Q&A Suggestions"):
-            st.info("Voici quelques suggestions pour des questions/réponses que vous pouvez ensuite sauvegardez.")
-            try:
-                # Button to refresh content with a unique key
-                refresh = st.button("Rafraîchir", key="refresh_qna_suggestions")
+    with st.expander("Q&A Suggestions"):
+        st.info("Voici quelques suggestions pour des questions/réponses que vous pouvez ensuite sauvegarder.")
+        try:
+            # Button to refresh content with a unique key
+            refresh = st.button("Rafraîchir", key="refresh_qna_suggestions")
 
-                # Define variables for GPT
-                summary_content = read_text_file(summary_file_name)
-                sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
-                question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-                assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
-                # Note: The original code repeated the assistant_answer; one instance is sufficient.
-                user_prompt = (
-                    f"""Présentez moi une série de questions concernant le document.
+            # Define variables for GPT
+            summary_content = read_text_file(summary_file_name)
+            sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+            question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+            assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+            user_prompt = (
+                f"""Présentez moi une série de questions concernant le document.
 Les réponses doivent se trouver directement dans le texte fourni.
-Votre réponse doit être structurées en paires structurées 'Q:' et 'A:'.
+Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
 Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
 Éviter les dates dans vos réponse.
 Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
-Veuiller mettre les questions en gras svp."""
-                )
+Veuillez mettre les questions en gras svp."""
+            )
+            
+            # Build the file name for the suggested Q&A
+            questions_file_name = os.path.join(output_folder, file_name, f"{file_name}_Q&A_Suggested.txt")
+            
+            # If refresh is requested or the file doesn't exist, generate a new version
+            if refresh or not os.path.exists(questions_file_name):
+                gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
+            else:
+                # Otherwise, read its content
+                with open(questions_file_name, "r", encoding="utf-8") as f:
+                    gen_answer = f.read()
+            
+            # Extract Q&A pairs using a regular expression.
+            # The regex looks for text following a "Q:" marker up to an "A:" marker,
+            # and then grabs the answer up until the next Q: or the end of the string.
+            qa_pairs = re.findall(
+                r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)",
+                gen_answer,
+                re.DOTALL
+            )
+            
+            if qa_pairs:
+                # Build the Markdown string with the same format as in display_qna_saved()
+                qna_responses = ""
+                for question, answer in qa_pairs:
+                    qna_responses += f"**{question.strip()}**\n\n{answer.strip()}\n\n---\n"
                 
-                # Build the file name for the suggested Q&A
-                questions_file_name = os.path.join(output_folder, file_name, f"{file_name}_Q&A_Suggested.txt")
+                # Display the formatted Q&A pairs
+                st.markdown(qna_responses)
                 
-                # If refresh is requested or the file doesn't exist, generate a new version
-                if refresh or not os.path.exists(questions_file_name):
-                    gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
-                else:
-                    # Otherwise, read its content
-                    with open(questions_file_name, "r", encoding="utf-8") as f:
-                        gen_answer = f.read()
-                
-                # Display the generated text as Markdown
-                st.markdown(gen_answer)
-
                 ###############################################
                 # Extraction and Saving of Q&A
                 ###############################################
                 
-                # Extract Q&A pairs using a regular expression
-                qa_pairs = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL)
+                # Format the questions for display in a multiselect widget.
+                # (We remove any bold Markdown markers for the selection options.)
+                options = [question.strip().replace('**', '') for question, _ in qa_pairs]
                 
-                if qa_pairs:
-                    # Format the questions for display in a multiselect widget
-                    options = [q.strip().replace('**', '') for q, a in qa_pairs]
+                # Allow multiple questions to be selected.
+                selected_question = st.multiselect(
+                    "Question(s) sauvegardée(s)",
+                    options,
+                    key="multi_qna"
+                )
+                
+                # Button to save the selected questions, with a unique key.
+                if st.button("Sauvegarder la sélection", key="save_selected_qna"):
+                    if selected_question:
+                        # Build the file path to save the questions.
+                        question_file_name = os.path.join(output_folder, "Questions_Saved.txt")
+                        save_to_txt(selected_question, question_file_name, operation="insert")
+                        st.success("Les questions ont été sauvegardées !")
+                    else:
+                        st.warning("Veuillez sélectionner au moins une question avant de sauvegarder.")
+            else:
+                st.warning("Aucune question n'a pu être extraite du texte généré.")
                     
-                    # Allow multiple questions to be selected
-                    selected_question = st.multiselect(
-                        "Question(s) sauvegardée(s)",
-                        options,
-                        key="multi_qna"
-                    )
-                    
-                    # Button to save the selected questions, with a unique key
-                    if st.button("Sauvegarder la sélection", key="save_selected_qna"):
-                        if selected_question:
-                            # Build the file path to save the questions
-                            question_file_name = os.path.join(output_folder, "Questions_Saved.txt")
-                            save_to_txt(selected_question, question_file_name, operation="insert")
-                            st.success("Les questions ont été sauvegardées !")
-                        else:
-                            st.warning("Veuillez sélectionner au moins une question avant de sauvegarder.")
-                else:
-                    st.warning("Aucune question n'a pu être extraite du texte généré.")
-                        
-            except Exception as e:
-                st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
-                logging.error(f"Erreur lors de la génération des Q&A : {e}")
+        except Exception as e:
+            st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
+            logging.error(f"Erreur lors de la génération des Q&A : {e}")
 
 
 ########################################
@@ -219,16 +264,15 @@ Veuiller mettre les questions en gras svp."""
 ########################################
 
 if uploaded_file:
-    # Extract file name without the ".pdf" extension
+    # Define few variables
     file_name = re.sub(r"\.pdf$", "", uploaded_file.name)
-    
-    # Define the input and output file paths
     input_file_path = os.path.join(input_folder, uploaded_file.name)
     output_file_path_pdf = os.path.join(output_folder, file_name, file_name + ".pdf")
     output_file_path_txt = os.path.join(output_folder, file_name, file_name + "_Combine.txt")
     summary_file_name = os.path.join(output_folder, file_name, f"{file_name}_Resume.txt")
     summary_content = read_text_file(summary_file_name)
     questions_txt_path = os.path.join(output_folder, "Questions_Saved.txt")
+    qna_file_name = os.path.join(output_folder, file_name, f"{file_name}_Q&A_Saved.txt")
     
     # Check if the file (or folder) already exists in output_folder or its subfolders
     file_exists = False
@@ -241,10 +285,16 @@ if uploaded_file:
         image_paths = pdf_to_images(input_folder, uploaded_file.name, output_folder)
         nb_images = len(image_paths)
 
+        ########################################
         # Step 1: Upload and save the PDF
+        ########################################
+
         save_uploaded_file(uploaded_file, input_file_path, output_file_path_pdf)
 
+        ########################################
         # Step 2: Process the PDF for OCR and Download .txt files
+        ########################################
+        
         if not file_exists:
 
             # Process the PDF for OCR
@@ -256,117 +306,86 @@ if uploaded_file:
             time.sleep(nb_secondes)
             with st.spinner(f"Téléchargement des {nb_images} fichiers .txt ({nb_secondes}s)..."):
                 ocr_list_download_combine_txt_file()
- 
-        # Step 3: Convert the PDF to images and save the generated images
-        display_images()
+        
+        ########################################
+        # Step 3: Display Expanders
+        ########################################
+        
+        with st.spinner("Image..."):
+            display_images()
+        with st.spinner("Résumé..."):
+            display_resume()
+        with st.spinner("Q&A..."):
+            display_qna_saved()
+        with st.spinner("Q&A Suggestion..."):
+            display_qna_suggestions()
 
-        # Step 4: Display 
-        display_resume()
-        display_qna_saved()
-        display_qna_suggestions()
+        ########################################
+        # Step 4: GPT Interaction
+        ########################################
+
+        # Initialize the session state variable if it doesn't exist
+        if "generated_answer" not in st.session_state:
+            st.session_state.generated_answer = ""
+
+        sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+        question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+        assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+        user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez moi votre question...")
+
+        # Button to generate the response
+        if st.button("Générer la réponse"):
+            generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
+            st.session_state.generated_answer = generated_answer
+
+        # Button to save the question (and/or response if they exist)
+        if st.session_state.generated_answer or user_prompt:
+            if st.button("Enregistrer la question"):
+                answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
+                try:
+                    save_to_txt(user_prompt, answer_file_path, operation="insert")
+                except Exception as e:
+                    st.error(f"Erreur lors de l'enregistrement : {e}")
+
+        # Always display the generated answer if it exists
+        st.markdown("### Réponse Générée")
+        st.write(st.session_state.generated_answer)
 
     except Exception as e:
         st.error("Une erreur s'est produite lors du traitement du PDF.")
         st.exception(e)
 
-    # ########################################
-    # # Expender "Q&A"
-    # ########################################
-    # with st.spinner("Q&A en cours..."):
-    #     with st.expander("Q&A Suggestions"):
-    #         st.info("Voici quelques suggestions pour des questions/réponses que vous pouvez ensuite sauvegardez.")
-    #         try:
-    #             # Bouton pour rafraîchir le contenu, avec une clé unique
-    #             refresh = st.button("Rafraîchir", key="refresh_qna_suggestions")
 
-    #             # Définir les variables pour GPT
-    #             summary_content = read_text_file(summary_file_name)
-    #             sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
-    #             question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-    #             assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
-    #             assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
-    #             user_prompt = """Présentez moi une série de questions concernant le document. 
-    #             Les réponses doivent se trouver directement dans le texte fourni. 
-    #             Votre réponse doit être structurées en paires structurées 'Q:' et 'A:'. 
-    #             Par exemple : 'Q: Quel est votre nom? R: Je m'appelle GPT.'
-    #             Éviter les dates dans vos réponse.
-    #             Par exemple : 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
-    #             Veuiller mettre les questions en gras svp."""
-                
-    #             questions_file_name = f"{output_folder}/{file_name}/{file_name}_Q&A_Suggested.txt"
-                
-    #             # Si rafraîchissement demandé ou si le fichier n'existe pas, générer une nouvelle version
-    #             if refresh or not os.path.exists(questions_file_name):
-    #                 gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
-    #             else:
-    #                 # Sinon, lire son contenu
-    #                 with open(questions_file_name, "r", encoding="utf-8") as f:
-    #                     gen_answer = f.read()
-                
-    #             # Afficher le texte généré en Markdown
-    #             st.markdown(gen_answer)
+########################################
+# GPT Interaction
+########################################
 
-    #             ###############################################
-    #             # Extraction et sauvegarde de Q&A
-    #             ###############################################
+# # Initialize the session state variable if it doesn't exist
+# if "generated_answer" not in st.session_state:
+#     st.session_state.generated_answer = ""
 
-    #             # Extraction des paires Q&A avec une expression régulière
-    #             qa_pairs = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL) # Question
-    #             # question_list = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL)
-    #             # answer_list = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)", gen_answer, re.DOTALL)
+# sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+# question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+# assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+# user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez moi votre question...")
 
-    #             if qa_pairs:
-    #                 # Formatage des paires pour l'affichage dans le multiselect
-    #                 options = [f"{q.strip().replace('**', '')}" for q, a in qa_pairs]
-                    
-    #                 # Sélection multiple
-    #                 selected_question = st.multiselect(
-    #                     "Question(s) sauvegardée(s)",
-    #                     options,
-    #                     key="multi_qna"
-    #                 )
-                    
-    #                 # Bouton pour sauvegarder la sélection, avec une clé unique
-    #                 if st.button("Sauvegarder la sélection", key="save_selected_qna"):
-    #                     if selected_question:
-    #                         question_file_name = os.path.join(output_folder, f"Questions_Saved.txt")
-    #                         save_to_txt(selected_question, question_file_name, operation="insert")
-    #                         st.success("Les questions ont été sauvegardées !")
-    #                     else:
-    #                         st.warning("Veuillez sélectionner au moins un question avant de sauvegarder.")
-    #             else:
-    #                 st.warning("Aucune question n'a pu être extraite du texte généré.")
-                        
-    #         except Exception as e:
-    #             st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
-    #             logging.error(f"Erreur lors de la génération des Q&A : {e}")
+# # Button to generate the response
+# if st.button("Générer la réponse"):
+#     generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
+#     st.session_state.generated_answer = generated_answer
 
-# ########################################
-# # GPT Interaction
-# ########################################
+# # Button to save the question (and/or response if they exist)
+# if st.session_state.generated_answer or user_prompt:
+#     if st.button("Enregistrer la question"):
+#         answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
+#         try:
+#             save_to_txt(user_prompt, answer_file_path, operation="insert")
+#         except Exception as e:
+#             st.error(f"Erreur lors de l'enregistrement : {e}")
 
-#     # Initialize the session state variable if it doesn't exist
-#     if "generated_answer" not in st.session_state:
-#         st.session_state.generated_answer = ""
+# # Always display the generated answer if it exists
+# st.markdown("### Réponse Générée")
+# st.write(st.session_state.generated_answer)
 
-#     user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez ici votre question...")
 
-#     # Button to generate the response
-#     if st.button("Générer la réponse"):
-#         generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
-#         st.session_state.generated_answer = generated_answer
-
-#     # Button to save the question (and/or response if they exist)
-#     if st.session_state.generated_answer or user_prompt:
-#         if st.button("Enregistrer la question"):
-#             answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
-#             try:
-#                 save_to_txt(user_prompt, answer_file_path, operation="insert")
-#             except Exception as e:
-#                 st.error(f"Erreur lors de l'enregistrement : {e}")
-
-#     # Always display the generated answer if it exists
-#     if st.session_state.generated_answer:
-#         st.markdown("### Réponse Générée")
-#         st.write(st.session_state.generated_answer)
 
