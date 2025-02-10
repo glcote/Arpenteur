@@ -210,8 +210,6 @@ Veuillez mettre les questions en gras svp."""
                     gen_answer = f.read()
             
             # Extract Q&A pairs using a regular expression.
-            # The regex looks for text following a "Q:" marker up to an "A:" marker,
-            # and then grabs the answer up until the next Q: or the end of the string.
             qa_pairs = re.findall(
                 r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)",
                 gen_answer,
@@ -219,10 +217,11 @@ Veuillez mettre les questions en gras svp."""
             )
             
             if qa_pairs:
-                # Build the Markdown string with the same format as in display_qna_saved()
+                # Build the Markdown string with improved formatting
                 qna_responses = ""
                 for question, answer in qa_pairs:
-                    qna_responses += f"**{question.strip()}**\n\n{answer.strip()}\n\n---\n"
+                    clean_question = question.strip().rstrip('*').strip()
+                    qna_responses += f"**{clean_question}**\n\n{answer.strip()}\n\n---\n"
                 
                 # Display the formatted Q&A pairs
                 st.markdown(qna_responses)
@@ -232,8 +231,7 @@ Veuillez mettre les questions en gras svp."""
                 ###############################################
                 
                 # Format the questions for display in a multiselect widget.
-                # (We remove any bold Markdown markers for the selection options.)
-                options = [question.strip().replace('**', '') for question, _ in qa_pairs]
+                options = [question.strip().rstrip('*').strip() for question, _ in qa_pairs]
                 
                 # Allow multiple questions to be selected.
                 selected_question = st.multiselect(
@@ -253,6 +251,280 @@ Veuillez mettre les questions en gras svp."""
                         st.warning("Veuillez sélectionner au moins une question avant de sauvegarder.")
             else:
                 st.warning("Aucune question n'a pu être extraite du texte généré.")
+                    
+        except Exception as e:
+            st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
+            logging.error(f"Erreur lors de la génération des Q&A : {e}")
+
+def display_qna_suggestions():
+    """
+    Generate and display Q&A suggestions based on a document summary,
+    allow the user to select questions, and save them.
+
+    Assumes the existence of:
+        - output_folder: folder where output files are stored.
+        - file_name: base name of the file (without extension).
+        - summary_file_name: path to the summary file.
+    """
+    with st.expander("Q&A Suggestions"):
+        st.info("Voici quelques suggestions de questions/réponses que vous pouvez ensuite sauvegarder.")
+        try:
+            # Button to refresh content with a unique key
+            refresh = st.button("Rafraîchir", key="refresh_qna_suggestions")
+
+            # Define variables for GPT
+            summary_content = read_text_file(summary_file_name)
+            sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+            question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+            assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+            user_prompt = (
+                f"""Présentez moi une série de questions concernant le document.
+Les réponses doivent se trouver directement dans le texte fourni.
+Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+Éviter les dates dans vos réponse.
+Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+Veuillez mettre les questions en gras svp."""
+            )
+            
+            # Build the file name for the suggested Q&A
+            questions_file_name = os.path.join(output_folder, file_name, f"{file_name}_Q&A_Suggested.txt")
+            
+            # If refresh is requested or the file doesn't exist, generate a new version
+            if refresh or not os.path.exists(questions_file_name):
+                gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
+            else:
+                # Otherwise, read its content
+                with open(questions_file_name, "r", encoding="utf-8") as f:
+                    gen_answer = f.read()
+            
+            # Extract Q&A pairs using a regular expression.
+            qa_pairs = re.findall(
+                r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)",
+                gen_answer,
+                re.DOTALL
+            )
+            
+            if qa_pairs:
+                # Build the Markdown string with improved formatting
+                qna_responses = ""
+                for question, answer in qa_pairs:
+                    clean_question = question.strip().rstrip('*').strip()
+                    qna_responses += f"**{clean_question}**\n\n{answer.strip()}\n\n---\n"
+                
+                # Display the formatted Q&A pairs
+                st.markdown(qna_responses)
+                
+                ###############################################
+                # Extraction and Saving of Q&A
+                ###############################################
+
+                st.info("Vous pouvez sauvegarder une question et mettre à jour ou supprimer une question sauvegardée.")
+                
+                # Format the questions for display in a multiselect widget.
+                options = [question.strip().rstrip('*').strip() for question, _ in qa_pairs]
+                
+                # Allow multiple questions to be selected.
+                selected_question = st.multiselect(
+                    "Sauvegardez une ou plusieurs questions suggérées",
+                    options,
+                    key="multi_qna"
+                )
+                
+                # Button to save the selected questions, with a unique key.
+                if st.button("Sauvegarder la sélection", key="save_selected_qna"):
+                    if selected_question:
+                        # Build the file path to save the questions.
+                        question_file_name = os.path.join(output_folder, "Questions_Saved.txt")
+                        save_to_txt(selected_question, question_file_name, operation="insert")
+                        st.success("Les questions ont été sauvegardées !")
+                    else:
+                        st.warning("Veuillez sélectionner au moins une question avant de sauvegarder.")
+
+            else:
+                st.warning("Aucune question n'a pu être extraite du texte généré.")
+
+            ###############################################
+            # Manage Saved Questions: Update and Delete
+            ###############################################
+            saved_questions_file = os.path.join(output_folder, "Questions_Saved.txt")
+            if os.path.exists(saved_questions_file):
+                # Read saved questions from file; assuming one question per line
+                with open(saved_questions_file, "r", encoding="utf-8") as f:
+                    saved_questions = [line.strip() for line in f if line.strip()]
+            else:
+                saved_questions = []
+            
+            if saved_questions:
+                selected_saved_question = st.selectbox("Sélectionnez une question", saved_questions, key="saved_question_select")
+                new_question_text = st.text_input("Modifier la question", value=selected_saved_question, key="update_question_input")
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("Mettre à jour la question", key="update_question_button"):
+                        try:
+                            # Update the selected question in the list
+                            index = saved_questions.index(selected_saved_question)
+                            saved_questions[index] = new_question_text
+                            # Write the updated list back to the file
+                            with open(saved_questions_file, "w", encoding="utf-8") as f:
+                                for q in saved_questions:
+                                    f.write(q + "\n")
+                            st.success("La question a été mise à jour.")
+                        except Exception as update_error:
+                            st.error(f"Erreur lors de la mise à jour : {update_error}")
+                with col2:
+                    if st.button("Supprimer la question", key="delete_question_button"):
+                        try:
+                            # Remove the selected question from the list
+                            saved_questions.remove(selected_saved_question)
+                            # Write the updated list back to the file
+                            with open(saved_questions_file, "w", encoding="utf-8") as f:
+                                for q in saved_questions:
+                                    f.write(q + "\n")
+                            st.success("La question a été supprimée.")
+                        except Exception as delete_error:
+                            st.error(f"Erreur lors de la suppression : {delete_error}")
+            else:
+                st.warning("Aucune question sauvegardée à gérer.")
+                    
+        except Exception as e:
+            st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
+            logging.error(f"Erreur lors de la génération des Q&A : {e}")
+
+def display_qna_suggestions():
+    """
+    Generate and display Q&A suggestions based on a document summary,
+    allow the user to select questions, and save them.
+
+    Assumes the existence of:
+        - output_folder: folder where output files are stored.
+        - file_name: base name of the file (without extension).
+        - summary_file_name: path to the summary file.
+    """
+    with st.expander("Q&A Suggestions"):
+        st.info("Voici quelques suggestions de questions/réponses que vous pouvez ensuite sauvegarder.")
+        try:
+            # Button to refresh content with a unique key
+            refresh = st.button("Rafraîchir", key="refresh_qna_suggestions")
+
+            # Define variables for GPT
+            summary_content = read_text_file(summary_file_name)
+            sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+            question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+            assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+            user_prompt = (
+                f"""Présentez moi une série de questions concernant le document.
+Les réponses doivent se trouver directement dans le texte fourni.
+Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+Éviter les dates dans vos réponse.
+Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+Veuillez mettre les questions en **gras** svp."""
+            )
+            
+            # Build the file name for the suggested Q&A
+            questions_file_name = os.path.join(output_folder, file_name, f"{file_name}_Q&A_Suggested.txt")
+            
+            # If refresh is requested or the file doesn't exist, generate a new version
+            if refresh or not os.path.exists(questions_file_name):
+                gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
+            else:
+                # Otherwise, read its content
+                with open(questions_file_name, "r", encoding="utf-8") as f:
+                    gen_answer = f.read()
+            
+            # Extract Q&A pairs using a regular expression.
+            qa_pairs = re.findall(
+                r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\n.+Q\s?:|\Z)",
+                gen_answer,
+                re.DOTALL
+            )
+            
+            if qa_pairs:
+                # Build the Markdown string with improved formatting
+                qna_responses = ""
+                for question, answer in qa_pairs:
+                    clean_question = question.strip().rstrip('*').strip()
+                    qna_responses += f"**{clean_question}**\n\n{answer.strip()}\n\n---\n"
+                
+                # Display the formatted Q&A pairs
+                st.markdown(qna_responses)
+                
+                # --------------------------------------------------
+                # Add a horizontal separator between sections
+                st.markdown("--------")
+                # --------------------------------------------------
+
+                ###############################################
+                # Extraction and Saving of Q&A
+                ###############################################
+                st.info("Vous pouvez sauvegarder une question et mettre à jour ou supprimer une question sauvegardée.")
+                
+                # Format the questions for display in a multiselect widget.
+                options = [question.strip().rstrip('*').strip() for question, _ in qa_pairs]
+                
+                # Allow multiple questions to be selected.
+                selected_question = st.multiselect(
+                    "Sauvegardez une ou plusieurs questions suggérées",
+                    options,
+                    key="multi_qna"
+                )
+                
+                # Button to save the selected questions, with a unique key.
+                if st.button("Sauvegarder la sélection", key="save_selected_qna"):
+                    if selected_question:
+                        # Build the file path to save the questions.
+                        question_file_name = os.path.join(output_folder, "Questions_Saved.txt")
+                        save_to_txt(selected_question, question_file_name, operation="insert")
+                        st.success("Les questions ont été sauvegardées !")
+                    else:
+                        st.warning("Veuillez sélectionner au moins une question avant de sauvegarder.")
+
+            else:
+                st.warning("Aucune question n'a pu être extraite du texte généré.")
+
+            ###############################################
+            # Manage Saved Questions: Update and Delete
+            ###############################################
+            saved_questions_file = os.path.join(output_folder, "Questions_Saved.txt")
+            if os.path.exists(saved_questions_file):
+                # Read saved questions from file; assuming one question per line
+                with open(saved_questions_file, "r", encoding="utf-8") as f:
+                    saved_questions = [line.strip() for line in f if line.strip()]
+            else:
+                saved_questions = []
+            
+            if saved_questions:
+                selected_saved_question = st.selectbox("Sélectionnez une question", saved_questions, key="saved_question_select")
+                new_question_text = st.text_input("Modifier la question", value=selected_saved_question, key="update_question_input")
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("Mettre à jour la question", key="update_question_button"):
+                        try:
+                            # Update the selected question in the list
+                            index = saved_questions.index(selected_saved_question)
+                            saved_questions[index] = new_question_text
+                            # Write the updated list back to the file
+                            with open(saved_questions_file, "w", encoding="utf-8") as f:
+                                for q in saved_questions:
+                                    f.write(q + "\n")
+                            st.success("La question a été mise à jour.")
+                        except Exception as update_error:
+                            st.error(f"Erreur lors de la mise à jour : {update_error}")
+                with col2:
+                    if st.button("Supprimer la question", key="delete_question_button"):
+                        try:
+                            # Remove the selected question from the list
+                            saved_questions.remove(selected_saved_question)
+                            # Write the updated list back to the file
+                            with open(saved_questions_file, "w", encoding="utf-8") as f:
+                                for q in saved_questions:
+                                    f.write(q + "\n")
+                            st.success("La question a été supprimée.")
+                        except Exception as delete_error:
+                            st.error(f"Erreur lors de la suppression : {delete_error}")
+            else:
+                st.warning("Aucune question sauvegardée à gérer.")
                     
         except Exception as e:
             st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
@@ -320,6 +592,9 @@ if uploaded_file:
         with st.spinner("Q&A Suggestion..."):
             display_qna_suggestions()
 
+        # # Step 4: Add the section to manage the Q&A_Saved.txt file.
+        # display_qna_suggestions()
+
         ########################################
         # Step 4: GPT Interaction
         ########################################
@@ -346,9 +621,10 @@ if uploaded_file:
                     save_to_txt(user_prompt, answer_file_path, operation="insert")
                 except Exception as e:
                     st.error(f"Erreur lors de l'enregistrement : {e}")
+            st.markdown("### Réponse Générée")
 
-        # Always display the generated answer if it exists
-        st.markdown("### Réponse Générée")
+        # # Always display the generated answer if it exists
+        # st.markdown("### Réponse Générée")
         st.write(st.session_state.generated_answer)
 
     except Exception as e:

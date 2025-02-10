@@ -1,32 +1,35 @@
-**Q: Quel est le cadastre du bien immobilier?**  
-A: Village de Rock Island.
+**Q: Dans quel cadre foncier se situe le bien immobilier?**  
+A: Le bien immobilier se situe dans la circonscription foncière de Stanstead.
 
-**Q: Quel est le lot concerné par le document?**  
-A: Lot 12-2.
+**Q: Quels sont les preneurs de l'hypothèque de Citifinancière Canada, Inc.?**  
+A: Les preneurs de l'hypothèque de Citifinancière Canada, Inc. sont Dwayne Keeler et Linda Thayer.
 
-**Q: Qui étaient les emprunteurs de l'hypothèque de Citifinancière Canada, Inc.?**  
-A: Dwayne Keeler et Linda Thayer.
+**Q: Quel est le montant de l'hypothèque liée à Citifinancière Canada, Inc.?**  
+A: Le montant de l'hypothèque liée à Citifinancière Canada, Inc. est de 57 151,26$.
 
-**Q: Quel montant était associé à l'hypothèque de Citifinancière Canada, Inc.?**  
-A: 57 151,26$.
+**Q: Quel créancier est associé à l'hypothèque de 2010?**  
+A: Le créancier associé à l'hypothèque de 2010 est la Caisse Desjardins de Stanstead.
 
-**Q: Quel créancier est mentionné pour l'hypothèque de 2010?**  
-A: Caisse Desjardins de Stanstead.
+**Q: Quel montant a été lié à l'hypothèque de la Caisse Desjardins de Stanstead?**  
+A: Le montant lié à l'hypothèque de la Caisse Desjardins de Stanstead est de 109 000,00$.
 
-**Q: Qui étaient les constituants de l'hypothèque de la Caisse Desjardins de Stanstead?**  
-A: Dwayne Keeler et Linda Thayer.
+**Q: Quelle est la nature de la transaction effectuée en juin 2014?**  
+A: La transaction effectuée en juin 2014 est une dation en paiement volontaire.
 
-**Q: Quel montant était lié à l'hypothèque de la Caisse Desjardins de Stanstead?**  
-A: 109 000,00$.
+**Q: Qui sont les cédants dans la dation en paiement volontaire?**  
+A: Les cédants dans la dation en paiement volontaire sont Linda Thayer et Dwayne Keeler.
 
-**Q: Qui était le cédant de la dation en paiement volontaire?**  
-A: Linda Thayer et Dwayne Keeler.
+**Q: Quel a été le cessionnaire lors de la dation en paiement volontaire?**  
+A: Le cessionnaire lors de la dation en paiement volontaire est la Caisse Desjardins du Lac-Memphrémagog.
 
-**Q: Qui était le cessionnaire de la dation en paiement volontaire?**  
-A: Caisse Desjardins du Lac-Memphrémagog.
+**Q: Que représente la mention de la transformation du lot dans le document?**  
+A: La mention de la transformation du lot représente la division ou la modification du lot original pour devenir un nouveau lot identifié comme 5 075 561.
 
-**Q: Quel a été le sort des droits hypothécaires mentionnés dans le document?**  
-A: Ils ont été radiés.
+**Q: Qu'est-ce qui a été radié selon le document?**  
+A: Selon le document, les droits hypothécaires initialement inscrits ont été radiés.
 
-**Q: De quel lot s'agissait-il lors de la réforme cadastrale?**  
-A: Le lot original 12-2, qui a été modifié pour devenir un nouveau lot identifié comme 5 075 561 dans le Cadastre du Québec.
+**Q: Qui est le prêteur associé à la première hypothèque mentionnée dans le document?**  
+A: Le prêteur associé à la première hypothèque mentionnée dans le document est Citifinancière Canada, Inc. 
+
+**Q: Quel type de document fournit des informations sur l’état des droits de propriété et des charges financières?**  
+A: Ce document fournit des informations sur l’état des droits de propriété et des charges financières.
