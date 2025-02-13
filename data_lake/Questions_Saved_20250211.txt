@@ -1,0 +1,4 @@
+Quel est le numéro du/des lot(s) concerné(s) dans le document?
+Où se situe le bien immobilier mentionné dans le document?
+Dans quel cadre foncier se situe le bien immobilier?
+Qu'est-ce qui a été radié selon le document?

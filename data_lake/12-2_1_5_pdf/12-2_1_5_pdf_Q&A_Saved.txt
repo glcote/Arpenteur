@@ -1,6 +1,6 @@
-**Quel est le numéro du lot concerné dans le document?**
+**Quel est le numéro du/des lot(s) concerné(s) dans le document?**
 
-Réponse : Le numéro du lot concerné dans le document est le 12-2.
+Réponse : Lot 12-2 (Modifié en lot 5 075 561 lors de la réforme cadastrale).
 
 ---
 **Où se situe le bien immobilier mentionné dans le document?**
@@ -8,8 +8,13 @@ Réponse : Le numéro du lot concerné dans le document est le 12-2.
 Le bien immobilier mentionné dans le document est situé dans le village de Rock Island, dans la circonscription foncière de Stanstead.
 
 ---
-**Dit Allo**
+**Dans quel cadre foncier se situe le bien immobilier?**
 
-Allo! Comment puis-je vous aider aujourd'hui?
+Réponse : Le bien immobilier se situe dans la circonscription foncière de Stanstead, spécifiquement dans le village de Rock Island.
+
+---
+**Qu'est-ce qui a été radié selon le document?**
+
+Selon le document, les droits hypothécaires initialement inscrits sur le bien immobilier ont été radiés, incluant les hypothèques de Citifinancière Canada, Inc. et de la Caisse Desjardins de Stanstead.
 
 ---

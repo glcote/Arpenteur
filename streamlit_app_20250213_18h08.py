@@ -214,16 +214,19 @@ def display_qna_suggestions(output_folder, file_name, summary_file_name):
             qna_responses = ""
             for question, answer in qa_pairs:
                 clean_question = question.strip().rstrip('*').strip()
-                qna_responses += f"**{clean_question}**\n\n{answer.strip()}\n\n"
+                qna_responses += f"**{clean_question}**\n\n{answer.strip()}\n\n---\n"
             
             # Display the formatted Q&A pairs
             st.markdown(qna_responses)
+            
+            # # --------------------------------------------------
+            # # Add a horizontal separator between sections
+            # st.markdown("--------")
+            # # --------------------------------------------------
 
             ###############################################
             # Extraction and Saving of Q&A
             ###############################################
-
-            st.markdown("--------")
             st.info("Vous pouvez sauvegarder une question et mettre à jour ou supprimer une question sauvegardée.")
             
             # Format the questions for display in a multiselect widget.
@@ -247,6 +250,7 @@ def display_qna_suggestions(output_folder, file_name, summary_file_name):
                 else:
                     st.warning("Veuillez sélectionner au moins une question avant de sauvegarder.")
 
+            st.markdown("--------")
         else:
             st.warning("Aucune question n'a pu être extraite du texte généré.")
 
@@ -297,6 +301,40 @@ def display_qna_suggestions(output_folder, file_name, summary_file_name):
         st.error("Une erreur s'est produite lors de la génération des questions suggérées.")
         logging.error(f"Erreur lors de la génération des Q&A : {e}")
 
+def wait_for_upload(file_id, timeout=600, poll_interval=10):
+    """
+    Polls the Handwriting OCR API to check if the file with file_id has been successfully uploaded.
+    
+    Args:
+        file_id (str): The identifier of the file (returned by your OCR API call).
+        timeout (int): Maximum time in seconds to wait for the file to be uploaded.
+        poll_interval (int): Seconds between status checks.
+    
+    Returns:
+        bool: True if the file is uploaded before timeout, False otherwise.
+    """
+    elapsed = 0
+    status_endpoint = f"https://www.handwritingocr.com/api/v2/documents/{file_id}"
+    headers = {
+        "Authorization": f"Bearer {api_key_handwriting_ocr}",
+        "Accept": "application/json",
+    }
+    
+    while elapsed < timeout:
+        try:
+            response = requests.get(status_endpoint, headers=headers)
+            response.raise_for_status()
+            data = response.json()
+            # Assuming the API returns a status field; adjust as needed
+            if data.get("status") == "uploaded":
+                return True
+        except Exception as e:
+            logging.error(f"Error checking status for file {file_id}: {e}")
+        
+        time.sleep(poll_interval)
+        elapsed += poll_interval
+    return False
+
 ########################################
 # PDF -> Image -> OCR -> TXT -> LOOP(GPT) -> Action!
 ########################################
@@ -340,35 +378,40 @@ if uploaded_file:
                 # pdf_to_ocr(input_file_path, output_folder)
                 pdf_to_ocr(input_folder, output_folder)
 
-            # # Download .txt files (wait time based on the number of images)
-            # nb_secondes = 10 * nb_images
-            # time.sleep(nb_secondes)
-            # with st.spinner(f"Téléchargement des {nb_images} fichiers .txt ({nb_secondes}s)..."):
-            #     ocr_list_download_combine_txt_file()
-            
-            
-            # Wait until all .txt files are processed and ready for download
-            expected_txt_count = nb_images  # assuming one .txt file per image
-            timeout = 20  # maximum wait time in seconds (adjust as needed)
-            poll_interval = 5  # seconds between checks
-
-            with st.spinner("Traitement OCR..."):
-                start_time = time.time()
-                while True:
-                    # For example, if the OCR API saves the .txt files in a known output folder:
-                    txt_files = [
-                        f for f in os.listdir(output_folder)
-                        if f.endswith(".txt") and file_name in f  # assuming file_name is in the .txt file names
-                    ]
-                    if len(txt_files) >= expected_txt_count:
-                        break  # All files are ready
-                    if time.time() - start_time > timeout:
-                        st.error("Le traitement OCR a pris trop de temps.")
-                        break
-                    time.sleep(poll_interval)
-
-            with st.spinner("Téléchargement des fichiers .txt en cours..."):
+            # Download .txt files (wait time based on the number of images)
+            nb_secondes = 10 * nb_images
+            time.sleep(nb_secondes)
+            with st.spinner(f"Téléchargement des {nb_images} fichiers .txt ({nb_secondes}s)..."):
                 ocr_list_download_combine_txt_file()
+
+
+
+            # # For each generated image, transcribe and then wait for the upload to complete
+            # all_files_uploaded = True
+            # file_ids = []
+            # for image_path in image_paths:
+            #     result = transcribe_file(image_path)
+            #     file_id = result.get("id")  # Adjust based on actual response
+            #     if file_id:
+            #         file_ids.append(file_id)
+            #     else:
+            #         logging.error(f"Aucun file_id retourné pour {image_path}.")
+            #         all_files_uploaded = False
+
+            # if all_files_uploaded:
+            #     with st.spinner("Attente de l'upload complet du fichier sur handwritingocr..."):
+            #         for file_id in file_ids:
+            #             if not wait_for_upload(file_id):
+            #                 all_files_uploaded = False
+            #                 st.error(f"Le fichier avec l'ID {file_id} n'a pas été uploadé dans le délai imparti.")
+            #                 break
+
+            # if all_files_uploaded:
+            #     with st.spinner("Téléchargement des fichiers .txt..."):
+            #         ocr_list_download_combine_txt_file()
+            # else:
+            #     st.error("L'un ou plusieurs fichiers n'ont pas été uploadés correctement.")
+
 
 
         else:
@@ -392,47 +435,48 @@ if uploaded_file:
             with st.expander("Résumé"):
                 display_resume(output_file_path_txt, summary_file_name)
 
-        # Only display the Q&A section if the Q&A file exists
-        if os.path.exists(questions_txt_path):
-            with st.spinner("Q&A..."):
-                with st.expander("Q&A"):
-                    display_qna_saved(questions_txt_path, summary_file_name, qna_file_name)
+        with st.spinner("Q&A..."):
+            with st.expander("Q&A"):
+                display_qna_saved(questions_txt_path, summary_file_name, qna_file_name)
 
         with st.spinner("Q&A Suggestion..."):
             with st.expander("Q&A Suggestion"):
                 display_qna_suggestions(output_folder, file_name, summary_file_name)
 
-        ########################################
-        # Step 4: GPT Interaction
-        ########################################
+        # # Step 4: Add the section to manage the Q&A_Saved.txt file.
+        # display_qna_suggestions()
 
-        # Initialize the session state variable if it doesn't exist
-        if "generated_answer" not in st.session_state:
-            st.session_state.generated_answer = ""
+#         ########################################
+#         # Step 4: GPT Interaction
+#         ########################################
 
-        sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
-        question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-        assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
-        user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez moi votre question...")
+#         # Initialize the session state variable if it doesn't exist
+#         if "generated_answer" not in st.session_state:
+#             st.session_state.generated_answer = ""
 
-        # Button to generate the response
-        if st.button("Générer la réponse"):
-            generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
-            st.session_state.generated_answer = generated_answer
+#         sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+#         question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+#         assistant_answer = f"Oui, voici le contenu du document : {summary_content}"
+#         user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez moi votre question...")
 
-        # Button to save the question (and/or response if they exist)
-        if st.session_state.generated_answer or user_prompt:
-            if st.button("Enregistrer la question"):
-                answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
-                try:
-                    save_to_txt(user_prompt, answer_file_path, operation="insert")
-                except Exception as e:
-                    st.error(f"Erreur lors de l'enregistrement : {e}")
-            st.markdown("### Réponse Générée")
+#         # Button to generate the response
+#         if st.button("Générer la réponse"):
+#             generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
+#             st.session_state.generated_answer = generated_answer
 
-        # # Always display the generated answer if it exists
-        # st.markdown("### Réponse Générée")
-        st.write(st.session_state.generated_answer)
+#         # Button to save the question (and/or response if they exist)
+#         if st.session_state.generated_answer or user_prompt:
+#             if st.button("Enregistrer la question"):
+#                 answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
+#                 try:
+#                     save_to_txt(user_prompt, answer_file_path, operation="insert")
+#                 except Exception as e:
+#                     st.error(f"Erreur lors de l'enregistrement : {e}")
+#             st.markdown("### Réponse Générée")
+
+#         # # Always display the generated answer if it exists
+#         # st.markdown("### Réponse Générée")
+#         st.write(st.session_state.generated_answer)
 
     except Exception as e:
         st.error("Une erreur s'est produite lors du traitement du PDF.")
