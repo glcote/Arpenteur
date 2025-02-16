@@ -1,26 +1,17 @@
-**Q: Dans quelle circonscription foncière est situé le bien?**  
-A: Coaticook.
+**Q: Quelle est la circonscription foncière mentionnée dans le document?**  
+A: Coaticook
 
-**Q: Quel est le numéro de lot attribué à cette propriété?**  
-A: 3 310 493.
+**Q: Dans quel registre le bien est-il répertorié?**  
+A: Cadastre du Québec
 
-**Q: À quel registre le bien est-il répertorié?**  
-A: Cadastre du Québec.
+**Q: Quel est le numéro de lot associé à cette propriété?**  
+A: 3 310 493
 
-**Q: Quelle information est fournie concernant les unités cadastrales?**  
-A: Lot(s) 231-14 Village de Coaticook.
+**Q: Quel est le lot associé au village mentionné?**  
+A: Lot 231-14 Village de Coaticook
 
-**Q: Existe-t-il des inscriptions au registre foncier pour ce lot?**  
-A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche. 
+**Q: Quel est l'état des droits selon les mises à jour du registre?**  
+A: Dernière mise à jour des droits
 
-**Q: Qu'indique la mention des radiations?**  
-A: La dernière date d'inscription de radiation n’est pas spécifiée. 
-
-**Q: Que représente le plan mentionné dans le document?**  
-A: Liste des plans (aucun détail spécifique n'est fourni). 
-
-**Q: Quand a eu lieu la dernière mise à jour des droits concernant la propriété?**  
-A: La dernière mise à jour des droits est indiquée. 
-
-**Q: Quel type de document est partagé?**  
-A: Un extrait du registre foncier concernant un immeuble.
+**Q: Quelle est la mention concernant l'historique des inscriptions pour ce lot?**  
+A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche.

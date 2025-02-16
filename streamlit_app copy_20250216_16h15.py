@@ -251,7 +251,7 @@ Veuillez mettre les questions en **gras** svp."""
             
             # Let the user select which questions to save
             selected_questions = st.multiselect("Sélectionnez les questions à sauvegarder", options, key="multi_qna")
-            if st.button("Sauvegarder", key="save_selected_qna"):
+            if st.button("Sauvegarder les questions sélectionnées", key="save_selected_qna"):
                 if selected_questions:
                     # Build the file path to save the questions.
                     question_file_name = os.path.join(output_folder, "Questions_Saved.txt")
@@ -350,7 +350,14 @@ if uploaded_file:
             # Process the PDF for OCR
             with st.spinner("Traitement OCR du PDF..."):
                 # pdf_to_ocr(input_file_path, output_folder)
-                pdf_to_ocr(input_folder, output_folder)            
+                pdf_to_ocr(input_folder, output_folder)
+
+            # # Download .txt files (wait time based on the number of images)
+            # nb_secondes = 10 * nb_images
+            # time.sleep(nb_secondes)
+            # with st.spinner(f"Téléchargement des {nb_images} fichiers .txt ({nb_secondes}s)..."):
+            #     ocr_list_download_combine_txt_file()
+            
             
             # Wait until all .txt files are processed and ready for download
             expected_txt_count = nb_images  # assuming one .txt file per image

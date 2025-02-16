@@ -16359,3 +16359,512 @@ En résumé, ce document fournit des informations essentielles au sujet d'une pr
                 Question: Dans quelle circonscription foncière est situé le bien?
 
                 Réponse:",Réponse: Le bien est situé dans la circonscription foncière de Coaticook.,1739489720,gpt-4o-mini-2024-07-18,21,544,565
+chatcmpl-B1ezuFcN3PRHodoRA7HQhVVqBKBZR,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière où se situe le bien?**  
+A: Coaticook.
+
+**Q: Quel est le numéro de lot attribué à cette propriété?**  
+A: 3 310 493.
+
+**Q: Quel registre est utilisé pour répertorier le bien?**  
+A: Le cadastre du Québec.
+
+**Q: Quel est le type de document fourni?**  
+A: Un extrait du registre foncier.
+
+**Q: Quel est le lien entre le lot et le Village de Coaticook?**  
+A: Lot(s) 231-14 Village de Coaticook.
+
+**Q: Quelles informations sont indiquées concernant les droits?**  
+A: Dernière mise à jour des droits.
+
+**Q: Quelles informations sont indiquées concernant les radiations?**  
+A: Dernière date d'inscription de radiation, si applicable.
+
+**Q: Quel type d'historique est mentionné dans le document?**  
+A: Historique des inscriptions.",1739735622,gpt-4o-mini-2024-07-18,214,635,849
+chatcmpl-B1f0HuyhOXcf2bj4emivknDtjHcQA,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière ?**  
+A: Coaticook.
+
+**Q: Quel est le cadastre du document ?**  
+A: Cadastre du Québec.
+
+**Q: Quel est le numéro de lot de la propriété ?**  
+A: 3 310 493.
+
+**Q: Quel est le type de document qui a été inscrit au registre ?**  
+A: Extrait du registre foncier.
+
+**Q: À quoi sont associés les lots mentionnés dans le document ?**  
+A: Village de Coaticook.
+
+**Q: Quelles sont les dernières mises à jour mentionnées dans le document ?**  
+A: Dernière mise à jour des droits et dernière date d'inscription de radiation. 
+
+**Q: Que signifie qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche ?**  
+A: Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.",1739735645,gpt-4o-mini-2024-07-18,203,635,838
+chatcmpl-B1f67IkTXcqtP2xImnYhAdclfEBbL,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière du bien?**  
+A: Coaticook.
+
+**Q: Quel registre est mentionné pour ce bien?**  
+A: Cadastre du Québec.
+
+**Q: Quel est le numéro de lot du bien?**  
+A: 3 310 493.
+
+**Q: Quelle est la dernière mise à jour des droits concernant la propriété?**  
+A: 2021-11-09 15:44.
+
+**Q: Quel lot est associé au bien dans le village de Coaticook?**  
+A: Lot(s) 231-14 Village de Coaticook.
+
+**Q: Y a-t-il eu des inscriptions selon les critères de recherche?**  
+A: Non, il n'y a pas d'inscription au registre foncier selon les critères de recherche.
+
+**Q: Quelle est la dernière date d'inscription de radiation, si applicable?**  
+A: 2021-08-06 13:20.
+
+**Q: Où se trouve le plan associé à la propriété?**  
+A: Liste des plans.",1739736007,gpt-4o-mini-2024-07-18,226,635,861
+chatcmpl-B1f6lvcVi7YPim8qSAWA8sJJHmF4f,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière du bien immobilier?**  
+A: Coaticook
+
+**Q: Quel est le numéro de lot attribué à cette propriété?**  
+A: 3 310 493
+
+**Q: Quel registre est lié à ce bien immobilier?**  
+A: Cadastre du Québec
+
+**Q: Quel type de documentation cartographique est mentionné dans le document?**  
+A: Liste des plans
+
+**Q: Quel est le statut des inscriptions concernant cette propriété?**  
+A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche.
+
+**Q: À quelle municipalité le lot est-il associé?**  
+A: Village de Coaticook
+
+**Q: Quand a été établie la dernière mise à jour des droits concernant la propriété?**  
+A: Dernière mise à jour des droits n’est pas spécifiée comme date.
+
+**Q: Quelle mention est faite concernant les radiations?**  
+A: Dernière date d'inscription de radiation, si applicable, n’est pas spécifiée comme date.",1739736047,gpt-4o-mini-2024-07-18,227,635,862
+chatcmpl-B1fEnvFy22RrNRk6jNS5psW8MJoah,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Dans quelle circonscription foncière se situe le bien?**  
+A: Coaticook.
+
+**Q: Quel est le numéro de lot attribué à cette propriété?**  
+A: 3 310 493.
+
+**Q: Quel registre concerne ce bien?**  
+A: Le registre foncier.
+
+**Q: Quel est le cadastre associé à ce bien?**  
+A: Cadastre du Québec.
+
+**Q: Quels autres lots sont mentionnés en rapport avec ce bien?**  
+A: Le lot 231-14 du Village de Coaticook.
+
+**Q: Quel est le statut des inscriptions concernant ce bien?**  
+A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche. 
+
+**Q: Quelle est la nature de la dernière mise à jour des droits concernant cette propriété?**  
+A: C'est une mise à jour des droits.
+
+**Q: Quel type de documentation est mentionné à propos des propriétés?**  
+A: Les plans. 
+
+**Q: Quels types d'historique d'inscription sont indiqués dans le document?**  
+A: Les droits et les radiations.",1739736545,gpt-4o-mini-2024-07-18,242,635,877
+chatcmpl-B1fMVhfH5S7GiIe1y9jQWExnasAym,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière du bien immobilier?**  
+A: Coaticook.
+
+**Q: Quel est le numéro de lot attribué à la propriété?**  
+A: 3 310 493.
+
+**Q: Dans quel registre est répertorié le bien?**  
+A: Cadastre du Québec.
+
+**Q: Quel est le statut de l'historique des inscriptions pour ce lot?**  
+A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche.
+
+**Q: Quel est le lien entre le lot et le Village de Coaticook?**  
+A: Lot(s) 231-14 Village de Coaticook. 
+
+**Q: Quelles sont les dernières dates de mise à jour pour les droits et radiations?**  
+A: Dernière mise à jour des droits et dernière date d'inscription de radiation.",1739737023,gpt-4o-mini-2024-07-18,188,635,823
+chatcmpl-B1fa2iQ72B57wexuYsp7EsWqyFxGJ,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière mentionnée dans le document?**  
+A: Coaticook.
+
+**Q: Quel est le numéro de lot attribué à cette propriété?**  
+A: 3 310 493.
+
+**Q: Quel registre est cité concernant cette propriété?**  
+A: Cadastre du Québec.
+
+**Q: De quelle propriété parle le document en lien avec le village?**  
+A: Lot(s) 231-14 Village de Coaticook.
+
+**Q: Quels types de mises à jour sont mentionnés dans le document?**  
+A: Droits et Radiations.
+
+**Q: Quel historique d'inscription est signalé pour ce lot?**  
+A: Il n’y a pas d'inscription au registre foncier selon les critères de recherche.
+
+**Q: Quel type de documentation est référencé concernant le bien?**  
+A: Liste des plans.",1739737862,gpt-4o-mini-2024-07-18,188,635,823
+chatcmpl-B1faHbDDizTbK5M5wLRHt5JPvXZ0h,Vous êtes un arpenteur et notaire d'expérience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez-moi une série de questions/réponses concernant le document.
+Les réponses doivent se trouver directement dans le texte fourni.
+
+- Chaque question doit être précédée de 'Q:' et placée sur sa propre ligne.
+- Chaque réponse doit être précédée de 'A:' et placée sur sa propre ligne.
+
+Exemple minimal:
+
+Q: **Quelle est la circonscription foncière?**
+A: Coaticook
+
+Toutefois, dans la version finale affichée, je ne veux pas voir 'Q:' ni 'A:'.
+Ne pas inclure de dates exactes dans les réponses, reformulez si nécessaire.
+","Quelle est la circonscription foncière?  
+Coaticook  
+
+Quel est le cadastre mentionné dans le document?  
+Cadastre du Québec  
+
+Quel est le numéro du lot?  
+3 310 493  
+
+Quelle est la référence associée au village de Coaticook?  
+Lot(s) 231-14 Village de Coaticook  
+
+Lorsque le registre a-t-il été mis à jour pour les droits?  
+Dernière mise à jour des droits a eu lieu récemment.  
+
+Y a-t-il des inscriptions au registre foncier pour ce lot?  
+Il n'y a pas d'inscription au registre foncier selon les critères de recherche.  
+
+Quel est le type de documentation cartographique mentionnée?  
+Liste des plans.  
+
+Y a-t-il eu une radiation pour ce lot?  
+Il y a eu une dernière date d'inscription de radiation, si applicable.  
+
+Quel type de propriété est discuté dans le document?  
+Il s'agit d'un immeuble situé dans la circonscription foncière de Coaticook.  
+
+Quelles informations essentielles le document fournit-il sur cette propriété?  
+Le document fournit des informations sur l'identification, le cadre géographique et l'historique d'inscription ou de radiation de la propriété.  ",1739737877,gpt-4o-mini-2024-07-18,256,633,889
+chatcmpl-B1faxvUFe2e8cpXQzimm7eybRo5WE,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","Voici une série de questions et réponses basées sur le document :
+
+**Q: Quelle est la circonscription foncière du bien?**  
+A: Coaticook.
+
+**Q: Quel est le numéro de lot attribué à cette propriété?**  
+A: 3 310 493.
+
+**Q: Quelle est la référence du plan associé au bien?**  
+A: Liste des plans.
+
+**Q: Quel village est mentionné en rapport avec ce lot?**  
+A: Village de Coaticook.
+
+**Q: Quels sont les types de mises à jour indiqués dans le document?**  
+A: Droits et Radiations.
+
+**Q: Y a-t-il des inscriptions au registre foncier pour ce lot?**  
+A: Non, il n'y a pas d'inscription au registre foncier selon les critères de recherche.",1739737919,gpt-4o-mini-2024-07-18,175,635,810
+chatcmpl-B1fb7P4agWgGagjNW7x4gWPCFkgFQ,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","Présentez moi une série de questions concernant le document.
+    Les réponses doivent se trouver directement dans le texte fourni.
+    Votre réponse doit être structurée en paires avec les marqueurs 'Q:' et 'A:'.
+    Par exemple: 'Q: Quel est votre nom? R: Je m'appelle GPT.'
+    Éviter les dates dans vos réponse.
+    Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait être 'Q: Quel montant a été lié à/aux l'hypothèque(s)?'
+    Veuillez mettre les questions en **gras** svp.","**Q: Quelle est la circonscription foncière mentionnée dans le document?**  
+A: Coaticook
+
+**Q: Dans quel registre le bien est-il répertorié?**  
+A: Cadastre du Québec
+
+**Q: Quel est le numéro de lot associé à cette propriété?**  
+A: 3 310 493
+
+**Q: Quel est le lot associé au village mentionné?**  
+A: Lot 231-14 Village de Coaticook
+
+**Q: Quel est l'état des droits selon les mises à jour du registre?**  
+A: Dernière mise à jour des droits
+
+**Q: Quelle est la mention concernant l'historique des inscriptions pour ce lot?**  
+A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche.",1739737929,gpt-4o-mini-2024-07-18,172,635,807
+chatcmpl-B1g3gYol1lnBpRjT5rtPjBmLTLcfe,Vous êtes un arpenteur et notaire d'experience. Je suis un client.,"Je vous ai envoyé un document, l'avez-vous reçu?","Oui, voici le contenu du document : Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+
+1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+
+2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+
+3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+
+4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+
+5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+
+6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+
+7. **Dates de mise à jour du Registre** :
+   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
+   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+
+8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
+
+En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.","En vous basant sur le document, répondez à la question suivante de manière concise.
+
+                Question: Dans quelle circonscription foncière est situé le bien?
+
+                Réponse:",Le bien est situé dans la circonscription foncière de Coaticook.,1739739700,gpt-4o-mini-2024-07-18,18,544,562
