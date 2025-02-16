@@ -1,17 +1,20 @@
 **Q: Quelle est la circonscription foncière mentionnée dans le document?**  
-A: Coaticook
+A: Coaticook.
 
-**Q: Dans quel registre le bien est-il répertorié?**  
-A: Cadastre du Québec
+**Q: Quel est le numéro de lot du bien immobilier?**  
+A: 3 310 493.
 
-**Q: Quel est le numéro de lot associé à cette propriété?**  
-A: 3 310 493
+**Q: Quelle référence cadastrale est indiquée dans le document?**  
+A: Cadastre du Québec.
 
-**Q: Quel est le lot associé au village mentionné?**  
-A: Lot 231-14 Village de Coaticook
+**Q: À quel projet le lot 3 310 493 est-il lié?**  
+A: Un projet de lotissement (concordance avec le lot 231-14 dans le Village de Coaticook).
 
-**Q: Quel est l'état des droits selon les mises à jour du registre?**  
-A: Dernière mise à jour des droits
+**Q: Qui est le notaire associé à ce document?**  
+A: Benoit Tremblay.
 
-**Q: Quelle est la mention concernant l'historique des inscriptions pour ce lot?**  
-A: Il n'y a pas d'inscription au registre foncier selon les critères de recherche.
+**Q: Quel est le statut d'inscription au registre foncier pour ce lot?**  
+A: Il n'y a aucune inscription au Registre foncier pour ce lot.
+
+**Q: Quel événement est signalé par la date de radiation dans le document?**  
+A: Une radiation (suppression) associée à l'immeuble.

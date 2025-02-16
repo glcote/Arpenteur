@@ -1,21 +1,21 @@
-Le document que vous avez partagé semble être un extrait du registre foncier concernant un immeuble situé dans la circonscription foncière de Coaticook. Voici une explication détaillée de ses éléments :
+Ce document semble être un extrait d'un index des immeubles de la circonscription foncière de Coaticook, référencé dans le Cadastre du Québec. Voici les éléments clés :
 
-1. **Circonscription foncière** : Coaticook - Cela indique que le bien est situé dans cette zone géographique spécifique.
+1. **Circonscription Foncière** : Coaticook, indiquant la région où l'immeuble est localisé.
+   
+2. **Cadastre** : Cela fait référence au Cadastre du Québec, qui est un registre public des propriétés foncières.
 
-2. **Cadastre** : Cadastre du Québec - Le bien est répertorié dans le cadastre, qui est un registre public des propriétés immobilières.
+3. **Lot** : Il s'agit du numéro de lot 3 310 493, correspondant spécifiquement à une parcelle de terrain dans cette circonscription.
 
-3. **Lot** : 3 310 493 - C'est le numéro de lot attribué à cette propriété dans le cadastre, ce qui permet de l'identifier de manière unique.
+4. **Date d'Établissement** : La date à laquelle les données ont été établies, ici le 8 mai 2006, à 9h00.
 
-4. **Date d'établissement** : 2006-05-08 09:00 - Cette date indique quand l'enregistrement pour cette propriété a été effectué au registre.
+5. **Plan et Concordance** : Cette section mentionne que le lot en question est lié à d'autres lots (231-14) dans le Village de Coaticook.
 
-5. **Plan** : Liste des plans - Cela fait référence à la documentation cartographique des propriétés, mais ici, il n'y a pas de détails spécifiques fournis.
+6. **Dates de Mise à Jour du Registre** : Cette section fournit les dates des mises à jour importantes :
+   - **Droits** : Dernière mise à jour le 9 novembre 2021 à 15h44.
+   - **Radiations** : Dernière radiation le 6 août 2021 à 13h20.
 
-6. **Concordance** : Lot(s) 231-14 Village de Coaticook - Cela indique que le lot est associé à d'autres lots ou a une certaine référence dans le village de Coaticook.
+7. **Inscription** : La dernière partie indique qu'il n'y a aucune inscription active dans le Registre foncier informatisé selon les critères de recherche appliqués, ce qui signifie qu'il n'y a pas d'enregistrements récents liés à ce lot.
 
-7. **Dates de mise à jour du Registre** :
-   - **Droits** : 2021-11-09 15:44 - Dernière mise à jour des droits concernant la propriété.
-   - **Radiations** : 2021-08-06 13:20 - Dernière date d'inscription de radiation, si applicable.
+8. **Notaire** : Benoit Tremblay est mentionné comme le notaire associé à ce dossier, ce qui est pertinent pour toute question notariale ou transaction impliquant ce lot.
 
-8. **Historique des inscriptions** : Le tableau indique qu'il n'y a pas d'inscription au registre foncier selon les critères de recherche. Cela signifie qu'aucun acte, transaction ou changement de propriété n’a été enregistré pour ce lot.
-
-En résumé, ce document fournit des informations essentielles au sujet d'une propriété spécifique à Coaticook, notamment son identification, son cadre géographique, et son historique d'inscription ou de radiation. Si vous avez des questions spécifiques sur certains aspects ou si vous avez besoin d'une aide supplémentaire, n'hésitez pas à demander.
+En résumé, ce document fournit une vue d'ensemble des informations foncières pour le lot 3 310 493 à Coaticook, y compris les dates d'établissement et de mise à jour, ainsi que l'absence actuelle d'inscriptions actives. Si vous avez besoin d'informations supplémentaires ou de précisions, n'hésitez pas à demander.

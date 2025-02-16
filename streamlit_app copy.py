@@ -51,71 +51,36 @@ def display_images(uploaded_file, nb_images, image_paths):
         st.error("Une erreur s'est produite lors de la conversion du PDF en images.")
         logging.error(f"Erreur lors de la conversion du PDF : {e}")
 
-# # Not USE?
-# def display_pdf(uploaded_file):
-#     """
-#     Display the PDF file in an embedded viewer, allowing clickable links.
-    
-#     Parameters:
-#         uploaded_file: The file object (PDF) uploaded by the user.
-#     """
-#     try:
-#         # Add a Markdown link to "Voir OCR"
-#         st.markdown("[Voir OCR](https://www.handwritingocr.com/dashboard)", unsafe_allow_html=True)
-        
-#         # Create an expander with the file name
-#         with st.expander(uploaded_file.name):
-#             # Ensure we're reading from the start of the file
-#             uploaded_file.seek(0)
-            
-#             # Convert PDF file to base64
-#             base64_pdf = base64.b64encode(uploaded_file.read()).decode('utf-8')
-#             pdf_display = f'''
-#                 <iframe 
-#                     src="data:application/pdf;base64,{base64_pdf}"
-#                     width="100%" 
-#                     height="1024px"
-#                     type="application/pdf">
-#                 </iframe>
-#             '''
-#             st.markdown(pdf_display, unsafe_allow_html=True)
-#     except Exception as e:
-#         st.error("Une erreur s'est produite lors de l'affichage du PDF.")
-#         logging.error(f"Erreur lors de l'affichage du PDF : {e}")
-
-def display_pdf_with_ocr(pdf_folder):
+def display_pdf(uploaded_file):
     """
-    Display each PDF page (as an image) and its corresponding OCR text file side by side in two columns.
+    Display the PDF file in an embedded viewer, allowing clickable links.
     
-    Args:
-        pdf_folder (str): Path to the folder containing the page images and OCR text files.
+    Parameters:
+        uploaded_file: The file object (PDF) uploaded by the user.
     """
     try:
-        # List all PNG files in the folder and sort them by page number (assumes file names like "page_1.png", etc.)
-        png_files = [
-            os.path.join(pdf_folder, f)
-            for f in os.listdir(pdf_folder)
-            if f.endswith('.png')
-        ]
-        png_files.sort(key=lambda x: int(re.search(r'page_(\d+)\.png', os.path.basename(x)).group(1)))
-    
-        # Display each page in two columns
-        for png in png_files:
-            # Assume the OCR text file has the same base name as the PNG but with a .txt extension
-            txt_file = png.replace('.png', '.txt')
-            col1, col2 = st.columns(2)
-            with col1:
-                st.image(png, caption=os.path.basename(png))
-            with col2:
-                if os.path.exists(txt_file):
-                    with open(txt_file, "r", encoding="utf-8") as f:
-                        ocr_text = f.read()
-                    st.text(ocr_text)
-                else:
-                    st.warning(f"OCR text for {os.path.basename(png)} not found.")
+        # Add a Markdown link to "Voir OCR"
+        st.markdown("[Voir OCR](https://www.handwritingocr.com/dashboard)", unsafe_allow_html=True)
+        
+        # Create an expander with the file name
+        with st.expander(uploaded_file.name):
+            # Ensure we're reading from the start of the file
+            uploaded_file.seek(0)
+            
+            # Convert PDF file to base64
+            base64_pdf = base64.b64encode(uploaded_file.read()).decode('utf-8')
+            pdf_display = f'''
+                <iframe 
+                    src="data:application/pdf;base64,{base64_pdf}"
+                    width="100%" 
+                    height="1024px"
+                    type="application/pdf">
+                </iframe>
+            '''
+            st.markdown(pdf_display, unsafe_allow_html=True)
     except Exception as e:
-        st.error("Une erreur s'est produite lors de l'affichage des pages avec OCR.")
-        logging.error(f"Erreur dans display_pdf_with_ocr : {e}")
+        st.error("Une erreur s'est produite lors de l'affichage du PDF.")
+        logging.error(f"Erreur lors de l'affichage du PDF : {e}")
 
 def display_resume(output_file_path_txt, summary_file_name):
     """
@@ -123,7 +88,8 @@ def display_resume(output_file_path_txt, summary_file_name):
     
     Parameters:
         output_file_path_txt (str): The path to the text file containing the document content.
-        summary_file_name (str): The file name for the summary.
+        output_folder (str): The folder where the summary file will be stored.
+        file_name (str): The base file name (without extension) used to build the summary file path.
     """
     try:
         # Add a button to refresh the summary
@@ -161,13 +127,19 @@ def display_qna_saved(questions_txt_path, summary_file_name, qna_file_name):
         - questions_txt_path: path to the saved questions (one per line).
         - summary_file_name: path to the summary file used as context.
     """
+    # Create an expander for Q&A content
     st.info("Réponses générées pour chaque question sauvegardée")
     
+    # Button to refresh (i.e. regenerate) Q&A responses.
     refresh_qna = st.button("Rafraîchir", key="refresh_qna")
     
+    # Check if we need to generate new Q&A responses:
+    # - if the user clicks refresh, or
+    # - if the file does not exist.
     if refresh_qna or not os.path.exists(qna_file_name):
         qna_responses = ""
         
+        # Read the saved questions (assuming one question per line)
         if os.path.exists(questions_txt_path):
             with open(questions_txt_path, "r", encoding="utf-8") as file:
                 questions = [line.strip() for line in file.readlines() if line.strip()]
@@ -175,7 +147,9 @@ def display_qna_saved(questions_txt_path, summary_file_name, qna_file_name):
             st.warning("Le fichier des questions sauvegardées est introuvable.")
             return
         
+        # For each question, generate an answer using GPT.
         for question in questions:
+            # Define prompts for GPT 
             summary_content = read_text_file(summary_file_name)
             sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
             question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
@@ -192,14 +166,17 @@ def display_qna_saved(questions_txt_path, summary_file_name, qna_file_name):
                 logging.error(f"Erreur lors de la génération de la réponse pour la question '{question}' : {e}")
                 answer = "Erreur lors de la génération de la réponse."
             
+            # Format the Q&A pair in Markdown
             qna_responses += f"**{question}**\n\n{answer}\n\n---\n"
         
+        # Save the generated Q&A responses for future use.
         try:
             with open(qna_file_name, "w", encoding="utf-8") as f:
                 f.write(qna_responses)
         except Exception as e:
             logging.error(f"Erreur lors de la sauvegarde du fichier Q&A : {e}")
     else:
+        # If the file exists and refresh was not requested, load its contents.
         try:
             with open(qna_file_name, "r", encoding="utf-8") as f:
                 qna_responses = f.read()
@@ -208,8 +185,10 @@ def display_qna_saved(questions_txt_path, summary_file_name, qna_file_name):
             logging.error(f"Erreur lors de la lecture du fichier Q&A : {e}")
             return
     
+    # Process the text to remove any "Q:" and "A:" markers, similar to the suggestions display
     display_text = re.sub(r"Question\s*:\s*", "", qna_responses)
     display_text = re.sub(r"Réponse\s*:\s*", "", display_text)
+    # Finally, display the Q&A responses in Markdown.
     st.markdown(display_text)
 
 def display_qna_suggestions(output_folder, file_name, summary_file_name):
@@ -224,7 +203,10 @@ def display_qna_suggestions(output_folder, file_name, summary_file_name):
     """
     st.info("Voici quelques suggestions de questions/réponses que vous pouvez ensuite sauvegarder.")
     try:
+        # Button to refresh content with a unique key
         refresh = st.button("Rafraîchir", key="refresh_qna_suggestions")
+
+        # Define variables for GPT
         summary_content = read_text_file(summary_file_name)
         sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
         question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
@@ -239,22 +221,30 @@ Par exemple: 'Q: Quel montant a été lié à l'hypothèque de 2010?' devrait ê
 Veuillez mettre les questions en **gras** svp."""
         )
         
+        # Build the file name for the suggested Q&A
         questions_file_name = os.path.join(output_folder, file_name, f"{file_name}_Q&A_Suggested.txt")
         
+        # If refresh is requested or the file doesn't exist, generate a new version
         if refresh or not os.path.exists(questions_file_name):
             gen_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, questions_file_name)
         else:
+            # Otherwise, read its content
             with open(questions_file_name, "r", encoding="utf-8") as f:
                 gen_answer = f.read()
         
+        # For display purposes, remove the "Q:" and "A:" markers from the raw text
         gen_answer_display = gen_answer.replace("Q: ", "").replace("A: ", "")
         st.markdown(gen_answer_display)
         
+        # ----------------------------------------------
+        # Extraction of Q&A pairs from the generated text
+        # ----------------------------------------------
         qa_pairs = re.findall(
             r"Q\s?:\s*(.*?)\s*A\s?:\s*(.*?)(?=\nQ\s?:|\Z)",
             gen_answer,
             re.DOTALL
         )
+        # Fallback if no pairs are found
         if not qa_pairs:
             parts = gen_answer.split("\n\n")
             if parts:
@@ -262,28 +252,39 @@ Veuillez mettre les questions en **gras** svp."""
                 remaining_text = "\n\n".join(parts[1:]).strip()
                 qa_pairs = [(main_question, remaining_text)]
         
+        # Display the extracted Q&A pairs
         if qa_pairs:
             qna_responses = ""
             for question, answer in qa_pairs:
                 clean_question = question.strip().rstrip('*').strip()
                 qna_responses += f"**{clean_question}**\n\n{answer.strip()}\n\n"
+            # st.markdown(qna_responses)
             
+            # ----------------------------------------------------
+            # Extract ALL questions (including nested ones) into an options list for saving
+            # ----------------------------------------------------
             st.markdown("--------")
             st.info("Vous pouvez sauvegarder une question et mettre à jour ou supprimer une question sauvegardée.")
             
             options = []
             for main_question, content in qa_pairs:
+                # Add the main question (first element of the tuple)
                 clean_main_question = main_question.strip().rstrip('*').strip()
                 options.append(clean_main_question)
+                # Now extract any nested questions from the content (if they exist)
                 nested_questions = re.findall(r"Q\s?:\s*(.*?)\s*A\s?:", content)
                 for nq in nested_questions:
                     clean_nq = nq.strip().rstrip('*').strip()
                     options.append(clean_nq)
             
+            # Remove any duplicate questions
             options = list(dict.fromkeys(options))
+            
+            # Let the user select which questions to save
             selected_questions = st.multiselect("Sélectionnez les questions à sauvegarder", options, key="multi_qna")
             if st.button("Sauvegarder", key="save_selected_qna"):
                 if selected_questions:
+                    # Build the file path to save the questions.
                     question_file_name = os.path.join(output_folder, "Questions_Saved.txt")
                     save_to_txt(selected_questions, question_file_name, operation="insert")
                     st.success("Les questions ont été sauvegardées !")
@@ -292,8 +293,12 @@ Veuillez mettre les questions en **gras** svp."""
         else:
             st.warning("Aucune question n'a pu être extraite du texte généré.")
         
+        # ----------------------------------------------
+        # Manage Saved Questions: Update and Delete
+        # ----------------------------------------------
         saved_questions_file = os.path.join(output_folder, "Questions_Saved.txt")
         if os.path.exists(saved_questions_file):
+            # Read saved questions from file; assuming one question per line
             with open(saved_questions_file, "r", encoding="utf-8") as f:
                 saved_questions = [line.strip() for line in f if line.strip()]
         else:
@@ -306,8 +311,10 @@ Veuillez mettre les questions en **gras** svp."""
             with col1:
                 if st.button("Mettre à jour la question", key="update_question_button"):
                     try:
+                        # Update the selected question in the list
                         index = saved_questions.index(selected_saved_question)
                         saved_questions[index] = new_question_text
+                        # Write the updated list back to the file
                         with open(saved_questions_file, "w", encoding="utf-8") as f:
                             for q in saved_questions:
                                 f.write(q + "\n")
@@ -317,7 +324,9 @@ Veuillez mettre les questions en **gras** svp."""
             with col2:
                 if st.button("Supprimer la question", key="delete_question_button"):
                     try:
+                        # Remove the selected question from the list
                         saved_questions.remove(selected_saved_question)
+                        # Write the updated list back to the file
                         with open(saved_questions_file, "w", encoding="utf-8") as f:
                             for q in saved_questions:
                                 f.write(q + "\n")
@@ -339,7 +348,6 @@ if uploaded_file:
     # Define few variables
     file_name = re.sub(r"\.pdf$", "", uploaded_file.name)
     input_file_path = os.path.join(input_folder, uploaded_file.name)
-    pdf_folder = os.path.join(output_folder, file_name)
     output_file_path_pdf = os.path.join(output_folder, file_name, file_name + ".pdf")
     output_file_path_txt = os.path.join(output_folder, file_name, file_name + "_Combine.txt")
     summary_file_name = os.path.join(output_folder, file_name, f"{file_name}_Resume.txt")
@@ -358,16 +366,24 @@ if uploaded_file:
         ########################################
         # Step 1: Upload and save the PDF
         ########################################
+
         save_uploaded_file(uploaded_file, input_file_path, output_file_path_pdf)
         image_paths = pdf_to_images(input_folder, uploaded_file.name, output_folder)
         nb_images = len(image_paths)
 
+
         ########################################
         # Step 2: Process the PDF for OCR and Download .txt files
         ########################################
+
         if not file_exists:
+
+            # Process the PDF for OCR
             with st.spinner("Traitement OCR du PDF..."):
+                # pdf_to_ocr(input_file_path, output_folder)
                 pdf_to_ocr(input_folder, output_folder)            
+            
+            # Wait until all .txt files are processed and ready for download
             expected_txt_count = nb_images  # assuming one .txt file per image
             timeout = 20  # maximum wait time in seconds
             poll_interval = 5  # seconds between checks
@@ -375,12 +391,13 @@ if uploaded_file:
             with st.spinner("Traitement OCR..."):
                 start_time = time.time()
                 while True:
+                    # For example, if the OCR API saves the .txt files in a known output folder:
                     txt_files = [
                         f for f in os.listdir(output_folder)
-                        if f.endswith(".txt") and file_name in f
+                        if f.endswith(".txt") and file_name in f  # assuming file_name is in the .txt file names
                     ]
                     if len(txt_files) >= expected_txt_count:
-                        break
+                        break  # All files are ready
                     if time.time() - start_time > timeout:
                         st.error("Le traitement OCR a pris trop de temps.")
                         break
@@ -388,7 +405,9 @@ if uploaded_file:
 
             with st.spinner("Téléchargement des fichiers .txt en cours..."):
                 ocr_list_download_combine_txt_file()
+
         else:
+            # Delete the PDF file from the input folder since it already exists in output_folder
             try:
                 os.remove(input_file_path)
                 logging.info(f"PDF file deleted from: {input_file_path}")
@@ -399,15 +418,20 @@ if uploaded_file:
         ########################################
         # Step 3: Display Expanders
         ########################################
+
         with st.spinner("PDF..."):
-            # Instead of the embedded viewer, display pages with OCR text in 2 columns
-            with st.expander("PDF"):
-                display_pdf_with_ocr(pdf_folder)
+            with st.spinner("PDF en cours..."):
+                display_pdf(uploaded_file)
+
+        with st.spinner("PDF with OCR..."):
+            with st.spinner("PDF with OCR en cours..."):
+                display_pdf_with_ocr(uploaded_file)
 
         with st.spinner("Résumé..."):
             with st.expander("Résumé"):
                 display_resume(output_file_path_txt, summary_file_name)
 
+        # Only display the Q&A section if the Q&A file exists
         if os.path.exists(questions_txt_path):
             with st.spinner("Q&A Saved..."):
                 with st.expander("Q&A Saved"):
@@ -417,33 +441,39 @@ if uploaded_file:
             with st.expander("Q&A Suggestion"):
                 display_qna_suggestions(output_folder, file_name, summary_file_name)
 
-        ########################################
-        # Step 4: GPT Interaction
-        ########################################
+        # ########################################
+        # # Step 4: GPT Interaction
+        # ########################################
 
-        # Initialize the session state variable if it doesn't exist
-        if "generated_answer" not in st.session_state:
-            st.session_state.generated_answer = ""
+        # # Initialize the session state variable if it doesn't exist
+        # if "generated_answer" not in st.session_state:
+        #     st.session_state.generated_answer = ""
 
-        sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
-        question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
-        assistant_answer = f"Oui, voici le contenu du document : {read_text_file(output_file_path_txt)}"
-        user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez moi votre question...")
+        # sys_prompt = "Vous êtes un arpenteur et notaire d'experience. Je suis un client."
+        # question_prompt = "Je vous ai envoyé un document, l'avez-vous reçu?"
+        # assistant_answer = f"Oui, voici le contenu du document : {output_file_path_txt}"
+        # user_prompt = st.text_area("Je suis expert notaire et arpenteur-géomètre", placeholder="Posez moi votre question...")
 
-        # Button to generate the response
-        if st.button("Générer la réponse"):
-            generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
-            st.session_state.generated_answer = generated_answer
-            st.markdown(generated_answer)
+        # st.markdown(assistant_answer)
 
-        # Button to save the question (and/or response if they exist)
-        if st.session_state.generated_answer or user_prompt:
-            if st.button("Enregistrer la question"):
-                answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
-                try:
-                    save_to_txt(user_prompt, answer_file_path, operation="insert")
-                except Exception as e:
-                    st.error(f"Erreur lors de l'enregistrement : {e}")
+        # # Button to generate the response
+        # if st.button("Générer la réponse"):
+        #     generated_answer = gpt_prompt(sys_prompt, question_prompt, assistant_answer, user_prompt, None)
+        #     st.session_state.generated_answer = generated_answer
+
+        # # # Button to save the question (and/or response if they exist)
+        # # if st.session_state.generated_answer or user_prompt:
+        # #     if st.button("Enregistrer la question"):
+        # #         answer_file_path = os.path.join(output_folder, "Questions_Saved.txt")
+        # #         try:
+        # #             save_to_txt(user_prompt, answer_file_path, operation="insert")
+        # #         except Exception as e:
+        # #             st.error(f"Erreur lors de l'enregistrement : {e}")
+        # #     st.markdown("### Réponse Générée")
+
+        # # # Always display the generated answer if it exists
+        # # st.markdown("### Réponse Générée")
+        # st.write(st.session_state.generated_answer)
 
     except Exception as e:
         st.error("Une erreur s'est produite lors du traitement du PDF.")
